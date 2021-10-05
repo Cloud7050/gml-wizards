@@ -4,9 +4,6 @@ function onDrawBattleGUI() {
 	
 	
 	
-	
-	
-	
 	// Draw background
 	
 	var textWidth = marginX * 10;

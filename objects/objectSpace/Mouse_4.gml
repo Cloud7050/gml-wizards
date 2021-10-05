@@ -16,11 +16,11 @@ global.wizardData = undefined;
 var wizardPrice = selectedWizard.price;
 if (global.coins >= wizardPrice) {
 	global.coins -= wizardPrice;
-	
+
 	activeWizard = new createActiveWizard(
 		selectedWizard,
 		1
 	);
 }
 
-//TODO GitHub, cheat coin button, activeWizard spawn obj and put ref in here
+//TODO cheat coin button, activeWizard spawn obj and put ref in here
