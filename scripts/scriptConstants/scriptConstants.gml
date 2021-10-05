@@ -51,8 +51,8 @@ global.CONSTANTS = {
 			
 			[
 				spriteGreyWizard1,
-				spriteGreyWizard1,
-				spriteGreyWizard1
+				spriteGreyWizard2,
+				spriteGreyWizard3
 			]
 		),
 		LEVEL_CAP: 3
