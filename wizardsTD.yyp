@@ -1,11 +1,13 @@
 {
   "resources": [
     {"id":{"name":"spriteGreyWizard1","path":"sprites/spriteGreyWizard1/spriteGreyWizard1.yy",},"order":2,},
+    {"id":{"name":"spriteGreyWizard3","path":"sprites/spriteGreyWizard3/spriteGreyWizard3.yy",},"order":4,},
     {"id":{"name":"spriteSpace","path":"sprites/spriteSpace/spriteSpace.yy",},"order":1,},
     {"id":{"name":"fontGUI","path":"fonts/fontGUI/fontGUI.yy",},"order":0,},
     {"id":{"name":"spriteBackgroundDirt","path":"sprites/spriteBackgroundDirt/spriteBackgroundDirt.yy",},"order":0,},
     {"id":{"name":"objectSpace","path":"objects/objectSpace/objectSpace.yy",},"order":0,},
     {"id":{"name":"scriptUtilitiesCoordinates","path":"scripts/scriptUtilitiesCoordinates/scriptUtilitiesCoordinates.yy",},"order":4,},
+    {"id":{"name":"spriteGreyWizard2","path":"sprites/spriteGreyWizard2/spriteGreyWizard2.yy",},"order":3,},
     {"id":{"name":"scriptDrawBattleGUI","path":"scripts/scriptDrawBattleGUI/scriptDrawBattleGUI.yy",},"order":3,},
     {"id":{"name":"objectMetaBattlefield","path":"objects/objectMetaBattlefield/objectMetaBattlefield.yy",},"order":1,},
     {"id":{"name":"scriptUtilitiesWizards","path":"scripts/scriptUtilitiesWizards/scriptUtilitiesWizards.yy",},"order":5,},
