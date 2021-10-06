@@ -1,22 +1,22 @@
 function onDrawBattleGUI() {
-	marginX = global.CONSTANTS.UI.MARGIN_X;
-	marginY = global.CONSTANTS.UI.MARGIN_Y;
-	
-	
+	// [Stats]
 	
 	// Draw background
 	
-	var textWidth = marginX * 10;
-	var textHeight = marginY * 2;
-	var halfTextHeight = textHeight / 2;
+	var marginX = global.CONSTANTS.UI.MARGIN_X;
+	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	var statsWidth = global.CONSTANTS.UI.STATS.WIDTH;
+	var statsHeight = global.CONSTANTS.UI.STATS.HEIGHT;
 	
-	var endX = room_width;
-	var textX = room_width - marginX - textWidth;
-	var startX = textX - marginX;
+	var endX = room_width - marginX;
+	var startX = endX - statsWidth;
+	// Left align
+	var textX = startX + (statsWidth / 10);
 	
-	var startY = 0;
-	var textY = startY + marginY + halfTextHeight;
-	var endY = textY + halfTextHeight + marginY;
+	var startY = marginY;
+	var endY = startY + statsHeight;
+	// Middle align
+	var textY = startY + (statsHeight / 2);
 
 	draw_set_color(c_white);
 	draw_rectangle(
@@ -31,11 +31,11 @@ function onDrawBattleGUI() {
 	
 	draw_set_color(c_black);
 	draw_set_font(fontGUI);
-	draw_set_valign(fa_middle);
 	draw_set_halign(fa_left);
+	draw_set_valign(fa_middle);
 	draw_text(
 		textX,
 		textY,
-		"Coins: " + string(global.coins)
+		"Coins: $" + string(getCoins())
 	);
 }

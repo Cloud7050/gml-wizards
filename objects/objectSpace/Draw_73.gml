@@ -3,7 +3,8 @@
 
 
 // If nothing selected
-if (global.wizardData == undefined) return;
+var selectedWizard = global.wizardData;
+if (selectedWizard == undefined) return;
 
 // If already have wizard placed
 if (!isEmpty()) return;
@@ -12,7 +13,7 @@ if (!isEmpty()) return;
 if (!isMouseWithin()) return;
 
 // Draw
-wizardSprite = global.wizardData.levelSprites[0];
+var wizardSprite = selectedWizard.levelSprites[0];
 draw_sprite_ext(
 	wizardSprite,
 	0,

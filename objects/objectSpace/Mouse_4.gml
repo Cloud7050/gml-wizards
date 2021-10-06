@@ -2,25 +2,21 @@
 
 
 
-// If nothing selected
-if (global.wizardData == undefined) return;
-
 // If already have wizard placed
 if (!isEmpty()) return;
 
-// Unselect
+// If nothing selected
 var selectedWizard = global.wizardData;
-global.wizardData = undefined;
+if (selectedWizard == undefined) return;
+
+// Unselect
+unselectWizardData();
 
 // Place
 var wizardPrice = selectedWizard.price;
-if (global.coins >= wizardPrice) {
-	global.coins -= wizardPrice;
-
-	activeWizard = new createActiveWizard(
+if (spendOnWizard(wizardPrice)) {
+	activeWizard = new ActiveWizard(
 		selectedWizard,
 		1
 	);
 }
-
-//TODO cheat coin button, activeWizard spawn obj and put ref in here

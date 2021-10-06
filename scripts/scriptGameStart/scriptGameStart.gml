@@ -1,64 +1,54 @@
 function onGameStart() {
+	// Reset globals
+	resetLives();
+	resetCoins();
+	resetPlacingWizard();
+	
 	// Lay out potential wizard spaces
 	
-	widthCount = 5;
-	heightCount = 5;
+	//TODO flesh out grid generation for levels
+	var widthCount = 5;
+	var heightCount = widthCount;
 	
-	spaceSprite = object_get_sprite(objectSpace);
-	spaceWidth = sprite_get_width(spaceSprite);
-	spaceHeight = sprite_get_height(spaceSprite);
+	var spaceObject = objectSpace;
+	var spaceSprite = object_get_sprite(spaceObject);
+	var spaceWidth = sprite_get_width(spaceSprite);
+	var spaceHeight = sprite_get_height(spaceSprite);
 	
-	spaceMargin = 1;
+	var totalWidth = spaceWidth * widthCount;
+	var totalHeight = spaceHeight * heightCount;
 	
-	totalWidth = (spaceWidth * widthCount) + (widthCount - 1) * spaceMargin;
-	totalHeight = (spaceHeight * heightCount) + (heightCount - 1) * spaceMargin;
+	var startX = (room_width / 2) - (totalWidth / 2);
+	var startY = (room_height / 2) - (totalHeight / 2);
 	
-	startX = (room_width / 2) - (totalWidth / 2);
-	startY = (room_height / 2) - (totalHeight / 2);
-	//l(room_width);
-	//l(room_height);
-	//l(totalWidth);
-	//l(totalHeight);
-	//l(startX);
-	//l(startY);
-	
-	for (columnIndex = 0; columnIndex < widthCount; columnIndex++) {
-		currentX = startX + (columnIndex * spaceWidth) + (columnIndex * spaceMargin);
-		//l("X: " + string(currentX));
+	for (var columnIndex = 0; columnIndex < widthCount; columnIndex++) {
+		var currentX = startX + (columnIndex * spaceWidth);
 		
-		for (rowIndex = 0; rowIndex < widthCount; rowIndex++) {
-			currentY = startY + (rowIndex * spaceHeight) + (rowIndex * spaceMargin);
-			//l("Y: " + string(currentY));
+		for (var rowIndex = 0; rowIndex < widthCount; rowIndex++) {
+			var currentY = startY + (rowIndex * spaceHeight);
 			
-			instance_create_layer(currentX, currentY, global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK, objectSpace);
+			instance_create_layer(
+				currentX,
+				currentY,
+				global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
+				spaceObject
+			);
 		}
 	}
 	
-	
-	
 	// Create GUI of wizard purchase buttons
 	
-	buttonWidth = 128;
-	buttonHeight = 128;
-
-	marginX = global.CONSTANTS.UI.MARGIN_X;
-	marginY = global.CONSTANTS.UI.MARGIN_Y;
+	var marginX = global.CONSTANTS.UI.MARGIN_X;
+	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
+	var buttonHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
 	
-	wizardData = global.CONSTANTS.WIZARDS.GREY;
-	greyWizardButton = instance_create_layer(
+	//TODO flesh out button generation based on all data in CONSTANTS
+	var greyWizardButton = instance_create_layer(
 		room_width - marginX - buttonWidth,
 		room_height - marginY - buttonHeight,
-		global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
+		global.CONSTANTS.LAYERS.INSTANCE_META,
 		objectWizardButton
 	);
-	greyWizardButton.buttonWidth = buttonWidth;
-	greyWizardButton.buttonHeight = buttonHeight;
-	greyWizardButton.wizardData = wizardData;
-	
-	// The wizard the player is currently trying to place, if any
-	global.wizardData = undefined;
-	
-	// Starting values
-	global.lives = 10
-	global.coins = 80
+	greyWizardButton.wizardData = global.CONSTANTS.WIZARDS.GREY;
 }
