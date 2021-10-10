@@ -67,6 +67,8 @@ function drawTextBox(
 	draw_set_halign(isCentreNotLeft ? fa_center : fa_left);
 	draw_set_valign(fa_middle);
 	draw_text(
+		// Assuming that when the caller wants width to hug the text,
+		// the margin used for its calculations is the default like in here
 		isCentreNotLeft ? lerp(startX, endX, 0.5) : startX + outlineWidth + global.CONSTANTS.UI.MARGIN_X,
 		lerp(startY, endY, 0.5),
 		text

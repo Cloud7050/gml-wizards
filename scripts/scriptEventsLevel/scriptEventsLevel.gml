@@ -61,7 +61,9 @@ function onDrawLevelGUI() {
 
 	var endX = room_width - marginX;
 	var startY = marginY;
-
+	
+	// Assuming drawTextBox() always uses this default font,
+	// set it now to calculate string width/height
 	draw_set_font(fontGUI);
 	drawTextBox(
 		endX - marginX - string_width(statText) - marginX,
