@@ -13,6 +13,5 @@ if (trySpendOnWizard(
 )) {
 	resetPlacingWizard();
 	
-	//TODO set ref to active wizard object
-	// activeWizard = ;
+	createWizard(placingWizardData);
 }

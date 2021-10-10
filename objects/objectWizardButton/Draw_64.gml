@@ -2,14 +2,6 @@
 
 
 
-//FIXME
-//l();
-//l(x);
-//l(y);
-//l(getEndX());
-//l(getEndY());
-//l(width / 16);
-//l(height / 16);
 drawTextBox(
 	x,
 	y,

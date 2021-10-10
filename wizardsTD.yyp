@@ -11,6 +11,7 @@
     {"id":{"name":"scriptEventsKeys","path":"scripts/scriptEventsKeys/scriptEventsKeys.yy",},"order":7,},
     {"id":{"name":"objectParentCoordinates","path":"objects/objectParentCoordinates/objectParentCoordinates.yy",},"order":3,},
     {"id":{"name":"objectMetaBattlefield","path":"objects/objectMetaBattlefield/objectMetaBattlefield.yy",},"order":1,},
+    {"id":{"name":"objectActiveWizard","path":"objects/objectActiveWizard/objectActiveWizard.yy",},"order":4,},
     {"id":{"name":"scriptUtilitiesWizards","path":"scripts/scriptUtilitiesWizards/scriptUtilitiesWizards.yy",},"order":5,},
     {"id":{"name":"scriptConstants","path":"scripts/scriptConstants/scriptConstants.yy",},"order":1,},
     {"id":{"name":"objectWizardButton","path":"objects/objectWizardButton/objectWizardButton.yy",},"order":2,},

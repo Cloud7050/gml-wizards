@@ -27,17 +27,6 @@ function WizardData(
 	self.levelSprites = levelSprites;
 }
 
-//FIXME
-/*
-function ActiveWizard(
-	wizardData,
-	level
-) constructor {
-	self.wizardData = wizardData;
-	self.level = level;
-}
-*/
-
 
 
 /* [Functions] */
@@ -110,7 +99,7 @@ function trySpendOnWizard(price) {
 		modifyCoins(-price);
 		return true;
 	}
-	
+
 	return false;
 }
 

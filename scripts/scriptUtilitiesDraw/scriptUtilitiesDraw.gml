@@ -6,21 +6,16 @@ function drawTextBox(
 	backgroundColour = c_white,
 	backgroundOpacity = 1,
 	isRounded = false,
-	
+
 	text,
 	textColour = c_black,
 	textFont = fontGUI,
 	isCentreNotLeft = true,
-	
+
 	outlineWidth = 0,
 	outlineHeight = 0,
 	outlineColour = c_black
 ) {
-	//FIXME
-	//l();
-	//l(outlineWidth);
-	//l(outlineHeight);
-	
 	// Draw outline
 	if (outlineWidth != 0 || outlineHeight != 0) {
 		draw_set_colour(outlineColour);
@@ -43,7 +38,7 @@ function drawTextBox(
 			);
 		}
 	}
-	
+
 	// Draw background
 	draw_set_colour(backgroundColour);
 	draw_set_alpha(backgroundOpacity);
@@ -64,7 +59,7 @@ function drawTextBox(
 			false
 		);
 	}
-	
+
 	// Draw text
 	draw_set_colour(textColour);
 	draw_set_alpha(1);
