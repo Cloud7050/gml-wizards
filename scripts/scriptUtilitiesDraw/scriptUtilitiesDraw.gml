@@ -12,12 +12,11 @@ function drawTextBox(
 	textFont = fontGUI,
 	isCentreNotLeft = true,
 
-	outlineWidth = 0,
-	outlineHeight = 0,
+	outlineThickness = 0,
 	outlineColour = c_black
 ) {
 	// Draw outline
-	if (outlineWidth != 0 || outlineHeight != 0) {
+	if (outlineThickness != 0) {
 		draw_set_colour(outlineColour);
 		draw_set_alpha(1);
 		if (isRounded) {
@@ -40,22 +39,27 @@ function drawTextBox(
 	}
 
 	// Draw background
+	var innerStartX = startX + outlineThickness;
+	var innerStartY = startY + outlineThickness;
+	var innerEndX = endX - outlineThickness;
+	var innerEndY = endY - outlineThickness;
+
 	draw_set_colour(backgroundColour);
 	draw_set_alpha(backgroundOpacity);
 	if (isRounded) {
 		draw_roundrect(
-			startX + outlineWidth,
-			startY + outlineHeight,
-			endX - outlineWidth,
-			endY - outlineHeight,
+			innerStartX,
+			innerStartY,
+			innerEndX,
+			innerEndY,
 			false
 		);
 	} else {
 		draw_rectangle(
-			startX + outlineWidth,
-			startY + outlineHeight,
-			endX - outlineWidth,
-			endY - outlineHeight,
+			innerStartX,
+			innerStartY,
+			innerEndX,
+			innerEndY,
 			false
 		);
 	}
@@ -69,7 +73,7 @@ function drawTextBox(
 	draw_text(
 		// Assuming that when the caller wants width to hug the text,
 		// the margin used for its calculations is the default like in here
-		isCentreNotLeft ? lerp(startX, endX, 0.5) : startX + outlineWidth + global.CONSTANTS.UI.MARGIN_X,
+		isCentreNotLeft ? lerp(startX, endX, 0.5) : startX + outlineThickness + global.CONSTANTS.UI.MARGIN_X,
 		lerp(startY, endY, 0.5),
 		text
 	);

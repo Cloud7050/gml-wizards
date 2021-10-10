@@ -2,6 +2,7 @@
 
 
 
+var outline
 drawTextBox(
 	x,
 	y,
@@ -15,6 +16,5 @@ drawTextBox(
 	undefined,
 	undefined,
 	undefined,
-	width / 16,
-	height / 16
+	min(width, height) / 16
 );
