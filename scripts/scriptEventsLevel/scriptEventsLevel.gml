@@ -5,24 +5,10 @@ function onLevelStart() {
 	resetPlacingWizard();
 
 	// Lay out grid elements
-	enum gridElements {
-		START,
-		END,
-		PATH,
-		SPACE
-	}
-	var t = gridElements.START;
-	var e = gridElements.END;
-	var p = gridElements.PATH;
-	var s = gridElements.SPACE;
-	
-	//NOTE Map should be destroyed after use
-	var mapToObjectIndexes = ds_map_create();
-	ds_map_add_list(mapToObjectIndexes, t, objectStart);
-	ds_map_add_list(mapToObjectIndexes, e, objectEnd);
-	ds_map_add_list(mapToObjectIndexes, p, objectPath);
-	ds_map_add_list(mapToObjectIndexes, s, objectSpace);
-	
+	var t = objectStart;
+	var e = objectEnd;
+	var p = objectPath;
+	var s = objectSpace;
 	//TODO atm there is only a single level's layout
 	var gridRepresentation = [
 		[t, p, p, p, p, p],
@@ -59,7 +45,7 @@ function onLevelStart() {
 				currentX,
 				currentY,
 				global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
-				objectSpace
+				gridRepresentation[rowIndex][columnIndex]
 			);
 		}
 	}
