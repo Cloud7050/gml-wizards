@@ -4,27 +4,56 @@ function onLevelStart() {
 	resetCoins();
 	resetPlacingWizard();
 
-	// Lay out potential wizard spaces
-
-	//TODO flesh out grid generation for levels
-	var widthCount = 5;
-	var heightCount = widthCount;
-
+	// Lay out grid elements
+	enum gridElements {
+		START,
+		END,
+		PATH,
+		SPACE
+	}
+	var t = gridElements.START;
+	var e = gridElements.END;
+	var p = gridElements.PATH;
+	var s = gridElements.SPACE;
+	
+	//NOTE Map should be destroyed after use
+	var mapToObjectIndexes = ds_map_create();
+	ds_map_add_list(mapToObjectIndexes, t, objectStart);
+	ds_map_add_list(mapToObjectIndexes, e, objectEnd);
+	ds_map_add_list(mapToObjectIndexes, p, objectPath);
+	ds_map_add_list(mapToObjectIndexes, s, objectSpace);
+	
+	//TODO atm there is only a single level's layout
+	var gridRepresentation = [
+		[t, p, p, p, p, p],
+		[s, s, s, s, s, p],
+		[s, s, s, s, s, p],
+		[s, s, s, s, s, p],
+		[s, s, s, s, s, p],
+		[s, s, s, s, s, p],
+		[e, p, p, p, p, p]
+	];
+	
+	var rowCount = array_length(gridRepresentation);
+	// Assuming there will always be at least one row
+	var columnCount = array_length(gridRepresentation[0]);
+	
+	// Assuming all other elements' sprite dimensions are the same as the space sprite
 	var spaceSprite = object_get_sprite(objectSpace);
-	var spaceWidth = sprite_get_width(spaceSprite);
-	var spaceHeight = sprite_get_height(spaceSprite);
+	var elementWidth = sprite_get_width(spaceSprite);
+	var elementHeight = sprite_get_height(spaceSprite);
 
-	var totalWidth = spaceWidth * widthCount;
-	var totalHeight = spaceHeight * heightCount;
+	var gridWidth = elementWidth * columnCount;
+	var gridHeight = elementHeight * rowCount;
 
-	var startX = (room_width / 2) - (totalWidth / 2);
-	var startY = (room_height / 2) - (totalHeight / 2);
+	var startX = (room_width / 2) - (gridWidth / 2);
+	var startY = (room_height / 2) - (gridHeight / 2);
 
-	for (var columnIndex = 0; columnIndex < widthCount; columnIndex++) {
-		var currentX = startX + (columnIndex * spaceWidth);
+	for (var columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+		var currentX = startX + (columnIndex * elementWidth);
 
-		for (var rowIndex = 0; rowIndex < widthCount; rowIndex++) {
-			var currentY = startY + (rowIndex * spaceHeight);
+		for (var rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+			var currentY = startY + (rowIndex * elementHeight);
 
 			instance_create_layer(
 				currentX,
@@ -36,7 +65,6 @@ function onLevelStart() {
 	}
 
 	// Create GUI of wizard purchase buttons
-
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
