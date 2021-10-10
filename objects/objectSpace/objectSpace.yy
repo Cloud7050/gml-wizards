@@ -7,7 +7,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objectParentCoordinates",
+    "path": "objects/objectParentCoordinates/objectParentCoordinates.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

@@ -27,6 +27,7 @@ function WizardData(
 	self.levelSprites = levelSprites;
 }
 
+//FIXME
 /*
 function ActiveWizard(
 	wizardData,

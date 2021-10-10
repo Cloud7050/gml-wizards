@@ -15,10 +15,6 @@ global.CONSTANTS = {
 	UI: {
 		MARGIN_X: 16,
 		MARGIN_Y: 16,
-		STATS: {
-			WIDTH: 256,
-			HEIGHT: 32
-		},
 		WIZARD_BUTTONS: {
 			WIDTH: 128,
 			HEIGHT: 128
