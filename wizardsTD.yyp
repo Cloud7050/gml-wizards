@@ -19,6 +19,7 @@
     {"id":{"name":"scriptEventsKeys","path":"scripts/scriptEventsKeys/scriptEventsKeys.yy",},"order":7,},
     {"id":{"name":"spriteWizard2L2","path":"sprites/spriteWizard2L2/spriteWizard2L2.yy",},"order":8,},
     {"id":{"name":"spriteWizard3L1","path":"sprites/spriteWizard3L1/spriteWizard3L1.yy",},"order":11,},
+    {"id":{"name":"scriptUtilitiesGrids","path":"scripts/scriptUtilitiesGrids/scriptUtilitiesGrids.yy",},"order":8,},
     {"id":{"name":"spriteWizard3L3","path":"sprites/spriteWizard3L3/spriteWizard3L3.yy",},"order":15,},
     {"id":{"name":"objectPath","path":"objects/objectPath/objectPath.yy",},"order":7,},
     {"id":{"name":"objectParentCoordinates","path":"objects/objectParentCoordinates/objectParentCoordinates.yy",},"order":3,},
