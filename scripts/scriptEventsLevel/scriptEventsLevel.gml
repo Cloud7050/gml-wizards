@@ -51,19 +51,32 @@ function onLevelStart() {
 	}
 
 	// Create GUI of wizard purchase buttons
+	//TODO atm there is only a single level's wizards available
+	//TODO add the rest of the wizards here when data is implemented
+	var arrayWizardData = [
+		global.CONSTANTS.WIZARDS.ONE,
+		global.CONSTANTS.WIZARDS.TWO,
+		global.CONSTANTS.WIZARDS.THREE,
+		global.CONSTANTS.WIZARDS.FOUR
+	];
+	
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
 	var buttonHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
-
-	//TODO flesh out button generation based on all data in CONSTANTS
-	var wizard1Button = instance_create_layer(
-		room_width - marginX - buttonWidth,
-		room_height - marginY - buttonHeight,
-		global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
-		objectWizardButton
-	);
-	wizard1Button.wizardData = global.CONSTANTS.WIZARDS.ONE;
+	
+	var startX = room_width - marginX - buttonWidth;
+	var buttonY = room_height - marginY - buttonHeight;
+	
+	for (var wizardIndex = 0; wizardIndex < array_length(arrayWizardData); wizardIndex++) {
+		var currentWizardButton = instance_create_layer(
+			startX - (wizardIndex * (marginX + buttonWidth)),
+			buttonY,
+			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			objectWizardButton
+		);
+		currentWizardButton.wizardData = arrayWizardData[wizardIndex];
+	}
 }
 
 function onDrawLevelGUI() {
