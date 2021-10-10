@@ -1,16 +1,12 @@
-/// @description Click action
+/// @description Button click action
 
 
 
-//l("click");
-//l(isMouseWithin());
 if (!isMouseWithin()) return;
-//l("click 2");
 
 if (isPlacingThis()) {
-	// Unselect
-	global.wizardData = undefined;
+	resetPlacingWizard();
 } else {
 	// Select / overwrite previous wizard
-	global.wizardData = wizardData;
+	setPlacingWizard(wizardData);
 }

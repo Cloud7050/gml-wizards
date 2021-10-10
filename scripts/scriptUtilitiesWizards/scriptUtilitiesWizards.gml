@@ -27,6 +27,7 @@ function WizardData(
 	self.levelSprites = levelSprites;
 }
 
+/*
 function ActiveWizard(
 	wizardData,
 	level
@@ -34,12 +35,13 @@ function ActiveWizard(
 	self.wizardData = wizardData;
 	self.level = level;
 }
+*/
 
 
 
 /* [Functions] */
 
-// Lives
+// [Lives]
 /// @returns The specified set lives value
 function setLives(lives) {
 	global.lives = lives;
@@ -52,7 +54,6 @@ function resetLives() {
 		global.CONSTANTS.DEFAULTS.LIVES
 	);
 }
-resetLives();
 
 function getLives() {
 	return global.lives;
@@ -70,7 +71,7 @@ function isLivesInsufficient() {
 	return getLives() <= 0;
 }
 
-// Coins
+// [Coins]
 /// @returns The specified set coins value
 function setCoins(coins) {
 	global.coins = coins;
@@ -83,7 +84,6 @@ function resetCoins() {
 		global.CONSTANTS.DEFAULTS.COINS
 	);
 }
-resetCoins();
 
 function getCoins() {
 	//if (!variable_global_exists("coins")) resetCoins();
@@ -113,7 +113,7 @@ function trySpendOnWizard(price) {
 	return false;
 }
 
-// Placing WizardData
+// [Placing WizardData]
 // The WizardData the player selected via wizard buttons to try placing
 
 /// @returns The specified set placing WizardData
@@ -126,10 +126,13 @@ function setPlacingWizard(wizardData) {
 function resetPlacingWizard() {
 	return setPlacingWizard(undefined);
 }
-resetPlacingWizard();
 
 function getPlacingWizard() {
 	//if (!variable_global_exists("wizardData")) resetWizardData();
 
 	return global.placingWizardData;
+}
+
+function isPlacingWizard() {
+	return getPlacingWizard() != undefined;
 }

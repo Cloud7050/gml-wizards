@@ -2,32 +2,22 @@
 
 
 
-// If nothing selected
-var selectedWizard = global.wizardData;
-if (selectedWizard == undefined) return;
-
-// If already have wizard placed
-if (!isEmpty()) return;
-
-// Actual hover position check
-if (!isMouseWithin()) return;
+if (
+	!isPlacingWizard()
+	|| !isEmpty()
+	|| !isMouseWithin()
+) return;
 
 // Draw
-var wizardSprite = selectedWizard.levelSprites[0];
+var L1Sprite = getPlacingWizard().levelSprites[0];
 draw_sprite_ext(
-	wizardSprite,
+	L1Sprite,
 	0,
-	getMidX() - (sprite_get_width(wizardSprite) / 2),
-	getMidY() - (sprite_get_height(wizardSprite) / 2),
+	getMidX() - (sprite_get_width(L1Sprite) / 2),
+	getMidY() - (sprite_get_height(L1Sprite) / 2),
 	image_xscale,
 	image_yscale,
 	image_angle,
 	image_blend,
-	0.75
+	0.5
 );
-//l(wizardSprite);
-//l(getMidX());
-//l(getMidY());
-//l((sprite_get_width(wizardSprite) / 2));
-//l(getMidX() - (sprite_get_width(wizardSprite) / 2));
-//l(getMidY() - (sprite_get_height(wizardSprite) / 2));

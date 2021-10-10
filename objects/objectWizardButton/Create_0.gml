@@ -1,19 +1,20 @@
 /// @description Initialise
+// wizardData set by onLevelStart()
 
 
 
-// buttonWidth. buttonHeight, wizard set by onGameStart()
-
-// Go visible
+/* [Instance Variables] */
 visible = true;
 
-// Convenient methods
+
+
+/* [Methods] */
 function getEndX() {
-	return x + buttonWidth;
+	return x + global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
 }
 
 function getEndY() {
-	return y + buttonHeight;
+	return y + global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
 }
 
 function getMidX() {
@@ -25,9 +26,9 @@ function getMidY() {
 }
 
 function isMouseWithin() {
-	return mouseWithinInstance(self);
+	return mouseInInstance(self);
 }
 
 function isPlacingThis() {
-	return global.wizardData == wizardData;
+	return getPlacingWizard() == wizardData;
 }

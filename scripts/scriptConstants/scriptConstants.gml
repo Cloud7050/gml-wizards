@@ -1,5 +1,6 @@
 global.CONSTANTS = {
 	LAYERS: {
+		INSTANCE_DISPLAY: "display",
 		INSTANCE_META: "meta",
 		INSTANCE_WIZARDS: "wizards",
 		INSTANCE_ENEMIES: "enemies",
@@ -22,11 +23,11 @@ global.CONSTANTS = {
 			WIDTH: 128,
 			HEIGHT: 128
 		}
-	}
+	},
 	WIZARDS: {
 		LEVEL_CAP: 3,
-		GREY: new WizardData(
-			"Grey",
+		ONE: new WizardData(
+			"Fire",
 			30,
 			
 			1,
@@ -38,9 +39,9 @@ global.CONSTANTS = {
 			1.25,
 			
 			[
-				spriteGreyWizard1,
-				spriteGreyWizard2,
-				spriteGreyWizard3
+				spriteWizard1L1,
+				spriteWizard1L2,
+				spriteWizard1L3
 			]
 		)
 	}

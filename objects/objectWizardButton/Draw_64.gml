@@ -27,8 +27,8 @@ if (isPlacingThis()) {
 	// Default colour
 	draw_set_color(c_white);
 }
-var borderWidth = buttonWidth / 16;
-var borderHeight = buttonHeight / 16;
+var borderWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH / 16;
+var borderHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT / 16;
 draw_roundrect(
 	startX + borderWidth,
 	startY + borderHeight,

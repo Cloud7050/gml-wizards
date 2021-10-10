@@ -1,22 +1,18 @@
-/// @description Place wizard
+/// @description Pay & place wizard
 
 
 
-// If already have wizard placed
-if (!isEmpty()) return;
+if (
+	!isPlacingWizard()
+	|| !isEmpty()
+) return;
 
-// If nothing selected
-var selectedWizard = global.wizardData;
-if (selectedWizard == undefined) return;
-
-// Unselect
-unselectWizardData();
-
-// Place
-var wizardPrice = selectedWizard.price;
-if (spendOnWizard(wizardPrice)) {
-	activeWizard = new ActiveWizard(
-		selectedWizard,
-		1
-	);
+var placingWizardData = getPlacingWizard();
+if (trySpendOnWizard(
+	placingWizardData.price
+)) {
+	resetPlacingWizard();
+	
+	//TODO set ref to active wizard object
+	// activeWizard = ;
 }

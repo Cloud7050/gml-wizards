@@ -2,11 +2,12 @@
 
 
 
-// Instance variables
+/* [Instance Variables] */
 activeWizard = undefined;
 
-// Convenient methods
 
+
+/* [Methods] */
 function getEndX() {
 	return x + sprite_width;
 }
@@ -24,7 +25,7 @@ function getMidY() {
 }
 
 function isMouseWithin() {
-	return mouseWithinInstance(self);
+	return mouseInInstance(self);
 }
 
 function isEmpty() {
