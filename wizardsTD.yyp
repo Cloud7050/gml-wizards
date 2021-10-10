@@ -8,6 +8,7 @@
     {"id":{"name":"spriteWizard1L3","path":"sprites/spriteWizard1L3/spriteWizard1L3.yy",},"order":4,},
     {"id":{"name":"spriteWizard1L2","path":"sprites/spriteWizard1L2/spriteWizard1L2.yy",},"order":3,},
     {"id":{"name":"scriptEventsLevel","path":"scripts/scriptEventsLevel/scriptEventsLevel.yy",},"order":3,},
+    {"id":{"name":"scriptEventsKeys","path":"scripts/scriptEventsKeys/scriptEventsKeys.yy",},"order":7,},
     {"id":{"name":"objectParentCoordinates","path":"objects/objectParentCoordinates/objectParentCoordinates.yy",},"order":3,},
     {"id":{"name":"objectMetaBattlefield","path":"objects/objectMetaBattlefield/objectMetaBattlefield.yy",},"order":1,},
     {"id":{"name":"scriptUtilitiesWizards","path":"scripts/scriptUtilitiesWizards/scriptUtilitiesWizards.yy",},"order":5,},
