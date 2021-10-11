@@ -22,13 +22,3 @@ draw_healthbar(
 	true,
 	true
 );
-//FIXME
-l();
-l(x);
-l(y);
-l(getMidX());
-l(getMidY());
-l(getEndX());
-l(getEndY());
-l(width);
-l(height);
