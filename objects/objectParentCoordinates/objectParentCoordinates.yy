@@ -23,8 +23,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Parent",
+    "path": "folders/Objects/Parent.yy",
   },
   "resourceVersion": "1.0",
   "name": "objectParentCoordinates",
