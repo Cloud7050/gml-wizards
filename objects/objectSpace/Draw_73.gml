@@ -8,7 +8,6 @@ if (
 	|| !isMouseWithin()
 ) return;
 
-// Draw
 var L1Sprite = getPlacingWizard().levelSprites[0];
 draw_sprite_ext(
 	L1Sprite,
