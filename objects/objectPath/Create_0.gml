@@ -2,8 +2,9 @@
 
 
 
-/* [Instance Variables] */
-// For parent
+/* [Parent] */
 event_inherited();
-width = sprite_width;
-height = sprite_height;
+initialiseParentCoordinates(
+	sprite_width,
+	sprite_height
+);

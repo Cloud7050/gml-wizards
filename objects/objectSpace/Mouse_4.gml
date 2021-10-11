@@ -8,10 +8,10 @@ if (
 ) return;
 
 var placingWizardData = getPlacingWizard();
-if (trySpendOnWizard(
+if (trySpend(
 	placingWizardData.price
 )) {
 	resetPlacingWizard();
-	
-	createWizard(placingWizardData);
+
+	newActiveWizard(placingWizardData);
 }

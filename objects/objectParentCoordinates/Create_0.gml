@@ -2,16 +2,19 @@
 
 
 
-/* [Instance Variables] */
-width = 0;
-height = 0;
-// Whether to check mouse coordinates in relation to the GUI layer,
-// or just to normal layers dependent on screen resolution & room size
-useGUICoordinates = false;
-
-
-
 /* [Methods] */
+function initialiseParentCoordinates(
+	width,
+	height,
+	// Whether to check mouse coordinates in relation to the GUI layer,
+	// or just to normal layers dependent on screen resolution & room size
+	useGUICoordinates = false
+) {
+	self.width = width;
+	self.height = height;
+	self.useGUICoordinates = useGUICoordinates;
+}
+
 function getEndX() {
 	return x + width;
 }

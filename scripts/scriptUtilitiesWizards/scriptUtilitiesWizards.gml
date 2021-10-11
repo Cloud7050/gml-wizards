@@ -76,8 +76,6 @@ function resetCoins() {
 }
 
 function getCoins() {
-	//if (!variable_global_exists("coins")) resetCoins();
-
 	return global.coins;
 }
 
@@ -89,13 +87,13 @@ function modifyCoins(change) {
 }
 
 /// @returns Whether the player has enough coins for the specified price
-function isWizardAffordable(price) {
+function isAffordable(price) {
 	return getCoins() >= price;
 }
 
 /// @returns {boolean} Whether the price got deducted from the player
-function trySpendOnWizard(price) {
-	if (isWizardAffordable(price)) {
+function trySpend(price) {
+	if (isAffordable(price)) {
 		modifyCoins(-price);
 		return true;
 	}
@@ -118,8 +116,6 @@ function resetPlacingWizard() {
 }
 
 function getPlacingWizard() {
-	//if (!variable_global_exists("wizardData")) resetWizardData();
-
 	return global.placingWizardData;
 }
 

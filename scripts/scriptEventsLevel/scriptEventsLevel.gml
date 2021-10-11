@@ -146,13 +146,13 @@ function onLevelStart() {
 	// Draw from bottom up
 	var wizardCount = array_length(levelWizardData);
 	for (var wizardIndex = wizardCount - 1; wizardIndex >= 0; wizardIndex--) {
-		var currentWizardButton = instance_create_layer(
+		var wizardButton = instance_create_layer(
 			room_width - marginX - buttonWidth,
 			room_height - ((wizardCount - wizardIndex) * (marginY + buttonHeight)),
 			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
 			objectWizardButton
 		);
-		currentWizardButton.wizardData = levelWizardData[wizardIndex];
+		wizardButton.initialise(levelWizardData[wizardIndex]);
 	}
 }
 

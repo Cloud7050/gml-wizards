@@ -1,20 +1,27 @@
 /// @description Initialise
-// wizardData set by onLevelStart()
+
+
+
+/* [Parent] */
+event_inherited();
+initialiseParentCoordinates(
+	global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH,
+	global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT,
+	true
+);
 
 
 
 /* [Instance Variables] */
-// For parent
-event_inherited();
-width = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
-height = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
-useGUICoordinates = true;
-
 visible = true;
 
 
 
 /* [Methods] */
+function initialise(wizardData) {
+	self.wizardData = wizardData;
+}
+
 function isPlacingThis() {
 	return getPlacingWizard() == wizardData;
 }

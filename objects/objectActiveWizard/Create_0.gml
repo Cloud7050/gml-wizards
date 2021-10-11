@@ -1,9 +1,16 @@
 /// @description Initialise
-// wizardData set by objectSpace
 
 
 
 /* [Methods] */
+function initialise(
+	wizardData,
+	level = 1
+) {
+	self.wizardData = wizardData;
+	setLevel(level);
+}
+
 function setLevel(level) {
 	self.level = level;
 	

@@ -2,12 +2,16 @@
 
 
 
-/* [Instance Variables] */
-// For parent
+/* [Parent] */
 event_inherited();
-width = sprite_width;
-height = sprite_height;
+initialiseParentCoordinates(
+	sprite_width,
+	sprite_height
+);
 
+
+
+/* [Instance Variables] */
 activeWizard = undefined;
 
 
@@ -18,16 +22,13 @@ function isEmpty() {
 }
 
 /// @returns The newly created objectActiveWizard
-function createWizard(wizardData, level = 1) {
+function newActiveWizard(wizardData) {
 	activeWizard = instance_create_layer(
 		x,
 		y,
 		global.CONSTANTS.LAYERS.INSTANCE_WIZARDS,
 		objectActiveWizard
 	);
-	activeWizard.wizardData = wizardData;
-	
-	activeWizard.setLevel(level);
-	
+	activeWizard.initialise(wizardData);
 	return activeWizard;
 }
