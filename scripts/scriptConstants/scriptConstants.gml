@@ -18,6 +18,10 @@ global.CONSTANTS = {
 		WIZARD_BUTTONS: {
 			WIDTH: 192,
 			HEIGHT: 128
+		},
+		HEALTHBARS: {
+			WIDTH: 64,
+			HEIGHT: 8
 		}
 	},
 	WIZARDS: {
