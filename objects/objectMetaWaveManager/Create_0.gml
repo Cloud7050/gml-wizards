@@ -16,7 +16,7 @@ function getCurrentWave() {
 
 function startUsingWaves(levelWaves) {
 	waves = levelWaves;
-	
+
 	// Start first wave.
 	// Assuming there will always be at least 1 wave
 	startWave(0);
@@ -25,15 +25,14 @@ function startUsingWaves(levelWaves) {
 function startWave(index) {
 	waveIndex = index;
 	waveSpawnedCount = 0;
-	
+
 	alarm[0] = getCurrentWave().startingDelay + 1;
-	l("set alarm");
 }
 
 function trySpawn() {
-	l("try spawn");
 	var currentWave = waves[waveIndex];
-	if (waveSpawnedCount < currentWave.count) {
+	var waveEnemyCount = currentWave.count;
+	if (waveSpawnedCount < waveEnemyCount) {
 		// Spawn enemy w/ path
 		var path = getPath();
 		var enemyData = currentWave.enemyData;
@@ -46,18 +45,19 @@ function trySpawn() {
 			objectActiveEnemy
 		);
 		activeEnemy.setEnemyData(enemyData);
-		
+
 		activeEnemy.followPath(path);
-		l(currentWave);
-		l(enemyData);
-		l(activeEnemy);
-		
-		// Set timer for next attempted enemy spawn
-		//TODO calculate and set alarm
-		
-		//objectMetaBattlefield.alarm[0] = ;
-		//onLevelAlarm0();
-		//onWaveAlarm(waveManager)
+
+		// Alarm calculation for next attempted enemy spawn
+		alarm[0] = max(
+			1,
+			lerp(
+				currentWave.initialFrequency,
+				currentWave.finalFrequency,
+				waveSpawnedCount / waveEnemyCount
+			)
+		);
+		waveSpawnedCount++;
 	}
 	//TODO starting of subsequent waves
 }

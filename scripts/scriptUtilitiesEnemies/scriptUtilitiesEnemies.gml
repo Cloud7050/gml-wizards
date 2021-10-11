@@ -2,10 +2,10 @@
 function EnemyData(
 	health,
 	elementsPerSecond,
-	
+
 	coins,
 	impact,
-	
+
 	sprite
 ) constructor {
 	self.health = health;
@@ -19,20 +19,20 @@ function EnemyData(
 
 function WaveData(
 	enemyData,
-	
+
 	count,
 	initialFrequency,
 	finalFrequency,
-	
+
 	startingDelay = 0
 ) constructor {
 	self.enemyData = enemyData;
-	
+
 	self.count = count;
 	// Steps
 	self.initialFrequency = initialFrequency;
 	self.finalFrequency = finalFrequency;
-	
+
 	// Steps
 	self.startingDelay = startingDelay;
 }
@@ -51,17 +51,9 @@ function convertSpeed(elementsPerSecond) {
 	var spaceSprite = object_get_sprite(objectSpace);
 	// Assuming height is the same as width regarding path traversal
 	var elementLength = sprite_get_width(spaceSprite);
-	
+
 	var pixelsPerSecond = elementLength * elementsPerSecond;
 	var pixelsPerStep = pixelsPerSecond / getStepsPerSecond();
-	l(elementsPerSecond);
-	l(elementLength);
-	l(pixelsPerSecond);
-	l(pixelsPerStep);
-	l();
-	l(fps);
-	l(getStepsPerSecond());
-	l(128 / 60);
 	return pixelsPerStep;
 }
 

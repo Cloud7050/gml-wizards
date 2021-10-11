@@ -121,7 +121,7 @@ function onLevelStart() {
 	var levelWaves = [
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
-			
+
 			45,
 			stepsPerSecond * 2,
 			stepsPerSecond
@@ -182,12 +182,8 @@ function onDrawLevelGUI() {
 		undefined,
 		false
 	);
-	
-	//FIXME
-	drawPath();
 }
 
 function onWaveAlarm(waveManager) {
-	l("onWaveAlarm");
 	waveManager.trySpawn();
 }
