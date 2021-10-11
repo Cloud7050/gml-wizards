@@ -35,16 +35,17 @@ function trySpawn() {
 	if (waveSpawnedCount < waveEnemyCount) {
 		// Spawn enemy w/ path
 		var path = getPath();
-		var enemyData = currentWave.enemyData;
-		var enemySprite = enemyData.sprite;
 		var activeEnemy = instance_create_layer(
-			// Assuming there will always be at least 1 point
-			path_get_point_x(path, 0) - (sprite_get_width(enemySprite) / 2),
-			path_get_point_y(path, 0) - (sprite_get_height(enemySprite) / 2),
+			0,
+			0,
 			global.CONSTANTS.LAYERS.INSTANCE_ENEMIES,
 			objectActiveEnemy
 		);
-		activeEnemy.setEnemyData(enemyData);
+		activeEnemy.initialise(
+			currentWave.enemyData,
+			path_get_point_x(path, 0),
+			path_get_point_y(path, 0)
+		);
 
 		activeEnemy.followPath(path);
 
