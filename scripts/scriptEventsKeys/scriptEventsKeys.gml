@@ -3,6 +3,5 @@ function onKeyPressC() {
 };
 
 function onKeyPressL() {
-	//TODO based on first enemy
-	modifyLives(1);
+	modifyLives(global.CONSTANTS.ENEMIES.ONE.impact);
 };

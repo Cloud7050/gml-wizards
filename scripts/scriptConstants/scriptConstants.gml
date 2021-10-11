@@ -94,5 +94,16 @@ global.CONSTANTS = {
 				spriteWizard4L3
 			]
 		)
+	},
+	ENEMIES: {
+		ONE: new EnemyData(
+			5,
+			1,
+			
+			4,
+			1,
+			
+			spriteEnemy1
+		)
 	}
 }
