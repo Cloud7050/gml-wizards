@@ -14,6 +14,13 @@ function getCurrentWave() {
 	return waves[waveIndex];
 }
 
+function setAlarm(requestedDelay) {
+	alarm[0] = max(
+		1,
+		requestedDelay
+	);
+}
+
 function startUsingWaves(levelWaves) {
 	waves = levelWaves;
 
@@ -25,14 +32,16 @@ function startUsingWaves(levelWaves) {
 function startWave(index) {
 	waveIndex = index;
 	waveSpawnedCount = 0;
-
-	alarm[0] = getCurrentWave().startingDelay + 1;
+	
+	setAlarm(getCurrentWave().startingDelay);
 }
 
 function trySpawn() {
 	var currentWave = waves[waveIndex];
 	var waveEnemyCount = currentWave.count;
 	if (waveSpawnedCount < waveEnemyCount) {
+		waveSpawnedCount++;
+		
 		// Spawn enemy w/ path
 		var path = getPath();
 		var activeEnemy = instance_create_layer(
@@ -50,15 +59,11 @@ function trySpawn() {
 		activeEnemy.followPath(path);
 
 		// Alarm calculation for next attempted enemy spawn
-		alarm[0] = max(
-			1,
-			lerp(
-				currentWave.initialFrequency,
-				currentWave.finalFrequency,
-				waveSpawnedCount / waveEnemyCount
-			)
-		);
-		waveSpawnedCount++;
+		setAlarm(lerp(
+			currentWave.initialFrequency,
+			currentWave.finalFrequency,
+			waveSpawnedCount / waveEnemyCount
+		));
 	}
 	//TODO starting of subsequent waves
 }

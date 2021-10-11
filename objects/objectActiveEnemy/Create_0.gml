@@ -29,3 +29,8 @@ function initialise(
 function followPath(path) {
 	path_start(path, enemyData.speed, path_action_stop, false);
 }
+
+function takeDamage(damage) {
+	//TODO
+	l(damage);
+}

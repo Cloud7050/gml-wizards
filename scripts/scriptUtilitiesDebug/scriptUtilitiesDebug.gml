@@ -1,4 +1,6 @@
-/// @returns {string} The debug logged message
+/* [Functions] */
+
+/// @returns The debug logged string
 function l(any = "====================") {
 	var combined_message = ">>> " + string(any);
 	show_debug_message(combined_message);

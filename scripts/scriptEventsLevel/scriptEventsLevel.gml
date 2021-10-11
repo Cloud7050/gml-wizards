@@ -117,14 +117,13 @@ function onLevelStart() {
 
 	// [Set Off Waves]
 	//TODO atm there is only a single level's waves available
-	var stepsPerSecond = getStepsPerSecond();
 	var levelWaves = [
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
 
 			45,
-			stepsPerSecond * 2,
-			stepsPerSecond
+			2,
+			1
 		)
 	];
 	objectMetaWaveManager.startUsingWaves(levelWaves);
