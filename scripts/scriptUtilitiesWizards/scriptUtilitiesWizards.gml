@@ -11,7 +11,8 @@ function WizardData(
 	fireRateMultiplier,
 	rangeMultiplier,
 
-	levelSprites
+	levelSprites,
+	buttonColour = c_black
 ) constructor {
 	self.name = name;
 	self.price = price;
@@ -29,6 +30,7 @@ function WizardData(
 	self.rangeMultiplier = rangeMultiplier;
 
 	self.levelSprites = levelSprites;
+	self.buttonColour = buttonColour;
 	
 	function getDamage(level) {
 		return calculateForLevel(level, damage, damageMultiplier);

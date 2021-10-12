@@ -16,5 +16,6 @@ drawTextBox(
 	undefined,
 	undefined,
 	undefined,
-	min(width, height) / 16
+	min(width, height) / 16,
+	wizardData.buttonColour
 );

@@ -53,7 +53,8 @@ global.CONSTANTS = {
 				spriteWizard1L1,
 				spriteWizard1L2,
 				spriteWizard1L3
-			]
+			],
+			$0000da
 		),
 		TWO: new WizardData(
 			"Ice",
@@ -71,7 +72,8 @@ global.CONSTANTS = {
 				spriteWizard2L1,
 				spriteWizard2L2,
 				spriteWizard2L3
-			]
+			],
+			$cec700
 		),
 		THREE: new WizardData(
 			"Wind",
@@ -89,7 +91,8 @@ global.CONSTANTS = {
 				spriteWizard3L1,
 				spriteWizard3L2,
 				spriteWizard3L3
-			]
+			],
+			$00d300
 		),
 		FOUR: new WizardData(
 			"Lightning",
@@ -107,7 +110,8 @@ global.CONSTANTS = {
 				spriteWizard4L1,
 				spriteWizard4L2,
 				spriteWizard4L3
-			]
+			],
+			$00d1ff
 		)
 	},
 	ENEMIES: {
