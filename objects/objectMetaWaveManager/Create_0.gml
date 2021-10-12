@@ -3,7 +3,7 @@
 
 
 /* [Instance Variables] */
-waves = [];
+wavesArray = [];
 waveIndex = 0;
 waveSpawnedCount = 0;
 
@@ -11,7 +11,7 @@ waveSpawnedCount = 0;
 
 /* [Methods] */
 function getCurrentWave() {
-	return waves[waveIndex];
+	return wavesArray[waveIndex];
 }
 
 function setAlarm(requestedDelay) {
@@ -21,35 +21,49 @@ function setAlarm(requestedDelay) {
 	);
 }
 
-function startUsingWaves(levelWaves) {
-	waves = levelWaves;
-
-	// Start first wave.
-	// Assuming there will always be at least 1 wave
-	startWave(0);
+function getUpcomingDelay() {
+	var currentWave = getCurrentWave();
+	return lerp(
+		currentWave.initialFrequency,
+		currentWave.finalFrequency,
+		// 0 for first upcoming spawn (0 spawned),
+		// 1 for last upcoming spawn (count - 1 spawned)
+		waveSpawnedCount / max(1, currentWave.count - 1)
+	)
 }
 
 function startWave(index) {
 	waveIndex = index;
 	waveSpawnedCount = 0;
 	
-	setAlarm(getCurrentWave().startingDelay);
+	setAlarm(
+		getCurrentWave().startingDelay + getUpcomingDelay()
+	);
+}
+
+function startUsingWaves(levelWaves) {
+	wavesArray = levelWaves;
+
+	// Start first wave.
+	// Assuming there will always be at least 1 wave
+	startWave(0);
+}
+
+function isWaveOver() {
+	return waveSpawnedCount >= getCurrentWave().count;
 }
 
 function tryStartNextWave() {
 	var nextWaveIndex = waveIndex + 1;
-	if (nextWaveIndex < array_length(waves)) {
+	if (nextWaveIndex < array_length(wavesArray)) {
 		startWave(nextWaveIndex);
 	}
 }
 
 function trySpawn() {
-	var currentWave = waves[waveIndex];
-	var waveEnemyCount = currentWave.count;
-	if (waveSpawnedCount < waveEnemyCount) {
+	if (!isWaveOver()) {
 		waveSpawnedCount++;
 		
-		// Spawn enemy w/ path
 		var path = getPath();
 		var activeEnemy = instance_create_layer(
 			0,
@@ -58,18 +72,19 @@ function trySpawn() {
 			objectActiveEnemy
 		);
 		activeEnemy.initialise(
-			currentWave.enemyData,
+			getCurrentWave().enemyData,
 			path_get_point_x(path, 0),
 			path_get_point_y(path, 0)
 		);
 
 		activeEnemy.followPath(path);
-
-		// Alarm calculation for next attempted enemy spawn
-		setAlarm(lerp(
-			currentWave.initialFrequency,
-			currentWave.finalFrequency,
-			waveSpawnedCount / waveEnemyCount
-		));
-	} else tryStartNextWave();
+	}
+	
+	// Check again
+	if (isWaveOver()) {
+		tryStartNextWave();
+	} else {
+		// For next upcoming enemy spawn
+		setAlarm(getUpcomingDelay());
+	}
 }

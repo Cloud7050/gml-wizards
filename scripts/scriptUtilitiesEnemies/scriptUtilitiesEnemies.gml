@@ -21,21 +21,23 @@ function EnemyData(
 function WaveData(
 	enemyData,
 
+	startingDelaySeconds = 0,
+
 	count,
 	initialFrequencySeconds,
-	finalFrequencySeconds,
-
-	startingDelaySeconds = 0
+	finalFrequencySeconds = initialFrequencySeconds
 ) constructor {
 	self.enemyData = enemyData;
+
+	// Steps
+	var stepsPerSecond = getStepsPerSecond();
+	startingDelay = stepsPerSecond * startingDelaySeconds;
 
 	self.count = count;
 	
 	// Steps
-	var stepsPerSecond = getStepsPerSecond();
 	initialFrequency = stepsPerSecond * initialFrequencySeconds;
 	finalFrequency = stepsPerSecond * finalFrequencySeconds;
-	startingDelay = stepsPerSecond * startingDelaySeconds;
 }
 
 

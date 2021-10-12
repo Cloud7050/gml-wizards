@@ -120,39 +120,38 @@ function onLevelStart() {
 	var levelWaves = [
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
+			
+			5,
 
 			30,
 			1,
-			0.7,
-			
-			5
+			0.7
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
+			
+			3,
 
 			10,
 			0.7,
-			0.4,
-			
-			3
+			0.4
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
+			
+			1,
 
 			5,
-			0.1,
-			0.1,
-			
-			1
+			0.1
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
+			
+			3,
 
 			100,
 			0.5,
-			0.2,
-			
-			3
+			0.2
 		)
 	];
 	objectMetaWaveManager.startUsingWaves(levelWaves);
