@@ -2,23 +2,23 @@
 function Indexes(rowIndex, columnIndex) constructor {
 	self.rowIndex = rowIndex;
 	self.columnIndex = columnIndex;
-	
+
 	function clone() {
 		return new Indexes(self.rowIndex, self.columnIndex);
 	}
-	
+
 	function up() {
 		return new Indexes(self.rowIndex, self.columnIndex - 1);
 	}
-	
+
 	function down() {
 		return new Indexes(self.rowIndex, self.columnIndex + 1);
 	}
-	
+
 	function left() {
 		return new Indexes(self.rowIndex - 1, self.columnIndex);
 	}
-	
+
 	function right() {
 		return new Indexes(self.rowIndex + 1, self.columnIndex);
 	}

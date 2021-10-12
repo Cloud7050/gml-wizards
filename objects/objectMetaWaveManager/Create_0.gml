@@ -36,6 +36,13 @@ function startWave(index) {
 	setAlarm(getCurrentWave().startingDelay);
 }
 
+function tryStartNextWave() {
+	var nextWaveIndex = waveIndex + 1;
+	if (nextWaveIndex < array_length(waves)) {
+		startWave(nextWaveIndex);
+	}
+}
+
 function trySpawn() {
 	var currentWave = waves[waveIndex];
 	var waveEnemyCount = currentWave.count;
@@ -64,6 +71,5 @@ function trySpawn() {
 			currentWave.finalFrequency,
 			waveSpawnedCount / waveEnemyCount
 		));
-	}
-	//TODO starting of subsequent waves
+	} else tryStartNextWave();
 }

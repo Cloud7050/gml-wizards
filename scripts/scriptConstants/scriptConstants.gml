@@ -119,7 +119,7 @@ global.CONSTANTS = {
 			5,
 			1,
 			
-			4,
+			3,
 			1,
 			
 			spriteEnemy1
