@@ -18,7 +18,7 @@ draw_healthbar(
 	c_black,
 	c_red,
 	c_green,
-	0,
+	HEALTHBAR_ANCHORS.LEFT,
 	true,
 	true
 );

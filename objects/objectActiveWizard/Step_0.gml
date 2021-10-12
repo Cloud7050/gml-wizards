@@ -3,6 +3,6 @@
 
 
 stepsWaited++;
-if (stepsWaited > wizardData.getFireRate(level)) {
+if (isOffCooldown()) {
 	if (tryAttack()) stepsWaited = 0;
 }

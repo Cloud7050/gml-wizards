@@ -20,7 +20,8 @@ function initialise(
 		sprite_height
 	);
 	
-	stepsWaited = 0;
+	// Start cooled down
+	stepsWaited = getFireRate();
 }
 
 function setLevel(level) {
@@ -29,13 +30,36 @@ function setLevel(level) {
 	sprite_index = wizardData.levelSprites[level - 1];
 }
 
+function getDamage() {
+	return wizardData.getDamage(level);
+}
+
+function getFireRate() {
+	return wizardData.getFireRate(level);
+}
+
+function getRange() {
+	return wizardData.getRange(level);
+}
+
+function getCooldownPercentage() {
+	return stepsWaited / getFireRate() * 100;
+}
+
+function isOffCooldown() {
+	// Fire rate of 1 step means firing every step
+	// (cooldown amount 100% or more).
+	// Fire rate of 0 is invalid
+	return getCooldownPercentage() >= 100;
+}
+
 /// @returns Whether the wizard attacked an available target in range
 function tryAttack() {
 	// Find enemies in range
 	var enemiesInRange = findEnemiesInCircle(
 		getMidX(),
 		getMidY(),
-		wizardData.getRange(level)
+		getRange()
 	);
 	var enemyCount = array_length(enemiesInRange);
 	if (enemyCount <= 0) {
@@ -56,7 +80,7 @@ function tryAttack() {
 	
 	// Trigger enemy damage to run own behaviours
 	target.takeDamage(
-		wizardData.getDamage(level)
+		getDamage()
 	);
 	return true;
 }

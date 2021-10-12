@@ -1,3 +1,10 @@
+enum HEALTHBAR_ANCHORS {
+	LEFT,
+	RIGHT,
+	TOP,
+	BOTTOM
+}
+
 global.CONSTANTS = {
 	LAYERS: {
 		INSTANCE_DISPLAY: "display",
@@ -22,6 +29,10 @@ global.CONSTANTS = {
 		HEALTHBARS: {
 			WIDTH: 64,
 			HEIGHT: 8
+		},
+		CHARGEUP_BARS: {
+			WIDTH: 8,
+			HEIGHT: 64
 		}
 	},
 	WIZARDS: {
