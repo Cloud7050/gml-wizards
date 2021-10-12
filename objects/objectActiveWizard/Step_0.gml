@@ -4,5 +4,5 @@
 
 cooldown--;
 if (cooldown <= 0) {
-	if (tryAttack()) cooldown = wizardData.fireRate;
+	if (tryAttack()) cooldown = wizardData.getFireRate(level);
 }

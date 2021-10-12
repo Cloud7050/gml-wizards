@@ -36,7 +36,7 @@ function tryAttack() {
 	var enemiesInRange = findEnemiesInCircle(
 		getMidX(),
 		getMidY(),
-		wizardData.range
+		wizardData.getRange(level)
 	);
 	var enemyCount = array_length(enemiesInRange);
 	if (enemyCount <= 0) {
@@ -57,7 +57,7 @@ function tryAttack() {
 	
 	// Trigger enemy damage to run own behaviours
 	target.takeDamage(
-		wizardData.damage
+		wizardData.getDamage(level)
 	);
 	return true;
 }

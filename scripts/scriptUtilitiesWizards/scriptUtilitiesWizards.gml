@@ -29,6 +29,22 @@ function WizardData(
 	self.rangeMultiplier = rangeMultiplier;
 
 	self.levelSprites = levelSprites;
+	
+	function getDamage(level) {
+		return calculateForLevel(level, damage, damageMultiplier);
+	}
+	
+	function getFireRate(level) {
+		return calculateForLevel(level, fireRate, fireRateMultiplier);
+	}
+	
+	function getRange(level) {
+		return calculateForLevel(level, range, rangeMultiplier);
+	}
+	
+	function calculateForLevel(level, baseValue, multiplier) {
+		return baseValue + (multiplier * (level - 1));
+	}
 }
 
 
