@@ -2,7 +2,7 @@
 
 
 
-cooldown--;
-if (cooldown <= 0) {
-	if (tryAttack()) cooldown = wizardData.getFireRate(level);
+stepsWaited++;
+if (stepsWaited > wizardData.getFireRate(level)) {
+	if (tryAttack()) stepsWaited = 0;
 }

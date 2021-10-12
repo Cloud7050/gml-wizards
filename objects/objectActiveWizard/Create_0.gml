@@ -20,8 +20,7 @@ function initialise(
 		sprite_height
 	);
 	
-	// Steps
-	cooldown = 0;
+	stepsWaited = 0;
 }
 
 function setLevel(level) {
