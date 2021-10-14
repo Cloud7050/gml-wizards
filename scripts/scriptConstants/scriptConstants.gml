@@ -11,8 +11,9 @@ global.CONSTANTS = {
 		INSTANCE_META: "meta",
 		INSTANCE_WIZARDS: "wizards",
 		INSTANCE_ENEMIES: "enemies",
+		INSTANCE_ABOVEGROUND: "aboveground",
 		INSTANCE_FRAMEWORK: "framework",
-		
+
 		INSTANCE_BACKGROUND: "background"
 	},
 	DEFAULTS: {
@@ -33,22 +34,23 @@ global.CONSTANTS = {
 		CHARGEUP_BARS: {
 			WIDTH: 8,
 			HEIGHT: 64
-		}
+		},
+		PREVIEW_OPACITY: 0.5
 	},
 	WIZARDS: {
 		LEVEL_CAP: 3,
 		ONE: new WizardData(
 			"Fire",
 			30,
-			
+
 			3,
 			1,
-			1,
-			
+			1.25,
+
 			1.65,
 			0.9,
-			1.5,
-			
+			1.25,
+
 			[
 				spriteWizard1L1,
 				spriteWizard1L2,
@@ -59,15 +61,15 @@ global.CONSTANTS = {
 		TWO: new WizardData(
 			"Ice",
 			40,
-			
+
 			4,
 			0.8,
 			1.5,
-			
+
 			1.6,
 			0.9,
 			1.3,
-			
+
 			[
 				spriteWizard2L1,
 				spriteWizard2L2,
@@ -78,15 +80,15 @@ global.CONSTANTS = {
 		THREE: new WizardData(
 			"Wind",
 			50,
-			
+
 			2,
 			0.7,
-			3,
-			
+			2,
+
 			1.5,
 			0.85,
 			1.15,
-			
+
 			[
 				spriteWizard3L1,
 				spriteWizard3L2,
@@ -97,15 +99,15 @@ global.CONSTANTS = {
 		FOUR: new WizardData(
 			"Lightning",
 			60,
-			
+
 			3,
 			0.6,
-			2,
-			
+			1.75,
+
 			1.65,
 			0.8,
 			1.25,
-			
+
 			[
 				spriteWizard4L1,
 				spriteWizard4L2,
@@ -118,10 +120,10 @@ global.CONSTANTS = {
 		ONE: new EnemyData(
 			5,
 			1,
-			
+
 			3,
 			1,
-			
+
 			spriteEnemy1
 		)
 	}
