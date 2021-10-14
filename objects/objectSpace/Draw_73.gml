@@ -1,4 +1,4 @@
-/// @description Hover preview
+/// @description Wizard hover preview
 
 
 
@@ -18,5 +18,5 @@ draw_sprite_ext(
 	image_yscale,
 	image_angle,
 	image_blend,
-	0.5
+	global.CONSTANTS.UI.PREVIEW_OPACITY
 );
