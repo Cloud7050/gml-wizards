@@ -12,13 +12,13 @@ function onLevelStart() {
 	var s = objectSpace;
 	//TODO atm there is only a single level's layout
 	var levelGrid = [
-		[t, p, p, p, p, p],
-		[s, s, s, s, s, p],
-		[s, s, s, s, s, p],
-		[s, s, s, s, s, p],
-		[s, s, s, s, s, p],
-		[s, s, s, s, s, p],
-		[e, p, p, p, p, p]
+		[t, p, p, p, p, p, p, p, p],
+		[s, s, s, s, s, s, s, s, p],
+		[s, s, s, s, s, s, s, s, p],
+		[s, s, s, s, s, s, s, s, p],
+		[s, s, s, s, s, s, s, s, p],
+		[s, s, s, s, s, s, s, s, p],
+		[e, p, p, p, p, p, p, p, p]
 	];
 	var instanceGrid = [];
 
@@ -120,7 +120,7 @@ function onLevelStart() {
 	var levelWaves = [
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
-			
+
 			5,
 
 			30,
@@ -129,7 +129,7 @@ function onLevelStart() {
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
-			
+
 			3,
 
 			10,
@@ -138,7 +138,7 @@ function onLevelStart() {
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
-			
+
 			1,
 
 			5,
@@ -146,7 +146,7 @@ function onLevelStart() {
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
-			
+
 			3,
 
 			100,
