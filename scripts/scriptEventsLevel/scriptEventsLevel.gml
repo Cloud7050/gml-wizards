@@ -171,7 +171,7 @@ function onLevelStart() {
 	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
 	var buttonHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
 
-	// Draw from bottom up
+	// Create from bottom up
 	var wizardCount = array_length(levelWizardData);
 	for (var wizardIndex = wizardCount - 1; wizardIndex >= 0; wizardIndex--) {
 		var wizardButton = instance_create_layer(
@@ -185,30 +185,22 @@ function onLevelStart() {
 }
 
 function onDrawLevelGUI() {
+	var marginX = global.CONSTANTS.UI.MARGIN_X;
+	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	
 	var statText = "Lives: " + string(getLives())
 		+ "\nCoins: $" + string(getCoins());
 
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-
-	var endX = room_width - marginX;
-	var startY = marginY;
-
-	// Assuming drawTextBox() always uses this default font,
-	// set it now to calculate string width/height
-	draw_set_font(fontGUI);
-	drawTextBox(
-		endX - marginX - string_width(statText) - marginX,
-		startY,
-		endX,
-		startY + marginY + string_height(statText) + marginY,
+	drawSmartTextBox(
+		room_width - marginX,
+		marginY,
+		SMART_TEXTBOX_ANCHORS.TOP_RIGHT,
+		
 		undefined,
 		0.5,
 		undefined,
-		statText,
-		undefined,
-		undefined,
-		false
+		
+		statText
 	);
 }
 

@@ -5,6 +5,7 @@ function drawTextBox(
 	startY,
 	endX,
 	endY,
+
 	backgroundColour = c_white,
 	backgroundOpacity = 1,
 	isRounded = false,
@@ -75,11 +76,89 @@ function drawTextBox(
 	draw_set_halign(isCentreNotLeft ? fa_center : fa_left);
 	draw_set_valign(fa_middle);
 	draw_text(
-		// Assuming that when the caller wants width to hug the text,
-		// the margin used for its calculations is the default like in here
 		isCentreNotLeft ? lerp(startX, endX, 0.5) : startX + outlineThickness + global.CONSTANTS.UI.MARGIN_X,
 		lerp(startY, endY, 0.5),
 		text
+	);
+}
+
+enum SMART_TEXTBOX_ANCHORS {
+	TOP_LEFT,
+	TOP_RIGHT,
+	BOTTOM_LEFT,
+	BOTTOM_RIGHT
+}
+
+function drawSmartTextBox(
+	anchorX,
+	anchorY,
+	anchor = SMART_TEXTBOX_ANCHORS.BOTTOM_LEFT,
+
+	backgroundColour = undefined,
+	backgroundOpacity = undefined,
+	isRounded = undefined,
+
+	text,
+	textColour = undefined,
+	textFont = fontGUI,
+
+	outlineThickness = 0,
+	outlineColour = undefined
+) {
+	var marginX = global.CONSTANTS.UI.MARGIN_X;
+	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+
+	// For calculating string display dimensions
+	draw_set_font(textFont);
+	var textWidth = string_width(text);
+	var textHeight = string_height(text);
+
+	var innerWidth = outlineThickness + marginX + textWidth + marginX + outlineThickness;
+	var innerHeight = outlineThickness + marginY + textHeight + marginY + outlineThickness;
+
+	var startX;
+	var endX;
+	if (
+		anchor == SMART_TEXTBOX_ANCHORS.TOP_LEFT
+		|| anchor == SMART_TEXTBOX_ANCHORS.BOTTOM_LEFT
+	) {
+		startX = anchorX;
+		endX = startX + innerWidth;
+	} else {
+		endX = anchorX;
+		startX = endX - innerWidth;
+	}
+
+	var startY;
+	var endY;
+	if (
+		anchor == SMART_TEXTBOX_ANCHORS.TOP_LEFT
+		|| anchor == SMART_TEXTBOX_ANCHORS.TOP_RIGHT
+	) {
+		startY = anchorY;
+		endY = startY + innerHeight;
+	} else {
+		endY = anchorY;
+		startY = endY - innerHeight;
+	}
+
+	drawTextBox(
+		startX,
+		startY,
+		endX,
+		endY,
+
+		backgroundColour,
+		backgroundOpacity,
+		isRounded,
+
+		text,
+		textColour,
+		textFont,
+		undefined,
+
+		outlineThickness,
+		outlineColour
 	);
 }
 
