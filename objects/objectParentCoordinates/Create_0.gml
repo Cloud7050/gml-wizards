@@ -47,3 +47,12 @@ function isMouseWithin() {
 		&& mouseY < getEndY()
 	);
 }
+
+function isMouseColliding() {
+	// Uses the collision mask of this instance's sprite
+	return position_meeting(
+		device_mouse_x(0),
+		device_mouse_y(0),
+		self
+	);
+}
