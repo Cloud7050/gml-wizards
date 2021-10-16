@@ -9,7 +9,10 @@ if (isOffCooldown()) {
 }
 
 // [Range Display]
-if (isMouseColliding()) {
+if (
+	isThisSelected()
+	|| isMouseColliding()
+) {
 	var rangeCircle = instance_create_layer(
 		getMidX(),
 		getMidY(),
