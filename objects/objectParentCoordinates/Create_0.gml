@@ -33,8 +33,8 @@ function getMidY() {
 }
 
 function isMouseWithin() {
-	var mouseX = useGUICoordinates ? device_mouse_x_to_gui(0) : device_mouse_x(0);
-	var mouseY = useGUICoordinates ? device_mouse_y_to_gui(0) : device_mouse_y(0);
+	var mouseX = useGUICoordinates ? device_mouse_x_to_gui(0) : mouse_x;
+	var mouseY = useGUICoordinates ? device_mouse_y_to_gui(0) : mouse_y;
 
 	// End checks are < due to integer mouse coords.
 	// If mouse is considered at corner of a coord,
@@ -51,8 +51,8 @@ function isMouseWithin() {
 function isMouseColliding() {
 	// Uses the collision mask of this instance's sprite
 	return position_meeting(
-		device_mouse_x(0),
-		device_mouse_y(0),
+		mouse_x,
+		mouse_y,
 		self
 	);
 }

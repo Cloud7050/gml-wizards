@@ -79,3 +79,33 @@ function drawTextBox(
 		text
 	);
 }
+
+function startColourDraw(colour = c_white) {
+	gpu_set_fog(true, colour, 0, 0);
+}
+
+function stopColourDraw() {
+	var fogSettings = gpu_get_fog();
+	fogSettings[0] = false;
+	gpu_set_fog(fogSettings);
+}
+
+function drawOutlinedInstance(instance, outlineThickness = 4) {
+	startColourDraw();
+	
+	for (var xOffset = -outlineThickness; xOffset <= outlineThickness; xOffset++) {
+		for (var yOffset = -outlineThickness; yOffset <= outlineThickness; yOffset++) {
+			draw_sprite(
+				instance.sprite_index,
+				0,
+				instance.x + xOffset,
+				instance.y + yOffset
+			);
+		}
+	}
+
+	// Draw end
+	stopColourDraw();
+	
+	instance.draw_self();
+}
