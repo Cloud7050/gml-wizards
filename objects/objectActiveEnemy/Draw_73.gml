@@ -13,7 +13,6 @@ var healthbarHeight = global.CONSTANTS.UI.HEALTHBARS.HEIGHT;
 var leftX = getMidX() - (healthbarWidth / 2);
 var bottomY = y - healthbarHeight;
 
-draw_set_alpha(1);
 draw_healthbar(
 	leftX,
 	bottomY - healthbarHeight,

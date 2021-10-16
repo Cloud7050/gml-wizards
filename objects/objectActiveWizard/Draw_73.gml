@@ -10,7 +10,6 @@ var barHeight = global.CONSTANTS.UI.CHARGEUP_BARS.HEIGHT;
 var rightX = getEndX();
 var topY = getMidY() - (barHeight / 2);
 
-draw_set_alpha(1);
 draw_healthbar(
 	rightX - barWidth,
 	topY,

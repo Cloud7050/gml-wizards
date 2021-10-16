@@ -17,8 +17,9 @@ function drawTextBox(
 	outlineThickness = 0,
 	outlineColour = c_black
 ) {
+	startDrawOpacity(backgroundOpacity);
+
 	// Draw outline
-	draw_set_alpha(backgroundOpacity);
 	if (outlineThickness != 0) {
 		draw_set_colour(outlineColour);
 		if (isRounded) {
@@ -65,9 +66,11 @@ function drawTextBox(
 		);
 	}
 
+	// Draw end
+	stopDrawOpacity();
+
 	// Draw text
 	draw_set_colour(textColour);
-	draw_set_alpha(1);
 	draw_set_font(textFont);
 	draw_set_halign(isCentreNotLeft ? fa_center : fa_left);
 	draw_set_valign(fa_middle);
@@ -78,6 +81,14 @@ function drawTextBox(
 		lerp(startY, endY, 0.5),
 		text
 	);
+}
+
+function startDrawOpacity(opacity) {
+	draw_set_alpha(opacity);
+}
+
+function stopDrawOpacity() {
+	draw_set_alpha(1);
 }
 
 function startColourDraw(colour = c_white) {
@@ -92,7 +103,7 @@ function stopColourDraw() {
 
 function drawOutlinedInstance(instance, outlineThickness = 4) {
 	startColourDraw();
-	
+
 	for (var xOffset = -outlineThickness; xOffset <= outlineThickness; xOffset++) {
 		for (var yOffset = -outlineThickness; yOffset <= outlineThickness; yOffset++) {
 			draw_sprite(
@@ -106,6 +117,6 @@ function drawOutlinedInstance(instance, outlineThickness = 4) {
 
 	// Draw end
 	stopColourDraw();
-	
+
 	instance.draw_self();
 }
