@@ -1,4 +1,5 @@
 /* [Functions] */
+
 function drawTextBox(
 	startX,
 	startY,

@@ -3,6 +3,7 @@
 
 
 /* [Parent] */
+
 event_inherited();
 initialiseParentCoordinates(
 	sprite_width,

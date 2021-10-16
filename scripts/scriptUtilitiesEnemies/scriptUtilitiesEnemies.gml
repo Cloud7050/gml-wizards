@@ -1,4 +1,5 @@
 /* [Classes] */
+
 function EnemyData(
 	health,
 	speedElementsPerSecond,
@@ -9,7 +10,7 @@ function EnemyData(
 	sprite
 ) constructor {
 	self.health = health;
-	
+
 	// Pixels per step
 	self.speed = convertSpeed(speedElementsPerSecond);
 
@@ -34,7 +35,7 @@ function WaveData(
 	startingDelay = stepsPerSecond * startingDelaySeconds;
 
 	self.count = count;
-	
+
 	// Steps
 	initialFrequency = stepsPerSecond * initialFrequencySeconds;
 	finalFrequency = stepsPerSecond * finalFrequencySeconds;
@@ -43,24 +44,24 @@ function WaveData(
 
 
 /* [Functions] */
+
 // [Path]
-/// @returns The specified set path
 function setPath(path) {
 	global.path = path;
-	return path;
 }
 
 /// @returns The reset path
 function resetPath() {
+	var path;
 	if (!variable_global_exists("path")) {
-		var path = path_add();
+		path = path_add();
 		path_set_closed(path, false);
-		return setPath(path);
+		setPath(path);
 	} else {
-		var path = getPath();
+		path = getPath();
 		path_clear_points(path);
-		return path;
 	}
+	return path;
 }
 
 function getPath() {
@@ -85,6 +86,6 @@ function convertRange(elementLengths) {
 	var spaceSprite = object_get_sprite(objectSpace);
 	// Assuming height is the same as width regarding path traversal
 	var elementLength = sprite_get_width(spaceSprite);
-	
+
 	return elementLength * elementLengths;
 }

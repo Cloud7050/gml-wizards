@@ -3,6 +3,7 @@
 
 
 /* [Instance Variables] */
+
 wavesArray = [];
 waveIndex = 0;
 waveSpawnedCount = 0;
@@ -10,6 +11,7 @@ waveSpawnedCount = 0;
 
 
 /* [Methods] */
+
 function getCurrentWave() {
 	return wavesArray[waveIndex];
 }
@@ -35,7 +37,7 @@ function getUpcomingDelay() {
 function startWave(index) {
 	waveIndex = index;
 	waveSpawnedCount = 0;
-	
+
 	setAlarm(
 		getCurrentWave().startingDelay + getUpcomingDelay()
 	);
@@ -63,7 +65,7 @@ function tryStartNextWave() {
 function trySpawn() {
 	if (!isWaveOver()) {
 		waveSpawnedCount++;
-		
+
 		var path = getPath();
 		var activeEnemy = instance_create_layer(
 			0,
@@ -79,7 +81,7 @@ function trySpawn() {
 
 		activeEnemy.followPath(path);
 	}
-	
+
 	// Check again
 	if (isWaveOver()) {
 		tryStartNextWave();

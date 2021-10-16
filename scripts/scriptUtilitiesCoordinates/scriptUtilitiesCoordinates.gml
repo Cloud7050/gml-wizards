@@ -1,4 +1,5 @@
 /* [Functions] */
+
 function findEnemiesInCircle(
 	centreX,
 	centreY,

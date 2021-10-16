@@ -3,6 +3,7 @@
 
 
 /* [Methods] */
+
 function initialiseParentCoordinates(
 	width,
 	height,

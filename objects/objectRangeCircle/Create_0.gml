@@ -3,11 +3,13 @@
 
 
 /* [Instance Variables] */
+
 visible = true;
 
 
 
 /* [Methods] */
+
 function initialise(
 	radius,
 	innerColour,

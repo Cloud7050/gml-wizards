@@ -6,26 +6,23 @@ function getStepsPerSecond() {
 }
 
 // [Lives]
-/// @returns The specified set lives value
 function setLives(lives) {
 	global.lives = lives;
-	return lives;
 }
 
 /// @returns The new reset lives value
 function resetLives() {
-	return setLives(
-		global.CONSTANTS.DEFAULTS.LIVES
-	);
+	var defaultLives = global.CONSTANTS.DEFAULTS.LIVES;
+	setLives(defaultLives);
+	return defaultLives;
 }
 
 function getLives() {
 	return global.lives;
 }
 
-/// @returns The new modified lives value
 function modifyLives(change) {
-	return setLives(
+	setLives(
 		getLives() + change
 	);
 }
@@ -36,26 +33,23 @@ function isLivesInsufficient() {
 }
 
 // [Coins]
-/// @returns The specified set coins value
 function setCoins(coins) {
 	global.coins = coins;
-	return coins;
 }
 
 /// @returns The new reset coins value
 function resetCoins() {
-	return setCoins(
-		global.CONSTANTS.DEFAULTS.COINS
-	);
+	var coins = global.CONSTANTS.DEFAULTS.COINS;
+	setCoins(coins);
+	return coins;
 }
 
 function getCoins() {
 	return global.coins;
 }
 
-/// @returns The new modified coins value
 function modifyCoins(change) {
-	return setCoins(
+	setCoins(
 		getCoins() + change
 	);
 }

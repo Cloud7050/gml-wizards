@@ -2,7 +2,10 @@
 
 
 
-if (self.health >= getMaxHealth()) return;
+var currentHealth = self.health;
+var maxHealth = getMaxHealth();
+var healthPercentage = currentHealth / maxHealth * 100;
+if (healthPercentage >= 100) return;
 
 var healthbarWidth = global.CONSTANTS.UI.HEALTHBARS.WIDTH;
 var healthbarHeight = global.CONSTANTS.UI.HEALTHBARS.HEIGHT;
@@ -16,7 +19,7 @@ draw_healthbar(
 	bottomY - healthbarHeight,
 	leftX + healthbarWidth,
 	bottomY,
-	self.health / getMaxHealth() * 100,
+	healthPercentage,
 	c_black,
 	c_red,
 	c_green,

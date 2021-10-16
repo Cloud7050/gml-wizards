@@ -3,30 +3,32 @@
 
 
 /* [Parent] */
+
 event_inherited();
 
 
 
 /* [Methods] */
+
 function initialise(
 	wizardData,
 	level = 1
 ) {
 	self.wizardData = wizardData;
-	
+
 	setLevel(level);
 	initialiseParentCoordinates(
 		sprite_width,
 		sprite_height
 	);
-	
+
 	// Start cooled down
 	stepsWaited = getFireRate();
 }
 
 function setLevel(level) {
 	self.level = level;
-	
+
 	sprite_index = wizardData.levelSprites[level - 1];
 }
 
@@ -65,7 +67,7 @@ function tryAttack() {
 	if (enemyCount <= 0) {
 		return false;
 	}
-	
+
 	// Find enemy furthest along the path
 	var target = enemiesInRange[0];
 	var targetPathProgress = 0;
@@ -77,7 +79,7 @@ function tryAttack() {
 			targetPathProgress = potentialTargetPathProgress;
 		}
 	}
-	
+
 	// Trigger enemy damage to run own behaviours
 	target.takeDamage(
 		getDamage()

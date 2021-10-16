@@ -3,6 +3,7 @@
 
 
 /* [Parent] */
+
 event_inherited();
 initialiseParentCoordinates(
 	sprite_width,
@@ -12,16 +13,17 @@ initialiseParentCoordinates(
 
 
 /* [Instance Variables] */
+
 activeWizard = undefined;
 
 
 
 /* [Methods] */
+
 function isEmpty() {
 	return activeWizard == undefined;
 }
 
-/// @returns The newly created objectActiveWizard
 function newActiveWizard(wizardData) {
 	activeWizard = instance_create_layer(
 		x,
@@ -30,5 +32,4 @@ function newActiveWizard(wizardData) {
 		objectActiveWizard
 	);
 	activeWizard.initialise(wizardData);
-	return activeWizard;
 }

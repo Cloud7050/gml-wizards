@@ -3,6 +3,7 @@
 
 
 /* [Parent] */
+
 event_inherited();
 initialiseParentCoordinates(
 	global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH,
@@ -13,11 +14,13 @@ initialiseParentCoordinates(
 
 
 /* [Instance Variables] */
+
 visible = true;
 
 
 
 /* [Methods] */
+
 function initialise(wizardData) {
 	self.wizardData = wizardData;
 }

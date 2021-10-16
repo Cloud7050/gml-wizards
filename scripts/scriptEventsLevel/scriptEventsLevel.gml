@@ -3,6 +3,7 @@ function onLevelStart() {
 	resetLives();
 	resetCoins();
 	resetPlacingWizard();
+	resetSelectedWizard();
 	resetPath();
 
 	// [Lay Out Grid Elements]
@@ -71,7 +72,7 @@ function onLevelStart() {
 		}
 	}
 
-	var navigatingIndexes = startIndexes.clone();
+	var navigatingIndexes = startIndexes;
 	var path = getPath();
 	while (true) {
 		// Add coords to path

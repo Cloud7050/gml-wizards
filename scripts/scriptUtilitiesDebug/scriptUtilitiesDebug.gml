@@ -1,10 +1,7 @@
 /* [Functions] */
 
-/// @returns The debug logged string
 function l(any = "====================") {
-	var combined_message = ">>> " + string(any);
-	show_debug_message(combined_message);
-	return combined_message;
+	show_debug_message(">>> " + string(any));
 }
 
 function drawPath() {
