@@ -1,4 +1,4 @@
-/// @description Button click action
+/// @description Toggle placing wizard
 
 
 

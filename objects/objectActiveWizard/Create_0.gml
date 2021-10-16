@@ -86,3 +86,7 @@ function tryAttack() {
 	);
 	return true;
 }
+
+function isThisSelected() {
+	return getSelectedWizard() == self;
+}
