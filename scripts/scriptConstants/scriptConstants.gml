@@ -35,7 +35,7 @@ global.CONSTANTS = {
 			WIDTH: 8,
 			HEIGHT: 64
 		},
-		PREVIEW_OPACITY: 0.5
+		RANGE_OPACITY: 0.5
 	},
 	WIZARDS: {
 		LEVEL_CAP: 3,

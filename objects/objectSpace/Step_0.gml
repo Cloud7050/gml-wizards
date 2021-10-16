@@ -1,31 +1,22 @@
-/// @description Range hover preview
+/// @description Hover preview
 
 
 
-if (!isMouseWithin()) return;
+if (
+	!isPlacingWizard()
+	|| !isEmpty()
+	|| !isMouseWithin()
+) return;
 
-var range;
-var innerColour;
-var outerColour = undefined;
-if (isEmpty()) {
-	if (!isPlacingWizard()) return;
-	
-	range = getPlacingWizard().range;
-	innerColour = c_grey;
-} else {
-	range = activeWizard.getRange();
-	innerColour = c_green;
-	outerColour = c_white;
-}
+var placingWizardData = getPlacingWizard();
 
 var rangeCircle = instance_create_layer(
 	getMidX(),
 	getMidY(),
 	global.CONSTANTS.LAYERS.INSTANCE_ABOVEGROUND,
-	objectRangeCircle
+	objectWizardRange
 );
 rangeCircle.initialise(
-	range,
-	innerColour,
-	outerColour
+	placingWizardData.range,
+	placingWizardData.levelSprites[0]
 );

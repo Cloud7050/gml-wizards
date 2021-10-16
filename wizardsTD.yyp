@@ -11,7 +11,7 @@
     {"id":{"name":"objectSpace","path":"objects/objectSpace/objectSpace.yy",},"order":0,},
     {"id":{"name":"objectActiveEnemy","path":"objects/objectActiveEnemy/objectActiveEnemy.yy",},"order":7,},
     {"id":{"name":"spriteWizard1L3","path":"sprites/spriteWizard1L3/spriteWizard1L3.yy",},"order":4,},
-    {"id":{"name":"objectRangeCircle","path":"objects/objectRangeCircle/objectRangeCircle.yy",},"order":11,},
+    {"id":{"name":"objectWizardRange","path":"objects/objectWizardRange/objectWizardRange.yy",},"order":11,},
     {"id":{"name":"spriteWizard3L2","path":"sprites/spriteWizard3L2/spriteWizard3L2.yy",},"order":13,},
     {"id":{"name":"spriteWizard1L2","path":"sprites/spriteWizard1L2/spriteWizard1L2.yy",},"order":3,},
     {"id":{"name":"objectStart","path":"objects/objectStart/objectStart.yy",},"order":4,},

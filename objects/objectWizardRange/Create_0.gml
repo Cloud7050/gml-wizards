@@ -12,10 +12,14 @@ visible = true;
 
 function initialise(
 	radius,
-	innerColour,
-	outerColour = innerColour
+
+	previewSprite = undefined
 ) {
 	self.radius = radius;
-	self.innerColour = innerColour;
-	self.outerColour = outerColour;
+
+	self.previewSprite = previewSprite;
+}
+
+function isPreview() {
+	return previewSprite != undefined;
 }

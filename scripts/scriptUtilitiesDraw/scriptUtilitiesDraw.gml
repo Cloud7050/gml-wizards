@@ -18,9 +18,9 @@ function drawTextBox(
 	outlineColour = c_black
 ) {
 	// Draw outline
+	draw_set_alpha(backgroundOpacity);
 	if (outlineThickness != 0) {
 		draw_set_colour(outlineColour);
-		draw_set_alpha(1);
 		if (isRounded) {
 			draw_roundrect(
 				startX,
@@ -47,7 +47,6 @@ function drawTextBox(
 	var innerEndY = endY - outlineThickness;
 
 	draw_set_colour(backgroundColour);
-	draw_set_alpha(backgroundOpacity);
 	if (isRounded) {
 		draw_roundrect(
 			innerStartX,
