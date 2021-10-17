@@ -199,3 +199,45 @@ function drawOutlinedInstance(instance, outlineThickness = 4) {
 
 	instance.draw_self();
 }
+
+// [Hints]
+function setHints(hints) {
+	global.hints = hints
+}
+
+/// @returns The reset hints array
+function resetHints() {
+	var hints;
+	if (!variable_global_exists("hints")) {
+		hints = [];
+		setHints(hints);
+	} else {
+		hints = getHints();
+		array_delete(
+			hints,
+			0,
+			array_length(hints)
+		);
+	}
+	return hints;
+}
+
+function getHints() {
+	return global.hints;
+}
+
+/// @returns The hints array, reset with only the specified hint
+function setHint(hint) {
+	resetHints();
+	return addHint(hint);
+}
+
+/// @returns The hints array with the specified hint appended
+function addHint(hint) {
+	var hints = getHints();
+	array_push(
+		hints,
+		hint
+	);
+	return hints;
+}
