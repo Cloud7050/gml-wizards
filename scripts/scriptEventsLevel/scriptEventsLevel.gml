@@ -7,19 +7,19 @@ function onLevelStart() {
 
 	resetPath();
 
-	resetGrid();
+	//resetGrid();
 
 	resetPlacingWizard();
 	resetSelectedWizard();
 
 	// [Lay Out Grid Elements]
-	var t = objectStart;
-	var e = objectEnd;
+	var r = objectStart;
 	var p = objectPath;
+	var e = objectEnd;
 	var s = objectSpace;
 	//TODO atm there is only a single level's layout
 	var levelGrid = [
-		[t, p, p, p, p, p, p, p, p],
+		[r, p, p, p, p, p, p, p, p],
 		[s, s, s, s, s, s, s, s, p],
 		[s, s, s, s, s, s, s, s, p],
 		[s, s, s, s, s, s, s, s, p],
@@ -29,28 +29,25 @@ function onLevelStart() {
 	];
 
 	var rowCount = array_length(levelGrid);
-	// Assuming there will always be at least 1 row
-	var columnCount = array_length(levelGrid[0]);
+	var columnCount = rowCount > 0 ? array_length(levelGrid[0]) : 0;
 
-	// Assuming all other elements' sprite dimensions are the same as the space sprite
-	var spaceSprite = object_get_sprite(objectSpace);
-	var elementWidth = sprite_get_width(spaceSprite);
-	var elementHeight = sprite_get_height(spaceSprite);
+	var referenceSprite = object_get_sprite(objectParentGridElement);
+	var elementWidth = sprite_get_width(referenceSprite);
+	var elementHeight = sprite_get_height(referenceSprite);
 
-	var gridWidth = elementWidth * columnCount;
-	var gridHeight = elementHeight * rowCount;
+	var startX = global.CONSTANTS.UI.MARGIN_X + sprite_get_xoffset(referenceSprite);
+	var startY = room_height - global.CONSTANTS.UI.MARGIN_Y - (rowCount * elementHeight) + sprite_get_yoffset(referenceSprite);
 
-	var startX = (room_width / 2) - (gridWidth / 2);
-	var startY = (room_height / 2) - (gridHeight / 2);
+	var instancesGrid = resetGrid();
 
-	// Go in reverse for array allocation optimisation
-	for (var rowIndex = rowCount - 1; rowIndex >= 0; rowIndex--) {
-		for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {
-			var indexes = new Indexes(
-				rowIndex,
-				columnIndex
-			);
+	for (var rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+		// Passed by weird reference from function,
+		// cannot get and set out of bounds regardless of use of @,
+		// so use array functions
+		var row = [];
+		array_push(instancesGrid, row);
 
+		for (var columnIndex = 0; columnIndex < columnCount; columnIndex++) {
 			var currentX = startX + (columnIndex * elementWidth);
 			var currentY = startY + (rowIndex * elementHeight);
 
@@ -60,76 +57,76 @@ function onLevelStart() {
 				global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
 				levelGrid[rowIndex][columnIndex]
 			);
-			gridElement.initialise(indexes);
-
-			setGridElement(
-				indexes,
-				gridElement
+			gridElement.initialise(
+				new Indexes(
+					rowIndex,
+					columnIndex
+				)
 			);
+
+			array_push(row, gridElement);
 		}
 	}
 
-	// Generate throwaway grid of element positions relevent to pathing.
-	// Go in reverse for array allocation optimisation
+	// Throwaway grid of element positions relevent to pathing
 	var pathingGrid = [[]];
 	var startIndexes = new Indexes(0, 0);
 	for (var rowIndex = rowCount - 1; rowIndex >= 0; rowIndex--) {
 		for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {
 			var currentObject = levelGrid[rowIndex][columnIndex];
 
-			if (currentObject == t) startIndexes = new Indexes(
+			if (currentObject == r) startIndexes = new Indexes(
 				rowIndex,
 				columnIndex
 			);
 
 			// true if relevent to pathing, false if not
 			pathingGrid[rowIndex][columnIndex] = (
-				currentObject == e
-				|| currentObject == p
+				currentObject == p
+				|| currentObject == e
 			);
 		}
 	}
 
-	var navigatingIndexes = startIndexes;
+	var currentIndexes = startIndexes;
 	var path = getPath();
 	while (true) {
 		// Add coords to path
-		var relevantInstance = getGridElement(navigatingIndexes);
+		var currentElement = getGridElement(currentIndexes);
 		path_add_point(
 			path,
-			relevantInstance.getMidX(),
-			relevantInstance.getMidY(),
+			currentElement.getMidX(),
+			currentElement.getMidY(),
 			100
 		);
 
-		// Seek out adjacent relevant element position, if any
-		var adjacentIndexesArray = [
-			navigatingIndexes.right(),
-			navigatingIndexes.down(),
-			navigatingIndexes.left(),
-			navigatingIndexes.up()
+		// Find adjacent relevant element, if any
+		var allAdjacentIndexes = [
+			currentIndexes.right(),
+			currentIndexes.down(),
+			currentIndexes.left(),
+			currentIndexes.up()
 		];
 		var isElementRelevant;
-		for (var indexesIndex = 0; indexesIndex < array_length(adjacentIndexesArray); indexesIndex++) {
-			var adjacentIndexes = adjacentIndexesArray[indexesIndex];
+		for (var i = 0; i < array_length(allAdjacentIndexes); i++) {
+			var adjacentIndexes = allAdjacentIndexes[i];
 			if (!checkGridBounds(
 				pathingGrid,
 				adjacentIndexes
 			)) continue;
 
-			isElementRelevant = pathingGrid[adjacentIndexes.rowIndex][adjacentIndexes.columnIndex];
+			isElementRelevant = pathingGrid[adjacentIndexes.row][adjacentIndexes.column];
 			if (!isElementRelevant) continue;
 
-			// Ditch navigated element position to not backtrack
-			pathingGrid[navigatingIndexes.rowIndex][navigatingIndexes.columnIndex] = false;
+			// If found relevant element, unmark current as relevant to not backtrack
+			pathingGrid[currentIndexes.row][currentIndexes.column] = false;
 
-			navigatingIndexes = adjacentIndexes;
+			currentIndexes = adjacentIndexes;
 			break;
 		}
-		if (isElementRelevant) continue;
 
-		// Break if dead end; found no adjacent relevant element position, navigated till end of path
-		break;
+		// Finding nothing relevant means reached end of path, stop finding
+		if (!isElementRelevant) break;
 	}
 
 	// [Set Off Waves]
@@ -171,7 +168,7 @@ function onLevelStart() {
 			0.2
 		)
 	];
-	objectMetaWaveManager.startUsingWaves(levelWaves);
+	singletonWaveManager.startUsingWaves(levelWaves);
 
 	// [Create Wizard Buttons]
 	//TODO atm there is only a single level's wizards available
@@ -182,17 +179,12 @@ function onLevelStart() {
 		global.CONSTANTS.WIZARDS.FOUR
 	];
 
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
-	var buttonHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
-
 	// Create from bottom up
 	var wizardCount = array_length(levelWizardData);
 	for (var wizardIndex = wizardCount - 1; wizardIndex >= 0; wizardIndex--) {
 		var wizardButton = instance_create_layer(
-			room_width - marginX - buttonWidth,
-			room_height - ((wizardCount - wizardIndex) * (marginY + buttonHeight)),
+			room_width - (global.CONSTANTS.UI.MARGIN_X + global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH),
+			room_height - ((wizardCount - wizardIndex) * (global.CONSTANTS.UI.MARGIN_Y + global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT)),
 			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
 			objectWizardButton
 		);
@@ -203,13 +195,9 @@ function onLevelStart() {
 function onDrawLevelGUI() {
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-
 	var opacity = global.CONSTANTS.UI.PANEL_OPACITY;
 
 	// Stats
-	var statText = "Lives: " + string(getLives())
-		+ "\nCoins: $" + string(getCoins());
-
 	drawSmartTextBox(
 		room_width - marginX,
 		marginY,
@@ -219,7 +207,8 @@ function onDrawLevelGUI() {
 		opacity,
 		undefined,
 
-		statText
+		"Lives: " + string(getLives())
+			+ "\nCoins: $" + string(getCoins())
 	);
 
 	// Hints
@@ -235,6 +224,7 @@ function onDrawLevelGUI() {
 
 			getHintsString()
 		);
+		
 		resetHints();
 	}
 }

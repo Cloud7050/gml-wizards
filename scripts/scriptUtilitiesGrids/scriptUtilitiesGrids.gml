@@ -1,26 +1,26 @@
 /* [Classes] */
 
 function Indexes(
-	rowIndex,
-	columnIndex
+	row,
+	column
 ) constructor {
-	self.rowIndex = rowIndex;
-	self.columnIndex = columnIndex;
+	self.row = row;
+	self.column = column;
 
 	function up() {
-		return new Indexes(rowIndex, columnIndex - 1);
+		return new Indexes(row, column - 1);
 	}
 
 	function down() {
-		return new Indexes(rowIndex, columnIndex + 1);
+		return new Indexes(row, column + 1);
 	}
 
 	function left() {
-		return new Indexes(rowIndex - 1, columnIndex);
+		return new Indexes(row - 1, column);
 	}
 
 	function right() {
-		return new Indexes(rowIndex + 1, columnIndex);
+		return new Indexes(row + 1, column);
 	}
 }
 
@@ -33,8 +33,8 @@ function checkGridBounds(
 	array,
 	indexes
 ) {
-	var rowIndex = indexes.rowIndex;
-	var columnIndex = indexes.columnIndex;
+	var rowIndex = indexes.row;
+	var columnIndex = indexes.column;
 	return (
 		rowIndex >= 0
 		&& rowIndex < array_length(array)
@@ -54,16 +54,6 @@ enum MERGE_DIRECTIONS {
 	DOWN,
 	LEFT,
 	UP
-}
-
-function isElementBlocksMerging(gridElement) {
-	// Only empty spaces let merging proceed
-	return (
-		!(
-			gridElement.object_index == objectSpace
-			&& gridElement.isEmpty()
-		)
-	);
 }
 
 function markMergeCandidate(activeWizard, mergeDirection) {
@@ -94,16 +84,15 @@ function markMergeCandidate(activeWizard, mergeDirection) {
 		) {
 			var potentialCandidate = gridElement.activeWizard;
 			if (
-				potentialCandidate.wizardData == activeWizard.wizardData
-				&& potentialCandidate.level == activeWizard.level
+				activeWizard.isMatches(potentialCandidate)
 			) {
-				gridElement.activeWizard.isMergeCandidate = true;
+				potentialCandidate.isMergeCandidate = true;
 				return;
 			}
 		}
 
 		if (
-			isElementBlocksMerging(gridElement)
+			gridElement.isBlocksMerging()
 		) return;
 	}
 }
@@ -111,7 +100,7 @@ function markMergeCandidate(activeWizard, mergeDirection) {
 function remarkMergeCandidates(activeWizard) {
 	// Eg in case going from one set to another set, meaning no reset triggered
 	clearMergeCandidates();
-	
+
 	if (activeWizard.isMaxLevel()) return;
 
 	markMergeCandidate(activeWizard, MERGE_DIRECTIONS.RIGHT);
@@ -126,7 +115,7 @@ function remarkMergeCandidates(activeWizard) {
 function resetGrid() {
 	var array;
 	if (!variable_global_exists("grid")) {
-		array = [[]];
+		array = [];
 		global.grid = array;
 	} else {
 		array = getGrid();
@@ -143,15 +132,6 @@ function getGrid() {
 	return global.grid;
 }
 
-function setGridElement(
-	indexes,
-	gridElement
-) {
-	// Getting and setting by external @ accessor does not automatically create when out of bounds
-	global.grid[indexes.rowIndex][indexes.columnIndex] = gridElement;
-}
-
 function getGridElement(indexes) {
-	// Getting by reference does not reflect updates externally when array changes
-	return getGrid()[indexes.rowIndex][indexes.columnIndex];
+	return getGrid()[indexes.row][indexes.column];
 }

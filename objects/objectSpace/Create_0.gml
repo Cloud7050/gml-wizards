@@ -6,6 +6,10 @@
 
 event_inherited();
 
+function isBlocksMerging() {
+	return !isEmpty();
+}
+
 
 
 /* [Instance Variables] */

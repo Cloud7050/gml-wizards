@@ -65,24 +65,24 @@ function getPath() {
 	return global.path;
 }
 
+/// @returns The average length of any grid element regarding path traversal
+function getElementLength() {
+	var referenceSprite = object_get_sprite(objectParentGridElement);
+	return lerp(
+		sprite_get_width(referenceSprite),
+		sprite_get_height(referenceSprite),
+		0.5
+	);
+}
+
 /// @returns The pixels per step matching the specified speed in elements per second
 function convertSpeed(elementsPerSecond) {
-	// Assuming all grid elements' sprite dimensions are the same as the space sprite
-	var spaceSprite = object_get_sprite(objectSpace);
-	// Assuming height is the same as width regarding path traversal
-	var elementLength = sprite_get_width(spaceSprite);
-
-	var pixelsPerSecond = elementLength * elementsPerSecond;
+	var pixelsPerSecond = getElementLength() * elementsPerSecond;
 	var pixelsPerStep = pixelsPerSecond / getStepsPerSecond();
 	return pixelsPerStep;
 }
 
 /// @returns The pixels matching the specified range in element lengths
 function convertRange(elementLengths) {
-	// Assuming all grid elements' sprite dimensions are the same as the space sprite
-	var spaceSprite = object_get_sprite(objectSpace);
-	// Assuming height is the same as width regarding path traversal
-	var elementLength = sprite_get_width(spaceSprite);
-
-	return elementLength * elementLengths;
+	return getElementLength() * elementLengths;
 }

@@ -21,7 +21,7 @@ if (isThisSelected()) {
 				: global.CONSTANTS.HINTS.NO_MERGE_UNSELECT_WIZARD
 		);
 	} else addHint(
-		global.CONSTANTS.HINTS.WIZARD_MAX_LEVEL
+		global.CONSTANTS.HINTS.MAX_LEVEL_UNSELECT_WIZARD
 	);
 } else if (isMergeCandidate) {
 	drawOutlinedInstance(

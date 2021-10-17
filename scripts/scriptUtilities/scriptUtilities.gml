@@ -36,11 +36,6 @@ function modifyLives(change) {
 	);
 }
 
-/// @returns Whether the player has lost the level
-function isLivesInsufficient() {
-	return getLives() <= 0;
-}
-
 // [Coins]
 function setCoins(coins) {
 	global.coins = coins;

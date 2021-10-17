@@ -5,6 +5,10 @@
 /* [Parent] */
 
 event_inherited();
+initialiseParentCoordinates(
+	sprite_width,
+	sprite_height
+);
 
 
 
@@ -13,10 +17,9 @@ event_inherited();
 function initialiseParentGridElement(
 	indexes
 ) {
-	initialiseParentCoordinates(
-		sprite_width,
-		sprite_height
-	);
-
 	self.indexes = indexes;
+}
+
+function isBlocksMerging() {
+	return true;
 }

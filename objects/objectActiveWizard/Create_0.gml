@@ -80,6 +80,13 @@ function isMaxLevel() {
 	return level >= global.CONSTANTS.WIZARDS.LEVEL_CAP;
 }
 
+function isMatches(activeWizard) {
+	return (
+		wizardData == activeWizard.wizardData
+		&& level == activeWizard.level
+	);
+}
+
 /// @returns Whether the wizard attacked an available target in range
 function tryAttack() {
 	// Find enemies in range

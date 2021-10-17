@@ -4,7 +4,7 @@
 
 /* [Instance Variables] */
 
-wavesArray = [];
+waves = [];
 waveIndex = 0;
 waveSpawnedCount = 0;
 
@@ -13,7 +13,7 @@ waveSpawnedCount = 0;
 /* [Methods] */
 
 function getCurrentWave() {
-	return wavesArray[waveIndex];
+	return waves[waveIndex];
 }
 
 function setAlarm(requestedDelay) {
@@ -44,11 +44,12 @@ function startWave(index) {
 }
 
 function startUsingWaves(levelWaves) {
-	wavesArray = levelWaves;
+	waves = levelWaves;
 
-	// Start first wave.
-	// Assuming there will always be at least 1 wave
-	startWave(0);
+	// Start first wave
+	if (
+		array_length(levelWaves) > 0
+	) startWave(0);
 }
 
 function isWaveOver() {
@@ -57,7 +58,7 @@ function isWaveOver() {
 
 function tryStartNextWave() {
 	var nextWaveIndex = waveIndex + 1;
-	if (nextWaveIndex < array_length(wavesArray)) {
+	if (nextWaveIndex < array_length(waves)) {
 		startWave(nextWaveIndex);
 	}
 }
