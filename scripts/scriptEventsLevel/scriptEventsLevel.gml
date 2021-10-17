@@ -46,6 +46,11 @@ function onLevelStart() {
 	// Go in reverse for array allocation optimisation
 	for (var rowIndex = rowCount - 1; rowIndex >= 0; rowIndex--) {
 		for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {
+			var indexes = new Indexes(
+				rowIndex,
+				columnIndex
+			);
+
 			var currentX = startX + (columnIndex * elementWidth);
 			var currentY = startY + (rowIndex * elementHeight);
 
@@ -55,23 +60,14 @@ function onLevelStart() {
 				global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
 				levelGrid[rowIndex][columnIndex]
 			);
-			gridElement.initialise(
-				rowIndex,
-				columnIndex
-			);
+			gridElement.initialise(indexes);
 
 			setGridElement(
-				rowIndex,
-				columnIndex,
+				indexes,
 				gridElement
 			);
-			//FIXME
-			// instanceGrid[@ rowIndex][@ columnIndex] = elementInstance;
 		}
 	}
-	//FIXME
-	// l(instanceGrid);
-	l(getGrid());
 
 	// Generate throwaway grid of element positions relevent to pathing.
 	// Go in reverse for array allocation optimisation
@@ -81,7 +77,10 @@ function onLevelStart() {
 		for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {
 			var currentObject = levelGrid[rowIndex][columnIndex];
 
-			if (currentObject == t) startIndexes = new Indexes(rowIndex, columnIndex);
+			if (currentObject == t) startIndexes = new Indexes(
+				rowIndex,
+				columnIndex
+			);
 
 			// true if relevent to pathing, false if not
 			pathingGrid[rowIndex][columnIndex] = (
@@ -95,8 +94,6 @@ function onLevelStart() {
 	var path = getPath();
 	while (true) {
 		// Add coords to path
-		//FIXME
-		// var relevantInstance = instanceGrid[@ navigatingIndexes.rowIndex][@ navigatingIndexes.columnIndex];
 		var relevantInstance = getGridElement(navigatingIndexes);
 		path_add_point(
 			path,
@@ -206,7 +203,7 @@ function onLevelStart() {
 function onDrawLevelGUI() {
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-	
+
 	var opacity = global.CONSTANTS.UI.PANEL_OPACITY;
 
 	// Stats

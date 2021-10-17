@@ -11,14 +11,12 @@ event_inherited();
 /* [Methods] */
 
 function initialiseParentGridElement(
-	rowIndex,
-	columnIndex
+	indexes
 ) {
 	initialiseParentCoordinates(
 		sprite_width,
 		sprite_height
 	);
-	
-	self.rowIndex = rowIndex;
-	self.columnIndex = columnIndex;
+
+	self.indexes = indexes;
 }

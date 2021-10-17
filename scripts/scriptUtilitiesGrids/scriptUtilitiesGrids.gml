@@ -8,19 +8,19 @@ function Indexes(
 	self.columnIndex = columnIndex;
 
 	function up() {
-		return new Indexes(self.rowIndex, self.columnIndex - 1);
+		return new Indexes(rowIndex, columnIndex - 1);
 	}
 
 	function down() {
-		return new Indexes(self.rowIndex, self.columnIndex + 1);
+		return new Indexes(rowIndex, columnIndex + 1);
 	}
 
 	function left() {
-		return new Indexes(self.rowIndex - 1, self.columnIndex);
+		return new Indexes(rowIndex - 1, columnIndex);
 	}
 
 	function right() {
-		return new Indexes(self.rowIndex + 1, self.columnIndex);
+		return new Indexes(rowIndex + 1, columnIndex);
 	}
 }
 
@@ -29,14 +29,12 @@ function Indexes(
 /* [Functions] */
 
 /// @returns Whether the specified indexes are within the bounds of the specified 2D array
-function checkGridBounds(array, indexes) {
+function checkGridBounds(
+	array,
+	indexes
+) {
 	var rowIndex = indexes.rowIndex;
 	var columnIndex = indexes.columnIndex;
-	//FIXME
-	// l(rowIndex);
-	// l(columnIndex);
-	// l(array_length(array));
-	// l(array_length(array[0]));
 	return (
 		rowIndex >= 0
 		&& rowIndex < array_length(array)
@@ -66,16 +64,10 @@ function isElementBlocksMerging(gridElement) {
 			&& gridElement.isEmpty()
 		)
 	);
-	//FIXME
-	// != || !=
 }
 
 function markMergeCandidate(activeWizard, mergeDirection) {
-	var startingSpace = activeWizard.space;
-	var currentIndexes = new Indexes(
-		startingSpace.rowIndex,
-		startingSpace.columnIndex
-	);
+	var currentIndexes = activeWizard.space.indexes;
 	var grid = getGrid();
 	while (true) {
 		if (mergeDirection == MERGE_DIRECTIONS.RIGHT) {
@@ -119,7 +111,7 @@ function markMergeCandidate(activeWizard, mergeDirection) {
 function remarkMergeCandidates(activeWizard) {
 	// Eg in case going from one set to another set, meaning no reset triggered
 	clearMergeCandidates();
-	
+
 	markMergeCandidate(activeWizard, MERGE_DIRECTIONS.RIGHT);
 	markMergeCandidate(activeWizard, MERGE_DIRECTIONS.DOWN);
 	markMergeCandidate(activeWizard, MERGE_DIRECTIONS.LEFT);
@@ -150,12 +142,11 @@ function getGrid() {
 }
 
 function setGridElement(
-	rowIndex,
-	columnIndex,
+	indexes,
 	gridElement
 ) {
 	// Getting and setting by external @ accessor does not automatically create when out of bounds
-	global.grid[rowIndex][columnIndex] = gridElement;
+	global.grid[indexes.rowIndex][indexes.columnIndex] = gridElement;
 }
 
 function getGridElement(indexes) {

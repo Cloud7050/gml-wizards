@@ -11,11 +11,9 @@ event_inherited();
 /* [Methods] */
 
 function initialise(
-	rowIndex,
-	columnIndex
+	indexes
 ) {
 	initialiseParentGridElement(
-		rowIndex,
-		columnIndex
+		indexes
 	);
 }

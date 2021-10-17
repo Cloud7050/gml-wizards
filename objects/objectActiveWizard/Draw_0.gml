@@ -12,8 +12,6 @@ if (isThisSelected()) {
 	var anyMergeCandidates = false;
 	with (objectActiveWizard) {
 		if (!anyMergeCandidates) anyMergeCandidates = isMergeCandidate;
-		//FIXME
-		// anyMergeCandidates = anyMergeCandidates || isMergeCandidate;
 	}
 
 	addHint(

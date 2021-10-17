@@ -17,12 +17,10 @@ activeWizard = undefined;
 /* [Methods] */
 
 function initialise(
-	rowIndex,
-	columnIndex
+	indexes
 ) {
 	initialiseParentGridElement(
-		rowIndex,
-		columnIndex
+		indexes
 	);
 }
 
