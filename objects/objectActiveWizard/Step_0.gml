@@ -1,4 +1,4 @@
-/// @description Attack. Range display
+/// @description Attack. Range display & hint
 
 
 
@@ -8,7 +8,7 @@ if (isOffCooldown()) {
 	if (tryAttack()) stepsWaited = 0;
 }
 
-// [Range Display]
+// [Range Display & Hint]
 if (
 	isThisSelected()
 	|| isMouseColliding()
@@ -22,4 +22,13 @@ if (
 	rangeCircle.initialise(
 		wizardData.range
 	);
+	
+	// If "unaware" of click-to-select
+	// (displaying range not due to selecting this,
+	// but due to hover)
+	if (!isWizardSelected()) {
+		addHint(
+			global.CONSTANTS.HINTS.CLICK_SELECT_WIZARD
+		);
+	}
 }

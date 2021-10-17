@@ -1,10 +1,14 @@
 function onLevelStart() {
-	// [Reset Globals]
+	// [Prepare Globals]
 	resetLives();
 	resetCoins();
+	
+	resetHints();
+	
+	resetPath();
+	
 	resetPlacingWizard();
 	resetSelectedWizard();
-	resetPath();
 
 	// [Lay Out Grid Elements]
 	var t = objectStart;
@@ -188,6 +192,7 @@ function onDrawLevelGUI() {
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 	
+	// Stats
 	var statText = "Lives: " + string(getLives())
 		+ "\nCoins: $" + string(getCoins());
 
@@ -202,6 +207,22 @@ function onDrawLevelGUI() {
 		
 		statText
 	);
+	
+	// Hints
+	if (isAnyHints()) {
+		drawSmartTextBox(
+			marginX,
+			marginY,
+			SMART_TEXTBOX_ANCHORS.TOP_LEFT,
+		
+			undefined,
+			0.5,
+			undefined,
+		
+			getHintsString()
+		);
+		resetHints();
+	}
 }
 
 function onWaveAlarm(waveManager) {

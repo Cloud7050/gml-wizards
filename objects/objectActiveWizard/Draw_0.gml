@@ -2,5 +2,11 @@
 
 
 
-if (isThisSelected()) drawOutlinedInstance(self);
-else draw_self();
+if (isThisSelected()) {
+	drawOutlinedInstance(self);
+	
+	//TODO change hint based on merge status
+	addHint(
+		global.CONSTANTS.HINTS.NO_MERGE_UNSELECT_WIZARD
+	);
+} else draw_self();

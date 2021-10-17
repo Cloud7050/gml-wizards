@@ -226,6 +226,16 @@ function getHints() {
 	return global.hints;
 }
 
+function getHintsString() {
+	return joinArray(
+		getHints()
+	);
+}
+
+function isAnyHints() {
+	return array_length(getHints()) > 0;
+}
+
 /// @returns The hints array, reset with only the specified hint
 function setHint(hint) {
 	resetHints();

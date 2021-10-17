@@ -5,6 +5,14 @@ function getStepsPerSecond() {
 	return game_get_speed(gamespeed_fps);
 }
 
+function joinArray(array, glue = "\n") {
+	var outputString = "";
+	for (var index = 0; index < array_length(array); index++) {
+		outputString += string(array[index]);
+	}
+	return outputString;
+}
+
 // [Lives]
 function setLives(lives) {
 	global.lives = lives;
