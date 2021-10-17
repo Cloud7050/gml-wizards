@@ -111,6 +111,8 @@ function markMergeCandidate(activeWizard, mergeDirection) {
 function remarkMergeCandidates(activeWizard) {
 	// Eg in case going from one set to another set, meaning no reset triggered
 	clearMergeCandidates();
+	
+	if (activeWizard.isMaxLevel()) return;
 
 	markMergeCandidate(activeWizard, MERGE_DIRECTIONS.RIGHT);
 	markMergeCandidate(activeWizard, MERGE_DIRECTIONS.DOWN);

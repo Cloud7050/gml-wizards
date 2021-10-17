@@ -42,6 +42,8 @@ function newActiveWizard(wizardData) {
 }
 
 function destroyActiveWizard() {
-	activeWizard.instance_destroy();
+	if (activeWizard.isThisSelected()) resetSelectedWizard();
+
+	instance_destroy(activeWizard);
 	activeWizard = undefined;
 }

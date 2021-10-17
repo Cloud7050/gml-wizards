@@ -72,6 +72,14 @@ function isOffCooldown() {
 	return getCooldownPercentage() >= 100;
 }
 
+function isThisSelected() {
+	return getSelectedWizard() == self;
+}
+
+function isMaxLevel() {
+	return level >= global.CONSTANTS.WIZARDS.LEVEL_CAP;
+}
+
 /// @returns Whether the wizard attacked an available target in range
 function tryAttack() {
 	// Find enemies in range
@@ -102,8 +110,4 @@ function tryAttack() {
 		getDamage()
 	);
 	return true;
-}
-
-function isThisSelected() {
-	return getSelectedWizard() == self;
 }

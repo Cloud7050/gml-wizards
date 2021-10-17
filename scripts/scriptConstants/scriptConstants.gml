@@ -144,6 +144,7 @@ global.CONSTANTS = {
 		NO_MERGE_UNSELECT_WIZARD: "[Hint] If you have another matching wizard in the same row or column, you can merge them!"
 			+ "\nOr, click the wizard again to unselect him",
 		MERGE_OR_UNSELECT_WIZARD: "[Hint] Click another outlined wizard to merge this wizard into him!"
-			+ "\nOr, click the wizard again to unselect him"
+			+ "\nOr, click the wizard again to unselect him",
+		WIZARD_MAX_LEVEL: "[Hint] The wizard is at max level and cannot be merged further. Click him again to unselect"
 	}
 }
