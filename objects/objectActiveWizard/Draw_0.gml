@@ -3,7 +3,11 @@
 
 
 if (isThisSelected()) {
-	drawOutlinedInstance(self);
+	drawOutlinedInstance(
+		self,
+		global.CONSTANTS.UI.WIZARD_OUTLINES.SELECTED.THICKNESS,
+		global.CONSTANTS.UI.WIZARD_OUTLINES.SELECTED.COLOUR
+	);
 
 	var anyMergeCandidates = false;
 	with (objectActiveWizard) {
@@ -20,6 +24,7 @@ if (isThisSelected()) {
 } else if (isMergeCandidate) {
 	drawOutlinedInstance(
 		self,
-		c_blue
+		global.CONSTANTS.UI.WIZARD_OUTLINES.CANDIDATE.THICKNESS,
+		global.CONSTANTS.UI.WIZARD_OUTLINES.CANDIDATE.COLOUR
 	);
 } else draw_self();

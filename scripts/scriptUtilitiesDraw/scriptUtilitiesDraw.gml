@@ -182,8 +182,8 @@ function stopColourDraw() {
 
 function drawOutlinedInstance(
 	instance,
-	outlineColour = c_white,
-	outlineThickness = 4
+	outlineThickness,
+	outlineColour
 ) {
 	startColourDraw(outlineColour);
 

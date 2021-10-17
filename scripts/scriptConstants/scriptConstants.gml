@@ -35,7 +35,17 @@ global.CONSTANTS = {
 			WIDTH: 8,
 			HEIGHT: 64
 		},
-		RANGE_OPACITY: 0.5
+		RANGE_OPACITY: 0.5,
+		WIZARD_OUTLINES: {
+			SELECTED: {
+				THICKNESS: 4,
+				COLOUR: c_white
+			},
+			CANDIDATE: {
+				THICKNESS: 2,
+				COLOUR: c_blue
+			}
+		}
 	},
 	WIZARDS: {
 		LEVEL_CAP: 3,
