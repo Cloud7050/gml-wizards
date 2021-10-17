@@ -40,3 +40,8 @@ function newActiveWizard(wizardData) {
 		wizardData
 	);
 }
+
+function destroyActiveWizard() {
+	activeWizard.instance_destroy();
+	activeWizard = undefined;
+}
