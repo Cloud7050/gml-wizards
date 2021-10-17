@@ -20,7 +20,7 @@ if (
 		objectWizardRange
 	);
 	wizardRange.initialise(
-		wizardData.range
+		getRange()
 	);
 
 	// If "unaware" of click-to-select
