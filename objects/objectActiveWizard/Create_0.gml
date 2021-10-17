@@ -17,6 +17,7 @@ function initialise(
 	self.wizardData = wizardData;
 
 	setLevel(level);
+	// Init after setting sprite
 	initialiseParentCoordinates(
 		sprite_width,
 		sprite_height
@@ -24,6 +25,14 @@ function initialise(
 
 	// Start cooled down
 	stepsWaited = getFireRate();
+	
+	// Store true coords used for attacking before animation
+	attackX = getMidX();
+	attackY = getMidY();
+	
+	// Animate placement, change actual sprite location for matching collision mask
+	placementAnimation = new WizardPlacementAnimation(self);
+	placementAnimation.start();
 }
 
 function setLevel(level) {
@@ -59,8 +68,8 @@ function isOffCooldown() {
 function tryAttack() {
 	// Find enemies in range
 	var enemiesInRange = findEnemiesInCircle(
-		getMidX(),
-		getMidY(),
+		attackX,
+		attackY,
 		getRange()
 	);
 	var enemyCount = array_length(enemiesInRange);

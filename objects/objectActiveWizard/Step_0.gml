@@ -1,4 +1,4 @@
-/// @description Attack. Range display & hint
+/// @description Attack. Range display & hint. Animation
 
 
 
@@ -14,8 +14,8 @@ if (
 	|| isMouseColliding()
 ) {
 	var rangeCircle = instance_create_layer(
-		getMidX(),
-		getMidY(),
+		attackX,
+		attackY,
 		global.CONSTANTS.LAYERS.INSTANCE_ABOVEGROUND,
 		objectWizardRange
 	);
@@ -32,3 +32,6 @@ if (
 		);
 	}
 }
+
+// [Animation]
+placementAnimation.step();

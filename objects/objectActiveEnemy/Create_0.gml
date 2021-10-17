@@ -18,6 +18,7 @@ function initialise(
 	self.enemyData = enemyData;
 
 	sprite_index = enemyData.sprite;
+	// Init after setting sprite
 	initialiseParentCoordinates(
 		sprite_width,
 		sprite_height

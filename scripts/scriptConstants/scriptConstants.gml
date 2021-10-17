@@ -131,8 +131,8 @@ global.CONSTANTS = {
 		CANNOT_AFFORD_WIZARD: "Hint: You cannot afford this wizard right now",
 		CLICK_SELECT_WIZARD: "Hint: Click this wizard to select him",
 		NO_MERGE_UNSELECT_WIZARD: "Hint: If you place another similar wizard in the same row or column, you can merge them!"
-			+ "\nOr, click this wizard again to unselect him",
-		MERGE_OR_UNSELECT_WIZARD: "Hint: Click a green outlined wizard to merge this wizard into him!"
-			+ "\nOr, click this wizard again to unselect him"
+			+ "\nOr, click the wizard again to unselect him",
+		MERGE_OR_UNSELECT_WIZARD: "Hint: Click another outlined wizard to merge this wizard into him!"
+			+ "\nOr, click the wizard again to unselect him"
 	}
 }

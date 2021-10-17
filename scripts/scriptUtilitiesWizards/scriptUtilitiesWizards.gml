@@ -50,6 +50,50 @@ function WizardData(
 	}
 }
 
+function WizardPlacementAnimation(
+	activeWizard
+) constructor {
+	self.activeWizard = activeWizard;
+	
+	stepsAnimated = 0;
+	targetSteps = getStepsPerSecond() / 3;
+	
+	originalY = activeWizard.y;
+	originalOpacity = activeWizard.image_alpha;
+	
+	yOffset = -(activeWizard.sprite_height / 2);
+	opacityOffset = -0.25;
+	
+	function isOver() {
+		return stepsAnimated >= targetSteps;
+	}
+	
+	function animate(exponentialProgress) {
+		var offsetFactor = 1 - exponentialProgress;
+		
+		activeWizard.y = originalY + (offsetFactor * yOffset);
+		activeWizard.image_alpha = originalOpacity + (offsetFactor * opacityOffset);
+	}
+	
+	function start() {
+		animate(0);
+	}
+	
+	function step() {
+		if (isOver()) return;
+		
+		// Animate exponentially
+		var linearProgress = stepsAnimated / max(1, targetSteps - 1);
+		l(linearProgress);
+		var exponentialProgress = power(linearProgress, 2);
+		l(exponentialProgress);
+		animate(exponentialProgress);
+		l();
+		
+		stepsAnimated += 1;
+	}
+}
+
 
 
 /* [Functions] */
