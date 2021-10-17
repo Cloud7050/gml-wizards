@@ -46,7 +46,7 @@ function WizardData(
 	}
 
 	function calculateForLevel(level, baseValue, multiplier) {
-		return baseValue + (multiplier * (level - 1));
+		return baseValue * power(multiplier, level - 1);
 	}
 }
 
