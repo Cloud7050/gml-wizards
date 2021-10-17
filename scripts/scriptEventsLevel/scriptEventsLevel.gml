@@ -7,6 +7,8 @@ function onLevelStart() {
 	
 	resetPath();
 	
+	resetGrid();
+	
 	resetPlacingWizard();
 	resetSelectedWizard();
 
@@ -25,7 +27,7 @@ function onLevelStart() {
 		[s, s, s, s, s, s, s, s, p],
 		[e, p, p, p, p, p, p, p, p]
 	];
-	var instanceGrid = [];
+	var instanceGrid = getGrid();
 
 	var rowCount = array_length(levelGrid);
 	// Assuming there will always be at least 1 row
@@ -60,7 +62,7 @@ function onLevelStart() {
 
 	// Generate throwaway grid of element positions relevent to pathing.
 	// Go in reverse for array allocation optimisation
-	var pathingGrid = [];
+	var pathingGrid = [[]];
 	var startIndexes = new Indexes(0, 0);
 	for (var rowIndex = rowCount - 1; rowIndex >= 0; rowIndex--) {
 		for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {

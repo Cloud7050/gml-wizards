@@ -201,16 +201,13 @@ function drawOutlinedInstance(instance, outlineThickness = 4) {
 }
 
 // [Hints]
-function setHints(hints) {
-	global.hints = hints
-}
 
 /// @returns The reset hints array
 function resetHints() {
 	var hints;
 	if (!variable_global_exists("hints")) {
 		hints = [];
-		setHints(hints);
+		global.hints = hints;
 	} else {
 		hints = getHints();
 		array_delete(

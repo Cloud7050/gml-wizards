@@ -39,3 +39,26 @@ function checkGridBounds(array, indexes) {
 		&& columnIndex < array_length(array[0])
 	);
 }
+
+// [Instance Grid]
+
+/// @returns The reset instance 2D array
+function resetGrid() {
+	var array;
+	if (!variable_global_exists("grid")) {
+		array = [[]];
+		global.grid = array;
+	} else {
+		array = getGrid();
+		array_delete(
+			array,
+			0,
+			array_length(array)
+		);
+	}
+	return array;
+}
+
+function getGrid() {
+	return global.grid;
+}

@@ -46,9 +46,6 @@ function WaveData(
 /* [Functions] */
 
 // [Path]
-function setPath(path) {
-	global.path = path;
-}
 
 /// @returns The reset path
 function resetPath() {
@@ -56,7 +53,7 @@ function resetPath() {
 	if (!variable_global_exists("path")) {
 		path = path_add();
 		path_set_closed(path, false);
-		setPath(path);
+		global.path = path;
 	} else {
 		path = getPath();
 		path_clear_points(path);
