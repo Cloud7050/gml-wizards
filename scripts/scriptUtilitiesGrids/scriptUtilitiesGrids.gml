@@ -116,7 +116,7 @@ function markMergeCandidate(activeWizard, mergeDirection) {
 	}
 }
 
-function markMergeCandidates(activeWizard) {
+function remarkMergeCandidates(activeWizard) {
 	// Eg in case going from one set to another set, meaning no reset triggered
 	clearMergeCandidates();
 	

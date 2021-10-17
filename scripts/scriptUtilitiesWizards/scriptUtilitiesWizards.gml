@@ -83,7 +83,7 @@ function setSelectedWizard(activeWizard) {
 
 	global.selectedActiveWizard = activeWizard;
 	
-	markMergeCandidates(activeWizard);
+	remarkMergeCandidates(activeWizard);
 }
 
 function resetSelectedWizard() {
