@@ -6,6 +6,7 @@
     {"id":{"name":"spriteStart","path":"sprites/spriteStart/spriteStart.yy",},"order":6,},
     {"id":{"name":"spriteWizard2L3","path":"sprites/spriteWizard2L3/spriteWizard2L3.yy",},"order":9,},
     {"id":{"name":"fontGUI","path":"fonts/fontGUI/fontGUI.yy",},"order":0,},
+    {"id":{"name":"objectParticleMergingWizard","path":"objects/objectParticleMergingWizard/objectParticleMergingWizard.yy",},"order":0,},
     {"id":{"name":"spriteEnd","path":"sprites/spriteEnd/spriteEnd.yy",},"order":7,},
     {"id":{"name":"spriteBackground","path":"sprites/spriteBackground/spriteBackground.yy",},"order":0,},
     {"id":{"name":"objectSpace","path":"objects/objectSpace/objectSpace.yy",},"order":0,},
@@ -85,6 +86,7 @@
     {"folderPath":"folders/Objects/Meta.yy","order":10,"resourceVersion":"1.0","name":"Meta","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Utilities.yy","order":10,"resourceVersion":"1.0","name":"Utilities","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Events.yy","order":11,"resourceVersion":"1.0","name":"Events","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/Particle.yy","order":12,"resourceVersion":"1.0","name":"Particle","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

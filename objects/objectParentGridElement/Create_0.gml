@@ -12,6 +12,14 @@ initialiseParentCoordinates(
 
 
 
+/* [Child] */
+
+function onCheckBlocksMerging() {
+	return true;
+}
+
+
+
 /* [Methods] */
 
 function initialiseParentGridElement(
@@ -21,5 +29,5 @@ function initialiseParentGridElement(
 }
 
 function isBlocksMerging() {
-	return true;
+	return onCheckBlocksMerging();
 }

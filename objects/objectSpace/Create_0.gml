@@ -6,7 +6,7 @@
 
 event_inherited();
 
-function isBlocksMerging() {
+function onCheckBlocksMerging() {
 	return !isEmpty();
 }
 

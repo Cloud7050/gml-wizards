@@ -9,11 +9,23 @@ if (isThisSelected()) {
 	isWizardSelected()
 	&& isMergeCandidate
 ) {
+	// Merge in animation
+	var selectedWizard = getSelectedWizard();
+	animationWrapper.startReplacementAnimation(
+		new WizardMergeInAnimation(
+			self,
+			selectedWizard
+		)
+	);
+	
 	// Destroy selected
-	getSelectedWizard().destroy();
+	selectedWizard.destroy();
 	
 	// Own level for merge
-	setLevel(level + 1);
+	setLevel(
+		level + 1,
+		false
+	);
 } else {
 	// Select / overwrite previous wizard
 	setSelectedWizard(self);

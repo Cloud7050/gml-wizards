@@ -189,11 +189,16 @@ function drawOutlinedInstance(
 
 	for (var xOffset = -outlineThickness; xOffset <= outlineThickness; xOffset++) {
 		for (var yOffset = -outlineThickness; yOffset <= outlineThickness; yOffset++) {
-			draw_sprite(
+			draw_sprite_ext(
 				instance.sprite_index,
 				0,
 				instance.x + xOffset,
-				instance.y + yOffset
+				instance.y + yOffset,
+				image_xscale,
+				image_yscale,
+				image_angle,
+				image_blend,
+				1
 			);
 		}
 	}

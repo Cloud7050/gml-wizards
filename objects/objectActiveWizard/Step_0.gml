@@ -1,4 +1,4 @@
-/// @description Attack. Range display & hint. Animation
+/// @description Attack. Range display & hint. Animate
 
 
 
@@ -34,4 +34,4 @@ if (
 }
 
 // [Animation]
-placementAnimation.step();
+animationWrapper.step();

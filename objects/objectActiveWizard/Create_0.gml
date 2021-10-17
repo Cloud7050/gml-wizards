@@ -12,6 +12,8 @@ event_inherited();
 
 isMergeCandidate = false;
 
+animationWrapper = new AnimationWrapper();
+
 
 
 /* [Methods] */
@@ -34,19 +36,31 @@ function initialise(
 	// Start cooled down
 	stepsWaited = getFireRate();
 	
-	// Store true coords used for attacking before animation
+	// Store true coords used for attacking before animation.
+	// Live sprite location will change for things like matching collision mask
 	attackX = getMidX();
 	attackY = getMidY();
 	
-	// Animate placement, change actual sprite location for matching collision mask
-	placementAnimation = new WizardPlacementAnimation(self);
-	placementAnimation.start();
+	// Placement animation
+	animationWrapper.startReplacementAnimation(
+		new WizardPlacementAnimation(self)
+	);
 }
 
-function setLevel(level) {
-	self.level = level;
+function getLevelSprite() {
+	return wizardData.levelSprites[level - 1];
+}
 
-	sprite_index = wizardData.levelSprites[level - 1];
+function refreshSprite() {
+	sprite_index = getLevelSprite();
+}
+
+function setLevel(
+	newLevel,
+	doRefresh = true
+) {
+	level = newLevel;
+	if (doRefresh) refreshSprite();
 }
 
 function getDamage() {

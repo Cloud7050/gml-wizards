@@ -1,9 +1,52 @@
 /* [Classes] */
 
-function BaseAnimation(targetSeconds) constructor {
-	stepsAnimated = 0;
-	targetSteps = getStepsPerSecond() * targetSeconds;
+function AnimationWrapper() constructor {
+	currentAnimation = undefined;
 	
+	function isAnimating() {
+		return currentAnimation != undefined;
+	}
+	
+	function step() {
+		if (!isAnimating()) return;
+		
+		currentAnimation.step();
+		if (currentAnimation.isOver()) currentAnimation = undefined;
+	}
+	
+	function startReplacementAnimation(newAnimation) {
+		if (isAnimating()) currentAnimation.cancel();
+		
+		newAnimation.start();
+		currentAnimation = newAnimation;
+	}
+}
+
+enum ANIMATION_PROGRESS_TYPE {
+	LINEAR,
+	EXPONENTIAL,
+	SLOWING
+}
+
+function BaseAnimation(
+	targetSeconds,
+	progressType
+) constructor {
+	targetSteps = getStepsPerSecond() * targetSeconds;
+	self.progressType = progressType;
+	
+	stepsAnimated = 0;
+	
+	// [Child]
+	function onStart() {}
+	
+	function onStep(progress) {}
+	
+	function onCancel() {}
+	
+	function onEnd() {}
+	
+	// [Methods]
 	function flipProgress(progress) {
 		return 1 - progress;
 	}
@@ -37,33 +80,36 @@ function BaseAnimation(targetSeconds) constructor {
 		return flipProgress(backwardsExponentialProgress);
 	}
 	
-	function forceOver() {
-		stepsAnimated = targetSeconds;
-	}
-	
-	function incrementProgress() {
-		stepsAnimated++;
-	}
-	
 	function isOver() {
 		return stepsAnimated >= targetSteps;
 	}
 	
-	function start() {}
+	function start() {
+		onStart();
+	}
 	
 	function step() {
-		if (!isOver()) incrementProgress();
+		if (progressType == ANIMATION_PROGRESS_TYPE.LINEAR) onStep(getLinearProgress());
+		else if (progressType == ANIMATION_PROGRESS_TYPE.EXPONENTIAL) onStep(getExponentialProgress());
+		else onStep(getSlowingProgress());
+
+		stepsAnimated++;
+		if (isOver()) onEnd();
 	}
 	
 	function cancel() {
-		forceOver();
+		onCancel();
+		
+		stepsAnimated = targetSteps;
+		onEnd();
 	}
 }
 
 function WizardPlacementAnimation(
 	activeWizard
 ) : BaseAnimation(
-	0.33
+	0.33,
+	ANIMATION_PROGRESS_TYPE.EXPONENTIAL
 ) constructor {
 	self.activeWizard = activeWizard;
 
@@ -73,34 +119,78 @@ function WizardPlacementAnimation(
 	originalYScale = activeWizard.image_yscale;
 
 	yOffset = -(activeWizard.sprite_height / 2);
-	opacityOffset = -0.75;
-	xScaleOffset = -0.25;
-	yScaleOffset = -0.25;
 
-	function matchAnimationProgress(progress) {
-		var offsetFactor = 1 - progress;
-
-		activeWizard.y = originalY + (offsetFactor * yOffset);
-		activeWizard.image_alpha = originalOpacity + (offsetFactor * opacityOffset);
-		activeWizard.image_xscale = originalXScale + (offsetFactor * xScaleOffset);
-		activeWizard.image_yscale = originalYScale + (offsetFactor * yScaleOffset);
-	}
-
-	function start() {
-		matchAnimationProgress(0);
-	}
-
-	function step() {
-		if (isOver()) return;
-
-		matchAnimationProgress(getExponentialProgress());
-
-		incrementProgress();
+	// [Parent]
+	function onStart() {
+		matchProgress(0);
 	}
 	
-	function cancel() {
-		matchAnimationProgress(1);
+	function onStep(progress) {
+		matchProgress(progress);
+	}
+	
+	function onCancel() {
+		matchProgress(1);
+	}
+	
+	// [Methods]
+	function matchProgress(progress) {
+		var offsetFactor = 1 - progress;
+		activeWizard.y = originalY + (offsetFactor * yOffset);
+		activeWizard.image_alpha = originalOpacity + (offsetFactor * -0.75);
 		
-		forceOver();
+		var scaleOffset = offsetFactor * -0.25;
+		activeWizard.image_xscale = originalXScale + scaleOffset;
+		activeWizard.image_yscale = originalYScale + scaleOffset;
+	}
+}
+
+function WizardMergeInAnimation(
+	activeWizard,
+	ephemeralSacrifice
+) : BaseAnimation(
+	0.5,
+	ANIMATION_PROGRESS_TYPE.EXPONENTIAL
+) constructor {
+	self.activeWizard = activeWizard;
+	
+	startX = ephemeralSacrifice.attackX;
+	startY = ephemeralSacrifice.attackY;
+	sprite = ephemeralSacrifice.getLevelSprite();
+	rotation = ephemeralSacrifice.image_angle;
+	
+	// [Parent]
+	function onStart() {
+		matchProgress(0);
+	}
+	
+	function onStep(progress) {
+		matchProgress(progress);
+	}
+	
+	function onCancel() {
+		matchProgress(1);
+	}
+	
+	function onEnd() {
+		activeWizard.refreshSprite();
+		//TODO trigger next animation via activeWizard
+	}
+	
+	// [Methods]
+	function matchProgress(progress) {
+		rotation -= 15;
+		
+		var particleMergingWizard = instance_create_layer(
+			lerp(startX, activeWizard.attackX, progress),
+			lerp(startY, activeWizard.attackY, progress),
+			global.CONSTANTS.LAYERS.INSTANCE_PARTICLES,
+			objectParticleMergingWizard
+		);
+		particleMergingWizard.initialise(
+			sprite,
+			lerp(1, 0.5, progress),
+			rotation
+		);
 	}
 }
