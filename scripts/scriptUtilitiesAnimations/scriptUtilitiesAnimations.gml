@@ -8,9 +8,13 @@ function WizardPlacementAnimation(
 
 	originalY = activeWizard.y;
 	originalOpacity = activeWizard.image_alpha;
+	originalXScale = activeWizard.image_xscale;
+	originalYScale = activeWizard.image_yscale;
 
 	yOffset = -(activeWizard.sprite_height / 2);
 	opacityOffset = -0.75;
+	xScaleOffset = -0.25;
+	yScaleOffset = -0.25;
 
 	function isOver() {
 		return stepsAnimated >= targetSteps;
@@ -21,6 +25,8 @@ function WizardPlacementAnimation(
 
 		activeWizard.y = originalY + (offsetFactor * yOffset);
 		activeWizard.image_alpha = originalOpacity + (offsetFactor * opacityOffset);
+		activeWizard.image_xscale = originalXScale + (offsetFactor * xScaleOffset);
+		activeWizard.image_yscale = originalYScale + (offsetFactor * yScaleOffset);
 	}
 
 	function start() {
