@@ -31,6 +31,7 @@
     {"id":{"name":"objectMetaBattlefield","path":"objects/objectMetaBattlefield/objectMetaBattlefield.yy",},"order":0,},
     {"id":{"name":"scriptUtilities","path":"scripts/scriptUtilities/scriptUtilities.yy",},"order":5,},
     {"id":{"name":"objectActiveWizard","path":"objects/objectActiveWizard/objectActiveWizard.yy",},"order":3,},
+    {"id":{"name":"scriptUtilitiesAnimations","path":"scripts/scriptUtilitiesAnimations/scriptUtilitiesAnimations.yy",},"order":7,},
     {"id":{"name":"spriteWizard4L1","path":"sprites/spriteWizard4L1/spriteWizard4L1.yy",},"order":12,},
     {"id":{"name":"scriptUtilitiesWizards","path":"scripts/scriptUtilitiesWizards/scriptUtilitiesWizards.yy",},"order":4,},
     {"id":{"name":"spriteEnemy1","path":"sprites/spriteEnemy1/spriteEnemy1.yy",},"order":17,},
