@@ -16,11 +16,14 @@ image_blend = merge_colour(
 /* [Methods] */
 function initialise(
 	sprite,
-	scale,
-	rotation
+	rotation,
+	
+	xScale,
+	yScale
 ) {
 	sprite_index = sprite;
-	image_xscale = scale;
-	image_yscale = scale;
 	image_angle = rotation;
+	
+	image_xscale = xScale;
+	image_yscale = yScale;
 }

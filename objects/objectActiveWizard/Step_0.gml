@@ -13,13 +13,13 @@ if (
 	isThisSelected()
 	|| isMouseColliding()
 ) {
-	var wizardRange = instance_create_layer(
+	var flashWizardRange = instance_create_layer(
 		attackX,
 		attackY,
 		global.CONSTANTS.LAYERS.INSTANCE_ABOVEGROUND,
-		objectWizardRange
+		objectFlashWizardRange
 	);
-	wizardRange.initialise(
+	flashWizardRange.initialise(
 		getRange()
 	);
 

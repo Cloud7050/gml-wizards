@@ -28,7 +28,7 @@
     "path": "folders/Objects/Particle.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objectParticleMergingWizard",
+  "name": "objectFlashMergeWizard",
   "tags": [],
   "resourceType": "GMObject",
 }
