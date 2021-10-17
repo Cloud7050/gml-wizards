@@ -155,7 +155,7 @@ function drawSmartTextBox(
 		text,
 		textColour,
 		textFont,
-		undefined,
+		false,
 
 		outlineThickness,
 		outlineColour
