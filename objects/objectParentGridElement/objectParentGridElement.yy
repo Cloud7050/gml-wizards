@@ -1,15 +1,12 @@
 {
-  "spriteId": {
-    "name": "spriteEnd",
-    "path": "sprites/spriteEnd/spriteEnd.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objectParentGridElement",
-    "path": "objects/objectParentGridElement/objectParentGridElement.yy",
+    "name": "objectParentCoordinates",
+    "path": "objects/objectParentCoordinates/objectParentCoordinates.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -29,11 +26,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Parent",
+    "path": "folders/Objects/Parent.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objectEnd",
+  "name": "objectParentGridElement",
   "tags": [],
   "resourceType": "GMObject",
 }

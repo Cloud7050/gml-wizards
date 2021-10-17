@@ -5,7 +5,17 @@
 /* [Parent] */
 
 event_inherited();
-initialiseParentCoordinates(
-	sprite_width,
-	sprite_height
-);
+
+
+
+/* [Methods] */
+
+function initialise(
+	rowIndex,
+	columnIndex
+) {
+	initialiseParentGridElement(
+		rowIndex,
+		columnIndex
+	);
+}

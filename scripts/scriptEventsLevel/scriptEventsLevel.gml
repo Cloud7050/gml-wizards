@@ -2,13 +2,13 @@ function onLevelStart() {
 	// [Prepare Globals]
 	resetLives();
 	resetCoins();
-	
+
 	resetHints();
-	
+
 	resetPath();
-	
+
 	resetGrid();
-	
+
 	resetPlacingWizard();
 	resetSelectedWizard();
 
@@ -27,7 +27,6 @@ function onLevelStart() {
 		[s, s, s, s, s, s, s, s, p],
 		[e, p, p, p, p, p, p, p, p]
 	];
-	var instanceGrid = getGrid();
 
 	var rowCount = array_length(levelGrid);
 	// Assuming there will always be at least 1 row
@@ -50,15 +49,29 @@ function onLevelStart() {
 			var currentX = startX + (columnIndex * elementWidth);
 			var currentY = startY + (rowIndex * elementHeight);
 
-			var elementInstance = instance_create_layer(
+			var gridElement = instance_create_layer(
 				currentX,
 				currentY,
 				global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
 				levelGrid[rowIndex][columnIndex]
 			);
-			instanceGrid[rowIndex][columnIndex] = elementInstance;
+			gridElement.initialise(
+				rowIndex,
+				columnIndex
+			);
+
+			setGridElement(
+				rowIndex,
+				columnIndex,
+				gridElement
+			);
+			//FIXME
+			// instanceGrid[@ rowIndex][@ columnIndex] = elementInstance;
 		}
 	}
+	//FIXME
+	// l(instanceGrid);
+	l(getGrid());
 
 	// Generate throwaway grid of element positions relevent to pathing.
 	// Go in reverse for array allocation optimisation
@@ -82,7 +95,9 @@ function onLevelStart() {
 	var path = getPath();
 	while (true) {
 		// Add coords to path
-		var relevantInstance = instanceGrid[navigatingIndexes.rowIndex][navigatingIndexes.columnIndex];
+		//FIXME
+		// var relevantInstance = instanceGrid[@ navigatingIndexes.rowIndex][@ navigatingIndexes.columnIndex];
+		var relevantInstance = getGridElement(navigatingIndexes);
 		path_add_point(
 			path,
 			relevantInstance.getMidX(),
@@ -100,23 +115,21 @@ function onLevelStart() {
 		var isElementRelevant;
 		for (var indexesIndex = 0; indexesIndex < array_length(adjacentIndexesArray); indexesIndex++) {
 			var adjacentIndexes = adjacentIndexesArray[indexesIndex];
-			if (checkGridBounds(
+			if (!checkGridBounds(
 				pathingGrid,
 				adjacentIndexes
-			)) {
-				isElementRelevant = pathingGrid[adjacentIndexes.rowIndex][adjacentIndexes.columnIndex];
-				if (isElementRelevant) {
-					// Ditch navigated element position to not backtrack
-					pathingGrid[navigatingIndexes.rowIndex][navigatingIndexes.columnIndex] = false;
+			)) continue;
 
-					navigatingIndexes = adjacentIndexes;
-					break;
-				}
-			}
+			isElementRelevant = pathingGrid[adjacentIndexes.rowIndex][adjacentIndexes.columnIndex];
+			if (!isElementRelevant) continue;
+
+			// Ditch navigated element position to not backtrack
+			pathingGrid[navigatingIndexes.rowIndex][navigatingIndexes.columnIndex] = false;
+
+			navigatingIndexes = adjacentIndexes;
+			break;
 		}
-		if (isElementRelevant) {
-			continue;
-		}
+		if (isElementRelevant) continue;
 
 		// Break if dead end; found no adjacent relevant element position, navigated till end of path
 		break;
@@ -193,7 +206,7 @@ function onLevelStart() {
 function onDrawLevelGUI() {
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-	
+
 	// Stats
 	var statText = "Lives: " + string(getLives())
 		+ "\nCoins: $" + string(getCoins());
@@ -202,25 +215,25 @@ function onDrawLevelGUI() {
 		room_width - marginX,
 		marginY,
 		SMART_TEXTBOX_ANCHORS.TOP_RIGHT,
-		
+
 		undefined,
 		0.5,
 		undefined,
-		
+
 		statText
 	);
-	
+
 	// Hints
 	if (isAnyHints()) {
 		drawSmartTextBox(
 			marginX,
 			marginY,
 			SMART_TEXTBOX_ANCHORS.TOP_LEFT,
-		
+
 			undefined,
 			0.5,
 			undefined,
-		
+
 			getHintsString()
 		);
 		resetHints();

@@ -8,12 +8,20 @@ event_inherited();
 
 
 
+/* [Instance Variables] */
+
+isMergeCandidate = false;
+
+
+
 /* [Methods] */
 
 function initialise(
+	space,
 	wizardData,
 	level = 1
 ) {
+	self.space = space;
 	self.wizardData = wizardData;
 
 	setLevel(level);

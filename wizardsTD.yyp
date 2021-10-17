@@ -36,6 +36,7 @@
     {"id":{"name":"spriteEnemy1","path":"sprites/spriteEnemy1/spriteEnemy1.yy",},"order":17,},
     {"id":{"name":"scriptConstants","path":"scripts/scriptConstants/scriptConstants.yy",},"order":1,},
     {"id":{"name":"objectWizardButton","path":"objects/objectWizardButton/objectWizardButton.yy",},"order":2,},
+    {"id":{"name":"objectParentGridElement","path":"objects/objectParentGridElement/objectParentGridElement.yy",},"order":1,},
     {"id":{"name":"spritePath","path":"sprites/spritePath/spritePath.yy",},"order":5,},
     {"id":{"name":"scriptUtilitiesDebug","path":"scripts/scriptUtilitiesDebug/scriptUtilitiesDebug.yy",},"order":0,},
     {"id":{"name":"scriptUtilitiesDraw","path":"scripts/scriptUtilitiesDraw/scriptUtilitiesDraw.yy",},"order":1,},

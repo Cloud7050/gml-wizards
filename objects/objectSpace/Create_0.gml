@@ -5,10 +5,6 @@
 /* [Parent] */
 
 event_inherited();
-initialiseParentCoordinates(
-	sprite_width,
-	sprite_height
-);
 
 
 
@@ -19,6 +15,16 @@ activeWizard = undefined;
 
 
 /* [Methods] */
+
+function initialise(
+	rowIndex,
+	columnIndex
+) {
+	initialiseParentGridElement(
+		rowIndex,
+		columnIndex
+	);
+}
 
 function isEmpty() {
 	return activeWizard == undefined;
@@ -31,5 +37,8 @@ function newActiveWizard(wizardData) {
 		global.CONSTANTS.LAYERS.INSTANCE_WIZARDS,
 		objectActiveWizard
 	);
-	activeWizard.initialise(wizardData);
+	activeWizard.initialise(
+		self,
+		wizardData
+	);
 }

@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objectParentCoordinates",
-    "path": "objects/objectParentCoordinates/objectParentCoordinates.yy",
+    "name": "objectParentGridElement",
+    "path": "objects/objectParentGridElement/objectParentGridElement.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

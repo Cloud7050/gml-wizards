@@ -180,8 +180,12 @@ function stopColourDraw() {
 	gpu_set_fog(fogSettings);
 }
 
-function drawOutlinedInstance(instance, outlineThickness = 4) {
-	startColourDraw();
+function drawOutlinedInstance(
+	instance,
+	outlineColour = c_white,
+	outlineThickness = 4
+) {
+	startColourDraw(outlineColour);
 
 	for (var xOffset = -outlineThickness; xOffset <= outlineThickness; xOffset++) {
 		for (var yOffset = -outlineThickness; yOffset <= outlineThickness; yOffset++) {

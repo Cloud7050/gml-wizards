@@ -123,10 +123,14 @@ function setSelectedWizard(activeWizard) {
 	resetPlacingWizard();
 
 	global.selectedActiveWizard = activeWizard;
+	
+	markMergeCandidates(activeWizard);
 }
 
 function resetSelectedWizard() {
 	global.selectedActiveWizard = undefined;
+	
+	clearMergeCandidates();
 }
 
 function getSelectedWizard() {

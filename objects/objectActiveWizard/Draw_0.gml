@@ -4,9 +4,22 @@
 
 if (isThisSelected()) {
 	drawOutlinedInstance(self);
-	
-	//TODO change hint based on merge status
+
+	var anyMergeCandidates = false;
+	with (objectActiveWizard) {
+		if (!anyMergeCandidates) anyMergeCandidates = isMergeCandidate;
+		//FIXME
+		// anyMergeCandidates = anyMergeCandidates || isMergeCandidate;
+	}
+
 	addHint(
-		global.CONSTANTS.HINTS.NO_MERGE_UNSELECT_WIZARD
+		anyMergeCandidates
+			? global.CONSTANTS.HINTS.MERGE_OR_UNSELECT_WIZARD
+			: global.CONSTANTS.HINTS.NO_MERGE_UNSELECT_WIZARD
+	);
+} else if (isMergeCandidate) {
+	drawOutlinedInstance(
+		self,
+		c_blue
 	);
 } else draw_self();
