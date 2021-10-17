@@ -117,7 +117,7 @@ function isPlacingWizard() {
 }
 
 // [Selected Active Wizard]
-// The objectActiveWizard the player selected via spaces to perform actions
+// The objectActiveWizard the player clicked to perform actions
 
 function setSelectedWizard(activeWizard) {
 	resetPlacingWizard();
