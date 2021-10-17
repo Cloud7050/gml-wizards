@@ -1,10 +1,71 @@
+/* [Classes] */
+
+function BaseAnimation(targetSeconds) constructor {
+	stepsAnimated = 0;
+	targetSteps = getStepsPerSecond() * targetSeconds;
+	
+	function flipProgress(progress) {
+		return 1 - progress;
+	}
+	
+	function powerProgress(
+		progress,
+		exponent = 3
+	) {
+		return power(progress, exponent);
+	}
+	
+	function getLinearProgress() {
+		return stepsAnimated / max(1, targetSteps - 1);
+	}
+	
+	function getExponentialProgress() {
+		return powerProgress(getLinearProgress());
+	}
+	
+	function getSlowingProgress() {
+		// Want to flip it from back to front,
+		// which in this case is the same as flipping it upside down
+		var backwardsLinearProgress = flipProgress(getLinearProgress());
+		
+		// Convert back-to-front linear progress to back-to-front exponential.
+		// Starts complete and rapidly drops
+		var backwardsExponentialProgress = powerProgress(backwardsLinearProgress);
+		
+		// Flip back-to-front exponential progress.
+		// Starts empty with decreasing acceleration
+		return flipProgress(backwardsExponentialProgress);
+	}
+	
+	function forceOver() {
+		stepsAnimated = targetSeconds;
+	}
+	
+	function incrementProgress() {
+		stepsAnimated++;
+	}
+	
+	function isOver() {
+		return stepsAnimated >= targetSteps;
+	}
+	
+	function start() {}
+	
+	function step() {
+		if (!isOver()) incrementProgress();
+	}
+	
+	function cancel() {
+		forceOver();
+	}
+}
+
 function WizardPlacementAnimation(
 	activeWizard
+) : BaseAnimation(
+	0.33
 ) constructor {
 	self.activeWizard = activeWizard;
-
-	stepsAnimated = 0;
-	targetSteps = getStepsPerSecond() / 3;
 
 	originalY = activeWizard.y;
 	originalOpacity = activeWizard.image_alpha;
@@ -16,12 +77,8 @@ function WizardPlacementAnimation(
 	xScaleOffset = -0.25;
 	yScaleOffset = -0.25;
 
-	function isOver() {
-		return stepsAnimated >= targetSteps;
-	}
-
-	function matchAnimationProgress(exponentialProgress) {
-		var offsetFactor = 1 - exponentialProgress;
+	function matchAnimationProgress(progress) {
+		var offsetFactor = 1 - progress;
 
 		activeWizard.y = originalY + (offsetFactor * yOffset);
 		activeWizard.image_alpha = originalOpacity + (offsetFactor * opacityOffset);
@@ -36,11 +93,14 @@ function WizardPlacementAnimation(
 	function step() {
 		if (isOver()) return;
 
-		// Animate exponentially
-		var linearProgress = stepsAnimated / max(1, targetSteps - 1);
-		var exponentialProgress = power(linearProgress, 2);
-		matchAnimationProgress(exponentialProgress);
+		matchAnimationProgress(getExponentialProgress());
 
-		stepsAnimated += 1;
+		incrementProgress();
+	}
+	
+	function cancel() {
+		matchAnimationProgress(1);
+		
+		forceOver();
 	}
 }

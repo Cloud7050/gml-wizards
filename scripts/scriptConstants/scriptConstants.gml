@@ -9,12 +9,13 @@ global.CONSTANTS = {
 	LAYERS: {
 		INSTANCE_DISPLAY: "display",
 		INSTANCE_META: "meta",
+		INSTANCE_PARTICLES: "particles",
 		INSTANCE_WIZARDS: "wizards",
 		INSTANCE_ENEMIES: "enemies",
 		INSTANCE_ABOVEGROUND: "aboveground",
 		INSTANCE_FRAMEWORK: "framework",
 
-		INSTANCE_BACKGROUND: "background"
+		BACKGROUND: "background"
 	},
 	DEFAULTS: {
 		LIVES: 10,
