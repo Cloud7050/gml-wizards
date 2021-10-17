@@ -8,6 +8,7 @@ function getStepsPerSecond() {
 function joinArray(array, glue = "\n") {
 	var outputString = "";
 	for (var index = 0; index < array_length(array); index++) {
+		if (index != 0) outputString += glue;
 		outputString += string(array[index]);
 	}
 	return outputString;
