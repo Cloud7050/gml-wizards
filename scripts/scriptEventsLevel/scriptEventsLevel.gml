@@ -206,6 +206,8 @@ function onLevelStart() {
 function onDrawLevelGUI() {
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	
+	var opacity = global.CONSTANTS.UI.PANEL_OPACITY;
 
 	// Stats
 	var statText = "Lives: " + string(getLives())
@@ -217,7 +219,7 @@ function onDrawLevelGUI() {
 		SMART_TEXTBOX_ANCHORS.TOP_RIGHT,
 
 		undefined,
-		0.5,
+		opacity,
 		undefined,
 
 		statText
@@ -231,7 +233,7 @@ function onDrawLevelGUI() {
 			SMART_TEXTBOX_ANCHORS.TOP_LEFT,
 
 			undefined,
-			0.5,
+			opacity,
 			undefined,
 
 			getHintsString()
