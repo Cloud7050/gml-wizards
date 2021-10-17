@@ -76,8 +76,8 @@ function drawTextBox(
 	draw_set_halign(isCentreNotLeft ? fa_center : fa_left);
 	draw_set_valign(fa_middle);
 	draw_text(
-		isCentreNotLeft ? lerp(startX, endX, 0.5) : startX + outlineThickness + global.CONSTANTS.UI.MARGIN_X,
-		lerp(startY, endY, 0.5),
+		isCentreNotLeft ? mid(startX, endX) : startX + outlineThickness + global.CONSTANTS.UI.MARGIN_X,
+		mid(startY, endY),
 		text
 	);
 }

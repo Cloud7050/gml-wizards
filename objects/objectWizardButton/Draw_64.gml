@@ -3,8 +3,8 @@
 
 
 drawTextBox(
-	x,
-	y,
+	getStartX(),
+	getStartY(),
 	getEndX(),
 	getEndY(),
 

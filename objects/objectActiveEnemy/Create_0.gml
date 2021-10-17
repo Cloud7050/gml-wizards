@@ -11,9 +11,7 @@ event_inherited();
 /* [Methods] */
 
 function initialise(
-	enemyData,
-	centreX,
-	centreY
+	enemyData
 ) {
 	self.enemyData = enemyData;
 
@@ -24,10 +22,6 @@ function initialise(
 		sprite_height
 	);
 
-	// Correct own coordinates based on sprite
-	x = centreX - (width / 2);
-	y = centreY - (height / 2);
-
 	// self due to old global
 	self.health = getMaxHealth();
 }
@@ -36,8 +30,12 @@ function getMaxHealth() {
 	return enemyData.health;
 }
 
+function getHealthPercentage() {
+	return self.health / getMaxHealth() * 100;
+}
+
 function followPath(path) {
-	path_start(path, enemyData.speed, path_action_stop, false);
+	path_start(path, enemyData.speed, path_action_stop, true);
 }
 
 function takeDamage(damage) {

@@ -16,20 +16,28 @@ function initialiseParentCoordinates(
 	self.useGUICoordinates = useGUICoordinates;
 }
 
+function getStartX() {
+	return x - sprite_xoffset;
+}
+
+function getStartY() {
+	return y - sprite_yoffset;
+}
+
 function getEndX() {
-	return x + width;
+	return getStartX() + width;
 }
 
 function getEndY() {
-	return y + height;
+	return getStartY() + height;
 }
 
 function getMidX() {
-	return lerp(x, getEndX(), 0.5);
+	return mid(getStartX(), getEndX());
 }
 
 function getMidY() {
-	return lerp(y, getEndY(), 0.5);
+	return mid(getStartY(), getEndY());
 }
 
 function isMouseWithin() {
@@ -41,9 +49,9 @@ function isMouseWithin() {
 	// don't want to count as in multiple adjacent instances at once,
 	// unlike point_in_rectangle()
 	return (
-		mouseX >= x
+		mouseX >= getStartX()
 		&& mouseX < getEndX()
-		&& mouseY >= y
+		&& mouseY >= getStartY()
 		&& mouseY < getEndY()
 	);
 }

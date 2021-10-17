@@ -4,9 +4,8 @@
 
 if (!isMouseWithin()) return;
 
-if (isPlacingThis()) {
-	resetPlacingWizard();
-} else {
+if (isPlacingThis()) resetPlacingWizard();
+else {
 	// Select / overwrite previous wizard
 	setPlacingWizard(wizardData);
 }

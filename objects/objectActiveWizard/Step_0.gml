@@ -13,16 +13,16 @@ if (
 	isThisSelected()
 	|| isMouseColliding()
 ) {
-	var rangeCircle = instance_create_layer(
+	var wizardRange = instance_create_layer(
 		attackX,
 		attackY,
 		global.CONSTANTS.LAYERS.INSTANCE_ABOVEGROUND,
 		objectWizardRange
 	);
-	rangeCircle.initialise(
+	wizardRange.initialise(
 		wizardData.range
 	);
-	
+
 	// If "unaware" of click-to-select
 	// (displaying range not due to selecting this,
 	// but due to hover)

@@ -7,14 +7,14 @@ if (isOffCooldown()) return;
 var barWidth = global.CONSTANTS.UI.CHARGEUP_BARS.WIDTH;
 var barHeight = global.CONSTANTS.UI.CHARGEUP_BARS.HEIGHT;
 
-var rightX = getEndX();
-var topY = getMidY() - (barHeight / 2);
+var endX = getEndX();
+var startY = getMidY() - (barHeight / 2);
 
 draw_healthbar(
-	rightX - barWidth,
-	topY,
-	rightX,
-	topY + barHeight,
+	endX - barWidth,
+	startY,
+	endX,
+	startY + barHeight,
 	getCooldownPercentage(),
 	c_black,
 	c_aqua,

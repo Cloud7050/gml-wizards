@@ -118,3 +118,11 @@ function tryAttack() {
 	);
 	return true;
 }
+
+function destroy() {
+	if (isThisSelected()) resetSelectedWizard();
+
+	space.activeWizard = undefined;
+	
+	instance_destroy();
+}

@@ -11,13 +11,13 @@ if (
 // Create preview
 var placingWizardData = getPlacingWizard();
 
-var rangeCircle = instance_create_layer(
+var wizardRange = instance_create_layer(
 	getMidX(),
 	getMidY(),
 	global.CONSTANTS.LAYERS.INSTANCE_ABOVEGROUND,
 	objectWizardRange
 );
-rangeCircle.initialise(
+wizardRange.initialise(
 	placingWizardData.range,
 	placingWizardData.levelSprites[0]
 );

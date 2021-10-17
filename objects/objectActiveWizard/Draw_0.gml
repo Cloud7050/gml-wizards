@@ -10,13 +10,8 @@ if (isThisSelected()) {
 	);
 
 	if (!isMaxLevel()) {
-		var anyMergeCandidates = false;
-		with (objectActiveWizard) {
-			if (!anyMergeCandidates) anyMergeCandidates = isMergeCandidate;
-		}
-
 		addHint(
-			anyMergeCandidates
+			anyMergeCandidates()
 				? global.CONSTANTS.HINTS.MERGE_OR_UNSELECT_WIZARD
 				: global.CONSTANTS.HINTS.NO_MERGE_UNSELECT_WIZARD
 		);

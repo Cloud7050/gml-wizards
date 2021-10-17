@@ -14,6 +14,10 @@ function joinArray(array, glue = "\n") {
 	return outputString;
 }
 
+function mid(a, b) {
+	return lerp(a, b, 0.5);
+}
+
 // [Lives]
 function setLives(lives) {
 	global.lives = lives;

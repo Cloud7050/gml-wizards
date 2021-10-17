@@ -5,7 +5,7 @@
 /* [Instance Variables] */
 
 waves = [];
-waveIndex = 0;
+waveIndex = -1;
 waveSpawnedCount = 0;
 
 
@@ -17,9 +17,12 @@ function getCurrentWave() {
 }
 
 function setAlarm(requestedDelay) {
-	alarm[0] = max(
-		1,
-		requestedDelay
+	alarm_set(
+		0,
+		max(
+			1,
+			requestedDelay
+		)
 	);
 }
 
@@ -43,24 +46,21 @@ function startWave(index) {
 	);
 }
 
-function startUsingWaves(levelWaves) {
-	waves = levelWaves;
-
-	// Start first wave
-	if (
-		array_length(levelWaves) > 0
-	) startWave(0);
-}
-
-function isWaveOver() {
-	return waveSpawnedCount >= getCurrentWave().count;
-}
-
 function tryStartNextWave() {
 	var nextWaveIndex = waveIndex + 1;
 	if (nextWaveIndex < array_length(waves)) {
 		startWave(nextWaveIndex);
 	}
+}
+
+function startUsingWaves(levelWaves) {
+	waves = levelWaves;
+
+	tryStartNextWave();
+}
+
+function isWaveOver() {
+	return waveSpawnedCount >= getCurrentWave().count;
 }
 
 function trySpawn() {
@@ -69,25 +69,22 @@ function trySpawn() {
 
 		var path = getPath();
 		var activeEnemy = instance_create_layer(
-			0,
-			0,
+			path_get_point_x(path, 0),
+			path_get_point_y(path, 0),
 			global.CONSTANTS.LAYERS.INSTANCE_ENEMIES,
 			objectActiveEnemy
 		);
 		activeEnemy.initialise(
-			getCurrentWave().enemyData,
-			path_get_point_x(path, 0),
-			path_get_point_y(path, 0)
+			getCurrentWave().enemyData
 		);
 
 		activeEnemy.followPath(path);
 	}
 
 	// Check again
-	if (isWaveOver()) {
-		tryStartNextWave();
-	} else {
-		// For next upcoming enemy spawn
+	if (isWaveOver()) tryStartNextWave();
+	else {
+		// For next enemy spawn
 		setAlarm(getUpcomingDelay());
 	}
 }

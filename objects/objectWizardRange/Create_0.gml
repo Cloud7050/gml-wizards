@@ -2,12 +2,6 @@
 
 
 
-/* [Instance Variables] */
-
-visible = true;
-
-
-
 /* [Methods] */
 
 function initialise(

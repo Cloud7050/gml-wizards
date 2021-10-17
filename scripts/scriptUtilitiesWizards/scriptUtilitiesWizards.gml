@@ -54,6 +54,21 @@ function WizardData(
 
 /* [Functions] */
 
+function anyMergeCandidates() {
+	for (var index = 0; index < instance_number(objectActiveWizard); index++) {
+		var activeWizard = instance_find(objectActiveWizard, index);
+		if (activeWizard.isMergeCandidate) return true;
+	}
+	
+	return false;
+}
+
+function clearMergeCandidates() {
+	with (objectActiveWizard) {
+		isMergeCandidate = false;
+	}
+}
+
 // [Placing WizardData]
 // The WizardData the player selected via wizard buttons to try placing
 

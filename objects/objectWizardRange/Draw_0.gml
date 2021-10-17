@@ -24,8 +24,8 @@ if (isHoverPreview) {
 	draw_sprite_ext(
 		previewSprite,
 		0,
-		x - (sprite_get_width(previewSprite) / 2),
-		y - (sprite_get_height(previewSprite) / 2),
+		x,
+		y,
 		image_xscale,
 		image_yscale,
 		image_angle,

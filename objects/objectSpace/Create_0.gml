@@ -34,8 +34,8 @@ function isEmpty() {
 
 function newActiveWizard(wizardData) {
 	activeWizard = instance_create_layer(
-		x,
-		y,
+		getMidX(),
+		getMidY(),
 		global.CONSTANTS.LAYERS.INSTANCE_WIZARDS,
 		objectActiveWizard
 	);
@@ -43,11 +43,4 @@ function newActiveWizard(wizardData) {
 		self,
 		wizardData
 	);
-}
-
-function destroyActiveWizard() {
-	if (activeWizard.isThisSelected()) resetSelectedWizard();
-
-	instance_destroy(activeWizard);
-	activeWizard = undefined;
 }

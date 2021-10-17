@@ -13,15 +13,11 @@ initialiseParentCoordinates(
 
 
 
-/* [Instance Variables] */
-
-visible = true;
-
-
-
 /* [Methods] */
 
-function initialise(wizardData) {
+function initialise(
+	wizardData
+) {
 	self.wizardData = wizardData;
 }
 

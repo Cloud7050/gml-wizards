@@ -43,12 +43,6 @@ function checkGridBounds(
 	);
 }
 
-function clearMergeCandidates() {
-	with (objectActiveWizard) {
-		isMergeCandidate = false;
-	}
-}
-
 enum MERGE_DIRECTIONS {
 	RIGHT,
 	DOWN,

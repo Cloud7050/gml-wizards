@@ -108,8 +108,8 @@ function onLevelStart() {
 			currentIndexes.up()
 		];
 		var isElementRelevant;
-		for (var i = 0; i < array_length(allAdjacentIndexes); i++) {
-			var adjacentIndexes = allAdjacentIndexes[i];
+		for (var index = 0; index < array_length(allAdjacentIndexes); index++) {
+			var adjacentIndexes = allAdjacentIndexes[index];
 			if (!checkGridBounds(
 				pathingGrid,
 				adjacentIndexes

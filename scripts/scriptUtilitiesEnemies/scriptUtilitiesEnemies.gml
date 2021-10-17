@@ -68,10 +68,9 @@ function getPath() {
 /// @returns The average length of any grid element regarding path traversal
 function getElementLength() {
 	var referenceSprite = object_get_sprite(objectParentGridElement);
-	return lerp(
+	return mid(
 		sprite_get_width(referenceSprite),
-		sprite_get_height(referenceSprite),
-		0.5
+		sprite_get_height(referenceSprite)
 	);
 }
 
