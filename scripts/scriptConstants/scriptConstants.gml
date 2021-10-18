@@ -137,6 +137,51 @@ global.CONSTANTS = {
 			1,
 
 			spriteEnemy1
+		),
+		TWO: new EnemyData(
+			8,
+			1,
+
+			5,
+			2,
+
+			spriteEnemy2
+		),
+		THREE: new EnemyData(
+			15,
+			2,
+
+			10,
+			4,
+
+			spriteEnemy3
+		),
+		FOUR: new EnemyData(
+			30,
+			1,
+
+			18,
+			6,
+
+			spriteEnemy4
+		),
+		FIVE: new EnemyData(
+			40,
+			1.5,
+
+			25,
+			8,
+
+			spriteEnemy5
+		),
+		BOSS: new EnemyData(
+			400,
+			0.2,
+
+			300,
+			10,
+
+			spriteEnemyBoss
 		)
 	},
 	HINTS: {
