@@ -35,12 +35,12 @@ function initialise(
 
 	// Start cooled down
 	stepsWaited = getFireRate();
-	
+
 	// Store true coords used for attacking before animation.
 	// Live sprite location will change for things like matching collision mask
 	attackX = getMidX();
 	attackY = getMidY();
-	
+
 	// Placement animation
 	animationWrapper.startReplacementAnimation(
 		new WizardPlacementAnimation(self)
@@ -76,13 +76,10 @@ function getRange() {
 }
 
 function getCooldownPercentage() {
-	return stepsWaited / getFireRate() * 100;
+	return stepsWaited / max(1, getFireRate()) * 100;
 }
 
 function isOffCooldown() {
-	// Fire rate of 1 step means firing every step
-	// (cooldown amount 100% or more).
-	// Fire rate of 0 is invalid
 	return getCooldownPercentage() >= 100;
 }
 
@@ -137,6 +134,6 @@ function destroy() {
 	if (isThisSelected()) resetSelectedWizard();
 
 	space.activeWizard = undefined;
-	
+
 	instance_destroy();
 }

@@ -22,7 +22,7 @@ function EnemyData(
 function WaveData(
 	enemyData,
 
-	startingDelaySeconds = 0,
+	startingDelaySeconds,
 
 	count,
 	initialFrequencySeconds,

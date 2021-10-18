@@ -176,7 +176,7 @@ global.CONSTANTS = {
 		),
 		BOSS: new EnemyData(
 			400,
-			0.2,
+			0.5,
 
 			300,
 			10,
