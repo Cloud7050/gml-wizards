@@ -26,7 +26,7 @@ function AnimationWrapper() constructor {
 	}
 }
 
-enum ANIMATION_PROGRESS_TYPE {
+enum ANIMATION_PROGRESS_TYPES {
 	LINEAR,
 	EXPONENTIAL,
 	SLOWING
@@ -95,8 +95,8 @@ function BaseAnimation(
 	}
 
 	function step() {
-		if (progressType == ANIMATION_PROGRESS_TYPE.LINEAR) onStep(getLinearProgress());
-		else if (progressType == ANIMATION_PROGRESS_TYPE.EXPONENTIAL) onStep(getExponentialProgress());
+		if (progressType == ANIMATION_PROGRESS_TYPES.LINEAR) onStep(getLinearProgress());
+		else if (progressType == ANIMATION_PROGRESS_TYPES.EXPONENTIAL) onStep(getExponentialProgress());
 		else onStep(getSlowingProgress());
 
 		stepsAnimated++;
@@ -119,7 +119,7 @@ function WizardPlacementAnimation(
 	activeWizard
 ) : BaseAnimation(
 	0.33,
-	ANIMATION_PROGRESS_TYPE.EXPONENTIAL
+	ANIMATION_PROGRESS_TYPES.EXPONENTIAL
 ) constructor {
 	self.activeWizard = activeWizard;
 
@@ -161,7 +161,7 @@ function WizardMergeInAnimation(
 	ephemeralSacrifice
 ) : BaseAnimation(
 	0.5,
-	ANIMATION_PROGRESS_TYPE.EXPONENTIAL
+	ANIMATION_PROGRESS_TYPES.EXPONENTIAL
 ) constructor {
 	self.activeWizard = activeWizard;
 
@@ -172,7 +172,7 @@ function WizardMergeInAnimation(
 	startY = ephemeralSacrifice.attackY;
 	startXScale = activeWizard.image_xscale;
 	startYScale = activeWizard.image_yscale;
-	
+
 	endX = activeWizard.attackX;
 	endY = activeWizard.attackY;
 	var scale = 0.5;
@@ -217,7 +217,7 @@ function WizardMergeInAnimation(
 		flashMergeWizard.initialise(
 			sprite,
 			rotation,
-			
+
 			lerp(startXScale, endXScale, progress),
 			lerp(startYScale, endYScale, progress)
 		);
@@ -228,17 +228,17 @@ function WizardUpgradeAnimation(
 	activeWizard
 ) : BaseAnimation(
 	1,
-	ANIMATION_PROGRESS_TYPE.SLOWING
+	ANIMATION_PROGRESS_TYPES.SLOWING
 ) constructor {
 	sprite = activeWizard.getLevelSprite();
-	
+
 	constantX = activeWizard.attackX;
-	
+
 	startY = activeWizard.attackY;
 	startOpacity = activeWizard.image_alpha;
 	startXScale = activeWizard.image_xscale;
 	startYScale = activeWizard.image_yscale;
-	
+
 	endY = startY - (activeWizard.sprite_height / 2);
 	endOpacity = 0;
 	var scale = 2;
@@ -268,7 +268,7 @@ function WizardUpgradeAnimation(
 		);
 		flashUpgradeWizard.initialise(
 			sprite,
-			
+
 			lerp(startOpacity, endOpacity, progress),
 			lerp(startXScale, endXScale, progress),
 			lerp(startYScale, endYScale, progress)
