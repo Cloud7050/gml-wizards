@@ -7,6 +7,7 @@ function AnimationWrapper() constructor {
 		return currentAnimation != undefined;
 	}
 
+	// Objects using an AnimationWrapper instance are in charge of stepping it during the game's step event
 	function step() {
 		if (!isAnimating()) return;
 
@@ -42,14 +43,34 @@ function BaseAnimation(
 	stepsAnimated = 0;
 
 	// [Child]
+	// Triggered once at the start of this animation.
+	// • Manual call to start()
+	// • By passing this into an AnimationWrapper
 	function onStart() {}
-
+	
+	// Triggered every step of this animation.
+	// • Manual call to step() when appropriate (during the game's step event if this isn't over)
+	// • By its AnimationWrapper getting stepped while this is animating
+	// Fires in the same step as its start event if not started during the game's step event.
+	// Fires a number of times matching its targeted step count.
 	function onStep(progress) {}
-
+	
+	// Triggered once if this animation ends prematurely.
+	// • Manual call to cancel()
+	// • By another animation getting passed into its AnimationWrapper while this is still animating
+	// Provides a progress from 0-1 scaled based on its animation progress type.
 	function onCancel() {}
 
+	// Triggered once at the end of this animation.
+	// • After its last step event
+	// • After its cancellation event
+	// Fires in the same step after the event that caused this animation's end.
 	function onEnd() {}
 
+	// Triggered once after this animation has been forgotten by its AnimationWrapper,
+	// due to having ended via last step (not via cancellation).
+	// • By its AnimationWrapper after this animation's end
+	// Safe to pass a new animation into its AnimationWrapper during this event.
 	function onDiscard() {}
 
 	// [Methods]
@@ -105,8 +126,6 @@ function BaseAnimation(
 
 	function cancel() {
 		onCancel();
-
-		stepsAnimated = targetSteps;
 		onEnd();
 	}
 
@@ -130,15 +149,10 @@ function WizardPlacementAnimation(
 
 	startY = endY - (activeWizard.sprite_height / 2);
 	startOpacity = endOpacity * 0.25;
-	var scaleFactor = 0.75;
-	startXScale = endXScale * scaleFactor;
-	startYScale = endYScale * scaleFactor;
+	startXScale = endXScale * 0.75;
+	startYScale = endYScale * 0.75;
 
 	// [Parent]
-	function onStart() {
-		matchProgress(0);
-	}
-
 	function onStep(progress) {
 		matchProgress(progress);
 	}
@@ -166,30 +180,34 @@ function WizardMergeInAnimation(
 	self.activeWizard = activeWizard;
 
 	sprite = ephemeralSacrifice.getLevelSprite();
-	rotation = ephemeralSacrifice.image_angle;
-
+	
 	startX = ephemeralSacrifice.attackX;
 	startY = ephemeralSacrifice.attackY;
 	startXScale = activeWizard.image_xscale;
 	startYScale = activeWizard.image_yscale;
+	startRotation = ephemeralSacrifice.image_angle;
 
 	endX = activeWizard.attackX;
 	endY = activeWizard.attackY;
-	var scale = 0.5;
-	endXScale = scale;
-	endYScale = scale;
+	endXScale = 0.5;
+	endYScale = 0.5;
+	endRotation = startRotation - (5 * 360);
 
 	// [Parent]
-	function onStart() {
-		matchProgress(0);
-	}
-
 	function onStep(progress) {
-		matchProgress(progress);
-	}
-
-	function onCancel() {
-		matchProgress(1);
+		var flashMergeWizard = instance_create_layer(
+			lerp(startX, endX, progress),
+			lerp(startY, endY, progress),
+			global.CONSTANTS.LAYERS.INSTANCE_PARTICLES,
+			objectFlashMergeWizard
+		);
+		flashMergeWizard.initialise(
+			sprite,
+			
+			lerp(startXScale, endXScale, progress),
+			lerp(startYScale, endYScale, progress),
+			lerp(startRotation, endRotation, progress)
+		);
 	}
 
 	function onEnd() {
@@ -203,25 +221,6 @@ function WizardMergeInAnimation(
 			)
 		);
 	}
-
-	// [Methods]
-	function matchProgress(progress) {
-		rotation -= 15;
-
-		var flashMergeWizard = instance_create_layer(
-			lerp(startX, endX, progress),
-			lerp(startY, endY, progress),
-			global.CONSTANTS.LAYERS.INSTANCE_PARTICLES,
-			objectFlashMergeWizard
-		);
-		flashMergeWizard.initialise(
-			sprite,
-			rotation,
-
-			lerp(startXScale, endXScale, progress),
-			lerp(startYScale, endYScale, progress)
-		);
-	}
 }
 
 function WizardUpgradeAnimation(
@@ -231,7 +230,6 @@ function WizardUpgradeAnimation(
 	ANIMATION_PROGRESS_TYPES.SLOWING
 ) constructor {
 	sprite = activeWizard.getLevelSprite();
-
 	constantX = activeWizard.attackX;
 
 	startY = activeWizard.attackY;
@@ -241,25 +239,11 @@ function WizardUpgradeAnimation(
 
 	endY = startY - (activeWizard.sprite_height / 2);
 	endOpacity = 0;
-	var scale = 2;
-	endXScale = scale;
-	endYScale = scale;
+	endXScale = 2;
+	endYScale = 2;
 
 	// [Parent]
-	function onStart() {
-		matchProgress(0);
-	}
-
 	function onStep(progress) {
-		matchProgress(progress);
-	}
-
-	function onCancel() {
-		matchProgress(1);
-	}
-
-	// [Methods]
-	function matchProgress(progress) {
 		var flashUpgradeWizard = instance_create_layer(
 			constantX,
 			lerp(startY, endY, progress),
