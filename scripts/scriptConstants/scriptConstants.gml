@@ -195,243 +195,177 @@ global.CONSTANTS = {
 	}
 }
 
-var r = objectStart;
+var s = objectStart;
 var p = objectPath;
 var e = objectEnd;
-var s = objectSpace;
+var o = objectSpace;
+
+var slime = global.CONSTANTS.ENEMIES.ONE;
+var snake = global.CONSTANTS.ENEMIES.TWO;
+var hunter = global.CONSTANTS.ENEMIES.THREE;
+var knight = global.CONSTANTS.ENEMIES.FOUR;
+var cavalier = global.CONSTANTS.ENEMIES.FIVE;
+var boss = global.CONSTANTS.ENEMIES.BOSS;
+
+var fire = global.CONSTANTS.WIZARDS.ONE;
+var ice = global.CONSTANTS.WIZARDS.TWO;
+var wind = global.CONSTANTS.WIZARDS.THREE;
+var lightning = global.CONSTANTS.WIZARDS.FOUR;
 
 global.CONSTANTS.LEVELS = {
 	ONE: new LevelData(
 		[
-			[r, p, p, p, p, p, p, p, p],
-			[s, s, s, s, s, s, s, s, p],
-			[s, s, s, s, s, s, s, s, p],
-			[s, s, s, s, s, s, s, s, p],
-			[s, s, s, s, s, s, s, s, p],
-			[s, s, s, s, s, s, s, s, p],
+			[s, p, p, p, p, p, p, p, p],
+			[o, o, o, o, o, o, o, o, p],
+			[o, o, o, o, o, o, o, o, p],
+			[o, o, o, o, o, o, o, o, p],
+			[o, o, o, o, o, o, o, o, p],
+			[o, o, o, o, o, o, o, o, p],
 			[e, p, p, p, p, p, p, p, p]
 		],
 		[
 			new WaveData(
-				global.CONSTANTS.ENEMIES.ONE,
-
+				slime,
 				10,
-
-				15,
-				1,
-				0.7
+				15, 1, 0.7
 			),
 			new WaveData(
-				global.CONSTANTS.ENEMIES.ONE,
-
+				slime,
 				5,
-
-				15,
-				0.7,
-				0.4
+				15, 0.7, 0.4
 			),
 			new WaveData(
-				global.CONSTANTS.ENEMIES.TWO,
-
+				snake,
 				5,
-
-				15,
-				0.6,
-				0.4
+				15, 0.6, 0.4
 			),
 			new WaveData(
-				global.CONSTANTS.ENEMIES.TWO,
-
+				snake,
 				5,
-
-				15,
-				0.4,
-				0.2
+				15, 0.4, 0.2
 			),
 			new WaveData(
-				global.CONSTANTS.ENEMIES.THREE,
-
+				hunter,
 				5,
-
+				10, 0.8, 0.7
+			),
+			new WaveData(
+				hunter,
+				5,
+				10, 0.7, 0.6
+			),
+			new WaveData(
+				knight,
 				10,
-				0.8,
-				0.7
+				10, 1, 0.8
 			),
 			new WaveData(
-				global.CONSTANTS.ENEMIES.THREE,
-
-				5,
-
-				10,
-				0.7,
-				0.6
-			),
-			new WaveData(
-				global.CONSTANTS.ENEMIES.FOUR,
-
-				10,
-
-				10,
-				1,
-				0.8
-			),
-			new WaveData(
-				global.CONSTANTS.ENEMIES.THREE,
-
+				hunter,
 				3,
-
-				5,
-				0.2
+				5, 0.2
 			),
 			new WaveData(
-				global.CONSTANTS.ENEMIES.FOUR,
-
+				knight,
 				5,
-
+				10, 0.8, 0.6
+			),
+			new WaveData(
+				cavalier,
+				5,
+				8, 0.8, 0.6
+			),
+			new WaveData(
+				cavalier,
+				5,
+				8, 0.6, 0.4
+			),
+			new WaveData(
+				boss,
+				5,
+				2, 5
+			),
+			new WaveData(
+				cavalier,
 				10,
-				0.8,
-				0.6
-			),
-			new WaveData(
-				global.CONSTANTS.ENEMIES.FIVE,
-
-				5,
-
-				8,
-				0.8,
-				0.6
-			),
-			new WaveData(
-				global.CONSTANTS.ENEMIES.FIVE,
-
-				5,
-
-				8,
-				0.6,
-				0.4
-			),
-			new WaveData(
-				global.CONSTANTS.ENEMIES.BOSS,
-
-				5,
-
-				2,
-				5
-			),
-			new WaveData(
-				global.CONSTANTS.ENEMIES.FIVE,
-
-				10,
-
-				10,
-				0.3
+				10, 0.3
 			)
 		],
-		[
-			global.CONSTANTS.WIZARDS.ONE,
-			global.CONSTANTS.WIZARDS.TWO,
-			global.CONSTANTS.WIZARDS.THREE,
-			global.CONSTANTS.WIZARDS.FOUR
-		],
+		[ fire, ice, wind, lightning ],
 	),
 	TWO: new LevelData(
 		[
-			[r, p, p, p, p, p, s, s, s],
-			[s, s, s, s, s, p, s, s, s],
-			[s, s, s, s, s, p, s, s, s],
-			[s, s, s, s, s, p, p, p, p],
-			[s, s, s, s, s, s, s, s, p],
-			[s, s, s, s, s, s, s, s, p],
+			[s, p, p, p, p, p, o, o, o],
+			[o, o, o, o, o, p, o, o, o],
+			[o, o, o, o, o, p, o, o, o],
+			[o, o, o, o, o, p, p, p, p],
+			[o, o, o, o, o, o, o, o, p],
+			[o, o, o, o, o, o, o, o, p],
 			[e, p, p, p, p, p, p, p, p]
 		],
 		[
 			new WaveData(
-				global.CONSTANTS.ENEMIES.THREE,
-
+				hunter,
 				3,
-
-				30,
-				1,
-				0.2
+				30, 1, 0.2
 			)
 		],
-		[
-			global.CONSTANTS.WIZARDS.ONE
-		]
+		[ fire ]
 	),
 	THREE: new LevelData(
 		[
-			[r, p, p, p, p, p, p, p, p],
-			[s, s, s, s, s, s, s, s, p],
-			[s, s, s, s, s, s, s, s, p],
+			[s, p, p, p, p, p, p, p, p],
+			[o, o, o, o, o, o, o, o, p],
+			[o, o, o, o, o, o, o, o, p],
 			[p, p, p, p, p, p, p, p, p],
-			[p, s, s, s, s, s, s, s, s],
-			[p, s, s, s, s, s, s, s, s],
+			[p, o, o, o, o, o, o, o, o],
+			[p, o, o, o, o, o, o, o, o],
 			[p, p, p, p, p, p, p, p, e]
 		],
 		[
 			new WaveData(
-				global.CONSTANTS.ENEMIES.THREE,
-
+				hunter,
 				3,
-
-				30,
-				1,
-				0.2
+				30, 1, 0.2
 			)
 		],
-		[
-			global.CONSTANTS.WIZARDS.ONE
-		]
+		[ fire ]
 	),
 	FOUR: new LevelData(
 		[
-			[s, s, s, s, s, s, s, s, e],
-			[s, s, p, p, p, p, s, s, p],
-			[s, s, p, s, s, p, s, s, p],
-			[r, p, p, s, p, p, s, s, p],
-			[s, s, s, s, p, s, s, s, p],
-			[s, s, s, s, p, s, s, s, p],
-			[s, s, s, s, p, p, p, p, p]
+			[o, o, o, o, o, o, o, o, e],
+			[o, o, p, p, p, p, o, o, p],
+			[o, o, p, o, o, p, o, o, p],
+			[s, p, p, o, p, p, o, o, p],
+			[o, o, o, o, p, o, o, o, p],
+			[o, o, o, o, p, o, o, o, p],
+			[o, o, o, o, p, p, p, p, p]
 		],
 		[
 			new WaveData(
-				global.CONSTANTS.ENEMIES.THREE,
-
+				hunter,
 				3,
-
-				30,
-				1,
-				0.2
+				30, 1, 0.2
 			)
 		],
-		[
-			global.CONSTANTS.WIZARDS.ONE
-		]
+		[ fire ]
 	),
 	FIVE: new LevelData(
 		[
-			[r, p, p, p, s, s, s, s, s],
-			[s, s, s, p, s, s, s, s, s],
-			[p, p, p, p, s, s, s, s, s],
-			[p, s, s, s, s, s, s, s, s],
-			[p, s, s, s, s, p, p, p, p],
-			[p, s, s, s, s, p, s, s, p],
-			[p, p, p, p, p, p, s, s, e]
+			[s, p, p, p, o, o, o, o, o],
+			[o, o, o, p, o, o, o, o, o],
+			[p, p, p, p, o, o, o, o, o],
+			[p, o, o, o, o, o, o, o, o],
+			[p, o, o, o, o, p, p, p, p],
+			[p, o, o, o, o, p, o, o, p],
+			[p, p, p, p, p, p, o, o, e]
 		],
 		[
 			new WaveData(
-				global.CONSTANTS.ENEMIES.THREE,
-
+				hunter,
 				3,
-
-				30,
-				1,
-				0.2
+				30, 1, 0.2
 			)
 		],
-		[
-			global.CONSTANTS.WIZARDS.ONE
-		]
+		[ fire ]
 	)
 }
