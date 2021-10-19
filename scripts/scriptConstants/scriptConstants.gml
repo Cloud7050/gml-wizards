@@ -194,3 +194,244 @@ global.CONSTANTS = {
 		MAX_LEVEL_UNSELECT_WIZARD: "[Hint] The wizard is at max level and cannot be merged further. Click him again to unselect"
 	}
 }
+
+var r = objectStart;
+var p = objectPath;
+var e = objectEnd;
+var s = objectSpace;
+
+global.CONSTANTS.LEVELS = {
+	ONE: new LevelData(
+		[
+			[r, p, p, p, p, p, p, p, p],
+			[s, s, s, s, s, s, s, s, p],
+			[s, s, s, s, s, s, s, s, p],
+			[s, s, s, s, s, s, s, s, p],
+			[s, s, s, s, s, s, s, s, p],
+			[s, s, s, s, s, s, s, s, p],
+			[e, p, p, p, p, p, p, p, p]
+		],
+		[
+			new WaveData(
+				global.CONSTANTS.ENEMIES.ONE,
+
+				10,
+
+				15,
+				1,
+				0.7
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.ONE,
+
+				5,
+
+				15,
+				0.7,
+				0.4
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.TWO,
+
+				5,
+
+				15,
+				0.6,
+				0.4
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.TWO,
+
+				5,
+
+				15,
+				0.4,
+				0.2
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.THREE,
+
+				5,
+
+				10,
+				0.8,
+				0.7
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.THREE,
+
+				5,
+
+				10,
+				0.7,
+				0.6
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.FOUR,
+
+				10,
+
+				10,
+				1,
+				0.8
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.THREE,
+
+				3,
+
+				5,
+				0.2
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.FOUR,
+
+				5,
+
+				10,
+				0.8,
+				0.6
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.FIVE,
+
+				5,
+
+				8,
+				0.8,
+				0.6
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.FIVE,
+
+				5,
+
+				8,
+				0.6,
+				0.4
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.BOSS,
+
+				5,
+
+				2,
+				5
+			),
+			new WaveData(
+				global.CONSTANTS.ENEMIES.FIVE,
+
+				10,
+
+				10,
+				0.3
+			)
+		],
+		[
+			global.CONSTANTS.WIZARDS.ONE,
+			global.CONSTANTS.WIZARDS.TWO,
+			global.CONSTANTS.WIZARDS.THREE,
+			global.CONSTANTS.WIZARDS.FOUR
+		],
+	),
+	TWO: new LevelData(
+		[
+			[r, p, p, p, p, p, s, s, s],
+			[s, s, s, s, s, p, s, s, s],
+			[s, s, s, s, s, p, s, s, s],
+			[s, s, s, s, s, p, p, p, p],
+			[s, s, s, s, s, s, s, s, p],
+			[s, s, s, s, s, s, s, s, p],
+			[e, p, p, p, p, p, p, p, p]
+		],
+		[
+			new WaveData(
+				global.CONSTANTS.ENEMIES.THREE,
+
+				3,
+
+				30,
+				1,
+				0.2
+			)
+		],
+		[
+			global.CONSTANTS.WIZARDS.ONE
+		]
+	),
+	THREE: new LevelData(
+		[
+			[r, p, p, p, p, p, p, p, p],
+			[s, s, s, s, s, s, s, s, p],
+			[s, s, s, s, s, s, s, s, p],
+			[p, p, p, p, p, p, p, p, p],
+			[p, s, s, s, s, s, s, s, s],
+			[p, s, s, s, s, s, s, s, s],
+			[p, p, p, p, p, p, p, p, e]
+		],
+		[
+			new WaveData(
+				global.CONSTANTS.ENEMIES.THREE,
+
+				3,
+
+				30,
+				1,
+				0.2
+			)
+		],
+		[
+			global.CONSTANTS.WIZARDS.ONE
+		]
+	),
+	FOUR: new LevelData(
+		[
+			[s, s, s, s, s, s, s, s, e],
+			[s, s, p, p, p, p, s, s, p],
+			[s, s, p, s, s, p, s, s, p],
+			[r, p, p, s, p, p, s, s, p],
+			[s, s, s, s, p, s, s, s, p],
+			[s, s, s, s, p, s, s, s, p],
+			[s, s, s, s, p, p, p, p, p]
+		],
+		[
+			new WaveData(
+				global.CONSTANTS.ENEMIES.THREE,
+
+				3,
+
+				30,
+				1,
+				0.2
+			)
+		],
+		[
+			global.CONSTANTS.WIZARDS.ONE
+		]
+	),
+	FIVE: new LevelData(
+		[
+			[r, p, p, p, s, s, s, s, s],
+			[s, s, s, p, s, s, s, s, s],
+			[p, p, p, p, s, s, s, s, s],
+			[p, s, s, s, s, s, s, s, s],
+			[p, s, s, s, s, p, p, p, p],
+			[p, s, s, s, s, p, s, s, p],
+			[p, p, p, p, p, p, s, s, e]
+		],
+		[
+			new WaveData(
+				global.CONSTANTS.ENEMIES.THREE,
+
+				3,
+
+				30,
+				1,
+				0.2
+			)
+		],
+		[
+			global.CONSTANTS.WIZARDS.ONE
+		]
+	)
+}

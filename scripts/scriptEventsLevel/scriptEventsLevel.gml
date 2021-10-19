@@ -12,21 +12,11 @@ function onLevelStart() {
 	resetPlacingWizard();
 	resetSelectedWizard();
 
+	//TODO dynamic read
+	var levelData = global.CONSTANTS.LEVELS.ONE;
+
 	// [Lay Out Grid Elements]
-	var r = objectStart;
-	var p = objectPath;
-	var e = objectEnd;
-	var s = objectSpace;
-	//TODO atm there is only a single level's layout
-	var levelGrid = [
-		[r, p, p, p, p, p, p, p, p],
-		[s, s, s, s, s, s, s, s, p],
-		[s, s, s, s, s, s, s, s, p],
-		[s, s, s, s, s, s, s, s, p],
-		[s, s, s, s, s, s, s, s, p],
-		[s, s, s, s, s, s, s, s, p],
-		[e, p, p, p, p, p, p, p, p]
-	];
+	var levelGrid = levelData.grid;
 
 	var rowCount = array_length(levelGrid);
 	var columnCount = rowCount > 0 ? array_length(levelGrid[0]) : 0;
@@ -75,15 +65,15 @@ function onLevelStart() {
 		for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {
 			var currentObject = levelGrid[rowIndex][columnIndex];
 
-			if (currentObject == r) startIndexes = new Indexes(
+			if (currentObject == objectStart) startIndexes = new Indexes(
 				rowIndex,
 				columnIndex
 			);
 
 			// true if relevent to pathing, false if not
 			pathingGrid[rowIndex][columnIndex] = (
-				currentObject == p
-				|| currentObject == e
+				currentObject == objectPath
+				|| currentObject == objectEnd
 			);
 		}
 	}
@@ -130,133 +120,12 @@ function onLevelStart() {
 	}
 
 	// [Set Off Waves]
-	//TODO atm there is only a single level's waves available
-	var levelWaves = [
-		new WaveData(
-			global.CONSTANTS.ENEMIES.ONE,
-
-			10,
-
-			15,
-			1,
-			0.7
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.ONE,
-
-			5,
-
-			15,
-			0.7,
-			0.4
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.TWO,
-
-			5,
-
-			15,
-			0.6,
-			0.4
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.TWO,
-
-			5,
-
-			15,
-			0.4,
-			0.2
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.THREE,
-
-			5,
-
-			10,
-			0.8,
-			0.7
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.THREE,
-
-			5,
-
-			10,
-			0.7,
-			0.6
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.FOUR,
-
-			10,
-
-			10,
-			1,
-			0.8
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.THREE,
-
-			3,
-
-			5,
-			0.2
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.FOUR,
-
-			5,
-
-			10,
-			0.8,
-			0.6
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.FIVE,
-
-			5,
-
-			8,
-			0.8,
-			0.6
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.FIVE,
-
-			5,
-
-			8,
-			0.6,
-			0.4
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.BOSS,
-
-			5,
-
-			2,
-			5
-		),
-		new WaveData(
-			global.CONSTANTS.ENEMIES.FIVE,
-
-			10,
-
-			10,
-			0.3
-		)
-	];
-	singletonWaveManager.startUsingWaves(levelWaves);
+	singletonWaveManager.startUsingWaves(
+		levelData.waveContents
+	);
 
 	// [Create Wizard Buttons]
-	//TODO atm there is only a single level's wizards available
-	var levelWizardData = [
-		global.CONSTANTS.WIZARDS.ONE,
-		global.CONSTANTS.WIZARDS.TWO,
-		global.CONSTANTS.WIZARDS.THREE,
-		global.CONSTANTS.WIZARDS.FOUR
-	];
+	var levelWizardData = levelData.wizardsAvailable;
 
 	// Create from bottom up
 	var wizardCount = array_length(levelWizardData);
@@ -303,7 +172,7 @@ function onDrawLevelGUI() {
 
 			getHintsString()
 		);
-		
+
 		resetHints();
 	}
 }
