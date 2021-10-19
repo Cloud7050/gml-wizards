@@ -135,19 +135,37 @@ function onLevelStart() {
 		new WaveData(
 			global.CONSTANTS.ENEMIES.ONE,
 
+			10,
+
+			15,
+			1,
+			0.7
+		),
+		new WaveData(
+			global.CONSTANTS.ENEMIES.ONE,
+
 			5,
 
-			30,
-			1,
+			15,
+			0.7,
 			0.4
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.TWO,
 
-			3,
+			5,
 
-			30,
+			15,
 			0.6,
+			0.4
+		),
+		new WaveData(
+			global.CONSTANTS.ENEMIES.TWO,
+
+			5,
+
+			15,
+			0.4,
 			0.2
 		),
 		new WaveData(
@@ -155,14 +173,23 @@ function onLevelStart() {
 
 			5,
 
-			20,
+			10,
 			0.8,
+			0.7
+		),
+		new WaveData(
+			global.CONSTANTS.ENEMIES.THREE,
+
+			5,
+
+			10,
+			0.7,
 			0.6
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.FOUR,
 
-			5,
+			10,
 
 			10,
 			1,
@@ -171,15 +198,15 @@ function onLevelStart() {
 		new WaveData(
 			global.CONSTANTS.ENEMIES.THREE,
 
-			1,
+			3,
 
 			5,
-			0.1
+			0.2
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.FOUR,
 
-			3,
+			5,
 
 			10,
 			0.8,
@@ -188,16 +215,25 @@ function onLevelStart() {
 		new WaveData(
 			global.CONSTANTS.ENEMIES.FIVE,
 
-			3,
+			5,
 
-			15,
+			8,
 			0.8,
+			0.6
+		),
+		new WaveData(
+			global.CONSTANTS.ENEMIES.FIVE,
+
+			5,
+
+			8,
+			0.6,
 			0.4
 		),
 		new WaveData(
 			global.CONSTANTS.ENEMIES.BOSS,
 
-			3,
+			5,
 
 			2,
 			5
@@ -208,7 +244,7 @@ function onLevelStart() {
 			10,
 
 			10,
-			0.1
+			0.3
 		)
 	];
 	singletonWaveManager.startUsingWaves(levelWaves);
