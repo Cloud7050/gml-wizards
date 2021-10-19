@@ -199,6 +199,8 @@ var s = objectStart;
 var p = objectPath;
 var e = objectEnd;
 var o = objectSpace;
+var r = objectRock;
+var w = objectPond;
 
 var slime = global.CONSTANTS.ENEMIES.ONE;
 var snake = global.CONSTANTS.ENEMIES.TWO;
@@ -218,7 +220,7 @@ global.CONSTANTS.LEVELS = {
 			[s, p, p, p, p, p, p, p, p],
 			[o, o, o, o, o, o, o, o, p],
 			[o, o, o, o, o, o, o, o, p],
-			[o, o, o, o, o, o, o, o, p],
+			[w, w, w, w, w, w, o, o, p],
 			[o, o, o, o, o, o, o, o, p],
 			[o, o, o, o, o, o, o, o, p],
 			[e, p, p, p, p, p, p, p, p]
@@ -295,11 +297,11 @@ global.CONSTANTS.LEVELS = {
 	TWO: new LevelData(
 		[
 			[s, p, p, p, p, p, o, o, o],
-			[o, o, o, o, o, p, o, o, o],
+			[o, o, o, o, o, p, o, r, o],
 			[o, o, o, o, o, p, o, o, o],
 			[o, o, o, o, o, p, p, p, p],
 			[o, o, o, o, o, o, o, o, p],
-			[o, o, o, o, o, o, o, o, p],
+			[o, o, r, o, o, o, o, o, p],
 			[e, p, p, p, p, p, p, p, p]
 		],
 		[
@@ -315,9 +317,9 @@ global.CONSTANTS.LEVELS = {
 		[
 			[s, p, p, p, p, p, p, p, p],
 			[o, o, o, o, o, o, o, o, p],
-			[o, o, o, o, o, o, o, o, p],
+			[o, r, o, o, o, o, o, o, p],
 			[p, p, p, p, p, p, p, p, p],
-			[p, o, o, o, o, o, o, o, o],
+			[p, o, o, o, o, r, o, o, o],
 			[p, o, o, o, o, o, o, o, o],
 			[p, p, p, p, p, p, p, p, e]
 		],
@@ -333,9 +335,9 @@ global.CONSTANTS.LEVELS = {
 	FOUR: new LevelData(
 		[
 			[o, o, o, o, o, o, o, o, e],
-			[o, o, p, p, p, p, o, o, p],
+			[o, o, p, p, p, p, r, o, p],
 			[o, o, p, o, o, p, o, o, p],
-			[s, p, p, o, p, p, o, o, p],
+			[s, p, p, o, p, p, o, r, p],
 			[o, o, o, o, p, o, o, o, p],
 			[o, o, o, o, p, o, o, o, p],
 			[o, o, o, o, p, p, p, p, p]
@@ -354,9 +356,9 @@ global.CONSTANTS.LEVELS = {
 			[s, p, p, p, o, o, o, o, o],
 			[o, o, o, p, o, o, o, o, o],
 			[p, p, p, p, o, o, o, o, o],
-			[p, o, o, o, o, o, o, o, o],
+			[p, o, r, o, o, o, o, r, o],
 			[p, o, o, o, o, p, p, p, p],
-			[p, o, o, o, o, p, o, o, p],
+			[p, o, o, o, o, p, o, r, p],
 			[p, p, p, p, p, p, o, o, e]
 		],
 		[
