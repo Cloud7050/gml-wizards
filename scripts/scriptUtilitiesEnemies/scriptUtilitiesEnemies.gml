@@ -12,7 +12,7 @@ function EnemyData(
 	self.health = health;
 
 	// Pixels per step
-	self.speed = convertSpeed(speedElementsPerSecond);
+	speed = convertSpeed(speedElementsPerSecond);
 
 	self.coins = coins;
 	self.impact = impact;
