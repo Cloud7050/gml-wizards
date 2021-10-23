@@ -19,7 +19,7 @@ global.CONSTANTS = {
 	},
 	DEFAULTS: {
 		LIVES: 5,
-		COINS: 80
+		COINS: 0
 	},
 	UI: {
 		MARGIN_X: 16,
@@ -243,6 +243,7 @@ global.CONSTANTS.LEVELS = {
 			)
 		],
 		[ fire ],
+		80
 	),
 	TWO: new LevelData(
 		[
@@ -276,7 +277,8 @@ global.CONSTANTS.LEVELS = {
 				30, 0.7, 0.3
 			),
 		],
-		[ fire, ice ]
+		[ fire, ice ],
+		80
 	),
 	THREE: new LevelData(
 		[
@@ -320,7 +322,8 @@ global.CONSTANTS.LEVELS = {
 				15, 0.5, 0.4
 			)
 		],
-		[ fire, ice, wind ]
+		[ fire, ice, wind ],
+		110
 	),
 	FOUR: new LevelData(
 		[
@@ -374,7 +377,8 @@ global.CONSTANTS.LEVELS = {
 				20, 0.6, 0.3
 			)
 		],
-		[ fire, ice, wind, lightning ]
+		[ fire, ice, wind, lightning ],
+		155
 	),
 	FIVE: new LevelData(
 		[
@@ -448,6 +452,7 @@ global.CONSTANTS.LEVELS = {
 				10, 0.3
 			)
 		],
-		[ fire, ice, wind, lightning ]
+		[ fire, ice, wind, lightning ],
+		155
 	)
 }

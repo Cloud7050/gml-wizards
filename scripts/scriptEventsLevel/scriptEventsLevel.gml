@@ -1,7 +1,7 @@
 function onLevelStart() {
 	// [Prepare Globals]
 	resetLives();
-	resetCoins();
+	//resetCoins();
 
 	resetHints();
 
@@ -138,6 +138,11 @@ function onLevelStart() {
 		);
 		wizardButton.initialise(levelWizardData[wizardIndex]);
 	}
+	
+	// [Set Starting Coins]
+	setCoins(
+		levelData.startingCoins
+	);
 }
 
 function onDrawLevelGUI() {
