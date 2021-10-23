@@ -18,7 +18,7 @@ global.CONSTANTS = {
 		BACKGROUND: "background"
 	},
 	DEFAULTS: {
-		LIVES: 10,
+		LIVES: 5,
 		COINS: 80
 	},
 	UI: {
@@ -53,13 +53,13 @@ global.CONSTANTS = {
 		LEVEL_CAP: 3,
 		ONE: new WizardData(
 			"Fire",
-			30,
+			25,
 
 			3,
 			1,
 			1.25,
 
-			1.65,
+			2,
 			0.9,
 			1.25,
 
@@ -78,7 +78,7 @@ global.CONSTANTS = {
 			0.8,
 			1.5,
 
-			1.6,
+			1.75,
 			0.9,
 			1.3,
 
@@ -94,11 +94,11 @@ global.CONSTANTS = {
 			50,
 
 			2,
-			0.7,
+			0.3,
 			2,
 
 			1.5,
-			0.85,
+			1,
 			1.15,
 
 			[
@@ -110,14 +110,14 @@ global.CONSTANTS = {
 		),
 		FOUR: new WizardData(
 			"Lightning",
-			60,
+			70,
 
 			3,
-			0.6,
-			1.75,
+			0.4,
+			1.25,
 
-			1.65,
-			0.8,
+			2,
+			0.95,
 			1.25,
 
 			[
@@ -131,55 +131,55 @@ global.CONSTANTS = {
 	ENEMIES: {
 		ONE: new EnemyData(
 			5,
-			1,
+			0.75,
 
-			3,
+			1,
 			1,
 
 			spriteEnemy1
 		),
 		TWO: new EnemyData(
-			8,
-			1,
+			12,
+			0.75,
 
-			5,
-			2,
+			3,
+			1,
 
 			spriteEnemy2
 		),
 		THREE: new EnemyData(
-			15,
-			2,
+			20,
+			1,
 
-			10,
-			4,
+			5,
+			1,
 
 			spriteEnemy3
 		),
 		FOUR: new EnemyData(
-			30,
-			1,
+			40,
+			0.75,
 
-			18,
-			6,
+			8,
+			1,
 
 			spriteEnemy4
 		),
 		FIVE: new EnemyData(
-			40,
-			1.5,
+			50,
+			1.25,
 
-			25,
-			8,
+			10,
+			1,
 
 			spriteEnemy5
 		),
 		BOSS: new EnemyData(
-			400,
+			800,
 			0.5,
 
-			300,
-			10,
+			50,
+			7050,
 
 			spriteEnemyBoss
 		)
@@ -219,17 +219,17 @@ global.CONSTANTS.LEVELS = {
 		[
 			[s, p, p, p, p, p, p, p, p],
 			[o, o, o, o, o, o, o, o, p],
-			[o, o, o, o, o, o, o, o, p],
-			[w, w, w, w, w, w, o, o, p],
-			[o, o, o, o, o, o, o, o, p],
+			[w, w, o, o, o, o, o, o, p],
+			[o, o, w, w, w, o, o, o, p],
+			[o, o, o, o, o, w, o, o, p],
 			[o, o, o, o, o, o, o, o, p],
 			[e, p, p, p, p, p, p, p, p]
 		],
 		[
 			new WaveData(
 				slime,
-				10,
-				15, 1, 0.7
+				5,
+				10, 1, 0.7
 			),
 			new WaveData(
 				slime,
@@ -237,44 +237,175 @@ global.CONSTANTS.LEVELS = {
 				15, 0.7, 0.4
 			),
 			new WaveData(
-				snake,
+				slime,
 				5,
-				15, 0.6, 0.4
+				20, 0.5, 0.3
+			)
+		],
+		[ fire ],
+	),
+	TWO: new LevelData(
+		[
+			[s, p, p, p, p, p, o, o, o],
+			[w, o, o, o, o, p, o, o, o],
+			[o, o, o, o, r, p, r, o, o],
+			[w, w, o, o, o, p, p, p, p],
+			[w, o, o, o, o, o, o, o, p],
+			[o, o, r, o, r, o, o, o, p],
+			[e, p, p, p, p, p, p, p, p]
+		],
+		[
+			new WaveData(
+				slime,
+				5,
+				15, 0.7, 0.4
 			),
 			new WaveData(
 				snake,
+				3,
+				30, 1, 0.7
+			),
+			new WaveData(
+				slime,
 				5,
-				15, 0.4, 0.2
+				20, 0.5, 0.3
+			),
+			new WaveData(
+				snake,
+				0,
+				30, 0.7, 0.3
+			),
+		],
+		[ fire, ice ]
+	),
+	THREE: new LevelData(
+		[
+			[s, p, p, p, p, p, p, p, p],
+			[o, o, o, o, r, r, o, o, p],
+			[o, r, o, o, r, w, o, o, p],
+			[p, p, p, p, p, p, p, p, p],
+			[p, o, o, o, o, w, r, o, o],
+			[p, r, o, o, o, r, w, o, o],
+			[p, p, p, p, p, p, p, p, e]
+		],
+		[
+			new WaveData(
+				slime,
+				5,
+				40, 0.5, 0.3
+			),
+			new WaveData(
+				snake,
+				0,
+				30, 0.6, 0.3
+			),
+			new WaveData(
+				hunter,
+				8,
+				5, 1, 0.8
+			),
+			new WaveData(
+				slime,
+				5,
+				15, 0.5, 0.3
+			),
+			new WaveData(
+				snake,
+				0,
+				30, 0.6, 0.2
 			),
 			new WaveData(
 				hunter,
 				5,
-				10, 0.8, 0.7
-			),
+				15, 0.5, 0.4
+			)
+		],
+		[ fire, ice, wind ]
+	),
+	FOUR: new LevelData(
+		[
+			[w, o, o, r, r, o, o, o, e],
+			[o, o, p, p, p, p, r, o, p],
+			[o, o, p, o, o, p, o, o, p],
+			[s, p, p, o, p, p, o, r, p],
+			[o, o, o, r, p, r, o, o, p],
+			[w, w, w, o, p, o, o, o, p],
+			[r, r, w, o, p, p, p, p, p]
+		],
+		[
 			new WaveData(
-				hunter,
+				slime,
 				5,
-				10, 0.7, 0.6
+				30, 0.5, 0.3
 			),
 			new WaveData(
-				knight,
-				10,
-				10, 1, 0.8
+				snake,
+				0,
+				20, 0.7, 0.5
 			),
 			new WaveData(
 				hunter,
 				3,
-				5, 0.2
+				15, 0.9, 0.7
 			),
 			new WaveData(
 				knight,
-				5,
-				10, 0.8, 0.6
+				0,
+				5, 1, 0.8
 			),
 			new WaveData(
-				cavalier,
+				slime,
 				5,
-				8, 0.8, 0.6
+				10, 0.5, 0.3
+			),
+			new WaveData(
+				snake,
+				0,
+				20, 0.7, 0.5
+			),
+			new WaveData(
+				hunter,
+				3,
+				20, 0.8, 0.6
+			),
+			new WaveData(
+				knight,
+				0,
+				20, 0.6, 0.3
+			)
+		],
+		[ fire, ice, wind, lightning ]
+	),
+	FIVE: new LevelData(
+		[
+			[s, p, p, p, o, o, o, r, w],
+			[o, o, o, p, o, o, r, w, w],
+			[p, p, p, p, o, o, r, r, w],
+			[p, o, r, r, o, o, o, r, o],
+			[p, o, w, r, o, p, p, p, p],
+			[p, o, o, o, o, p, o, r, p],
+			[p, p, p, p, p, p, o, o, e]
+		],
+		[
+			new WaveData(
+				snake,
+				5,
+				20, 0.7, 0.5
+			),
+			new WaveData(
+				hunter,
+				3,
+				15, 0.9, 0.7
+			),
+			new WaveData(
+				knight,
+				0,
+				5, 1, 0.8
+			),
+			new WaveData(
+				slime,
+				5,
+				10, 0.5, 0.3
 			),
 			new WaveData(
 				cavalier,
@@ -282,92 +413,41 @@ global.CONSTANTS.LEVELS = {
 				8, 0.6, 0.4
 			),
 			new WaveData(
+				hunter,
+				3,
+				20, 0.8, 0.6
+			),
+			new WaveData(
+				knight,
+				0,
+				20, 0.6, 0.3
+			),
+			new WaveData(
+				slime,
+				5,
+				10, 0.5, 0.3
+			),
+			new WaveData(
+				hunter,
+				3,
+				20, 0.8, 0.6
+			),
+			new WaveData(
 				boss,
 				5,
-				2, 5
+				1, 5
+			),
+			new WaveData(
+				snake,
+				0,
+				20, 0.6, 0.3
 			),
 			new WaveData(
 				cavalier,
-				10,
+				2,
 				10, 0.3
 			)
 		],
-		[ fire, ice, wind, lightning ],
-	),
-	TWO: new LevelData(
-		[
-			[s, p, p, p, p, p, o, o, o],
-			[o, o, o, o, o, p, o, r, o],
-			[o, o, o, o, o, p, o, o, o],
-			[o, o, o, o, o, p, p, p, p],
-			[o, o, o, o, o, o, o, o, p],
-			[o, o, r, o, o, o, o, o, p],
-			[e, p, p, p, p, p, p, p, p]
-		],
-		[
-			new WaveData(
-				hunter,
-				3,
-				30, 1, 0.2
-			)
-		],
-		[ fire ]
-	),
-	THREE: new LevelData(
-		[
-			[s, p, p, p, p, p, p, p, p],
-			[o, o, o, o, o, o, o, o, p],
-			[o, r, o, o, o, o, o, o, p],
-			[p, p, p, p, p, p, p, p, p],
-			[p, o, o, o, o, r, o, o, o],
-			[p, o, o, o, o, o, o, o, o],
-			[p, p, p, p, p, p, p, p, e]
-		],
-		[
-			new WaveData(
-				hunter,
-				3,
-				30, 1, 0.2
-			)
-		],
-		[ fire ]
-	),
-	FOUR: new LevelData(
-		[
-			[o, o, o, o, o, o, o, o, e],
-			[o, o, p, p, p, p, r, o, p],
-			[o, o, p, o, o, p, o, o, p],
-			[s, p, p, o, p, p, o, r, p],
-			[o, o, o, o, p, o, o, o, p],
-			[o, o, o, o, p, o, o, o, p],
-			[o, o, o, o, p, p, p, p, p]
-		],
-		[
-			new WaveData(
-				hunter,
-				3,
-				30, 1, 0.2
-			)
-		],
-		[ fire ]
-	),
-	FIVE: new LevelData(
-		[
-			[s, p, p, p, o, o, o, o, o],
-			[o, o, o, p, o, o, o, o, o],
-			[p, p, p, p, o, o, o, o, o],
-			[p, o, r, o, o, o, o, r, o],
-			[p, o, o, o, o, p, p, p, p],
-			[p, o, o, o, o, p, o, r, p],
-			[p, p, p, p, p, p, o, o, e]
-		],
-		[
-			new WaveData(
-				hunter,
-				3,
-				30, 1, 0.2
-			)
-		],
-		[ fire ]
+		[ fire, ice, wind, lightning ]
 	)
 }
