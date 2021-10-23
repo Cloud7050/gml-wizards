@@ -15,7 +15,7 @@ initialiseParentCoordinates(
 /* [Child] */
 
 function onCheckBlocksMerging() {
-	return true;
+	return false;
 }
 
 

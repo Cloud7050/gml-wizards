@@ -6,6 +6,10 @@
 
 event_inherited();
 
+function onCheckBlocksMerging() {
+	return true;
+}
+
 
 
 /* [Methods] */
