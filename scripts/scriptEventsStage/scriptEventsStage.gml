@@ -27,7 +27,7 @@ function onStageStart() {
 	var rowCount = array_length(stageGrid);
 	var columnCount = rowCount > 0 ? array_length(stageGrid[0]) : 0;
 
-	var startX = marginX + sprite_get_xoffset(referenceSprite);
+	var startX = (room_width / 2) - ((columnCount * elementWidth) / 2) + sprite_get_xoffset(referenceSprite);
 	var startY = room_height - marginY - (rowCount * elementHeight) + sprite_get_yoffset(referenceSprite);
 
 	var instancesGrid = resetGrid();
