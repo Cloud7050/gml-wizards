@@ -137,6 +137,25 @@ var o = objectSpace;
 var r = objectRock;
 var w = objectPond;
 
+var tutorial = new StageData(
+	[
+		[o, w, r, o, w, o],
+		[w, s, p, p, p, w],
+		[w, o, w, o, p, w],
+		[w, o, r, o, p, w],
+		[w, e, p, p, p, w],
+		[o, w, w, o, r, o]
+	],
+	[
+		new WaveData(
+			slime,
+			10,
+			10000, 2
+		)
+	],
+	[ fire ],
+	7050
+);
 var one = new StageData(
 	[
 		[s, p, p, p, p, p, p, p, p],
@@ -443,6 +462,7 @@ global.CONSTANTS = {
 		BOSS: boss
 	},
 	STAGES: [
+		tutorial,
 		one,
 		two,
 		three,
