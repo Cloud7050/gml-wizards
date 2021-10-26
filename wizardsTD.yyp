@@ -44,6 +44,7 @@
     {"id":{"name":"scriptUtilitiesAnimations","path":"scripts/scriptUtilitiesAnimations/scriptUtilitiesAnimations.yy",},"order":7,},
     {"id":{"name":"spriteWizard4L1","path":"sprites/spriteWizard4L1/spriteWizard4L1.yy",},"order":12,},
     {"id":{"name":"scriptUtilitiesWizards","path":"scripts/scriptUtilitiesWizards/scriptUtilitiesWizards.yy",},"order":4,},
+    {"id":{"name":"objectParentFlash","path":"objects/objectParentFlash/objectParentFlash.yy",},"order":2,},
     {"id":{"name":"roomMain","path":"rooms/roomMain/roomMain.yy",},"order":1,},
     {"id":{"name":"objectRock","path":"objects/objectRock/objectRock.yy",},"order":13,},
     {"id":{"name":"spriteEnemy1","path":"sprites/spriteEnemy1/spriteEnemy1.yy",},"order":17,},
