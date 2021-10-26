@@ -166,8 +166,8 @@ function onDrawStageGUI() {
 		undefined,
 
 		getStageString()
-		+ "\n\n" + getLivesString()
-		+ "\n" + getCoinsString()
+			+ "\n\n" + getLivesString()
+			+ "\n" + getCoinsString()
 	);
 
 	// Hints

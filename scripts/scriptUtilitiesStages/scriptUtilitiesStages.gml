@@ -1,11 +1,13 @@
 /* [Classes] */
 
 function StageData(
+	name,
 	grid,
 	waveContents,
 	wizardsAvailable,
 	startingCoins
 ) constructor {
+	self.name = name;
 	self.grid = grid;
 	self.waveContents = waveContents;
 	self.wizardsAvailable = wizardsAvailable;
@@ -32,10 +34,12 @@ function getStage() {
 	return global.stageIndex;
 }
 
-function getStageData() {
+function getStageData(
+	stageIndex = getStage()
+) {
 	var allStageData = global.CONSTANTS.STAGES;
 	var index = clamp(
-		getStage(),
+		stageIndex,
 		0,
 		array_length(allStageData) - 1
 	);
@@ -45,7 +49,7 @@ function getStageData() {
 function getStageString(
 	stageIndex = getStage()
 ) {
-	return "Stage " + string(stageIndex + 1);
+	return getStageData(stageIndex).name;
 }
 
 // [Lives]

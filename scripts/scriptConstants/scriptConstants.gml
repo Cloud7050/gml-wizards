@@ -138,6 +138,7 @@ var r = objectRock;
 var w = objectPond;
 
 var tutorial = new StageData(
+	"Tutorial Sandbox",
 	[
 		[o, w, r, o, w, o],
 		[w, s, p, p, p, w],
@@ -157,6 +158,7 @@ var tutorial = new StageData(
 	7050
 );
 var one = new StageData(
+	"Stage 1",
 	[
 		[s, p, p, p, p, p, p, p, p],
 		[o, o, o, o, o, o, o, o, p],
@@ -187,6 +189,7 @@ var one = new StageData(
 	80
 );
 var two = new StageData(
+	"Stage 2",
 	[
 		[s, p, p, p, p, p, o, o, o],
 		[w, o, o, o, o, p, o, o, o],
@@ -222,6 +225,7 @@ var two = new StageData(
 	80
 );
 var three = new StageData(
+	"Stage 3",
 	[
 		[s, p, p, p, p, p, p, p, p],
 		[o, o, o, o, r, r, o, o, p],
@@ -267,6 +271,7 @@ var three = new StageData(
 	110
 );
 var four = new StageData(
+	"Stage 4",
 	[
 		[w, o, o, r, r, o, o, o, e],
 		[o, o, p, p, p, p, r, o, p],
@@ -322,6 +327,7 @@ var four = new StageData(
 	155
 );
 var five = new StageData(
+	"Final Stage",
 	[
 		[s, p, p, p, o, o, o, r, w],
 		[o, o, o, p, o, o, r, w, w],
@@ -418,7 +424,7 @@ global.CONSTANTS = {
 		MARGIN_X: 16,
 		MARGIN_Y: 16,
 		STAGE_BUTTONS: {
-			WIDTH: 128,
+			WIDTH: 256,
 			HEIGHT: 128
 		},
 		WIZARD_BUTTONS: {
