@@ -2,4 +2,4 @@
 
 
 
-onDrawLevelGUI();
+onStageStart();

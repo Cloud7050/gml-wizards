@@ -1,6 +1,6 @@
 /* [Classes] */
 
-function LevelData(
+function StageData(
 	grid,
 	waveContents,
 	wizardsAvailable,
@@ -15,6 +15,22 @@ function LevelData(
 
 
 /* [Functions] */
+
+// [Stage]
+function setStage(index) {
+	global.stageIndex = index;
+}
+
+/// @returns The new reset stage index
+function resetStage() {
+	var defaultIndex = global.CONSTANTS.DEFAULTS.STAGE_INDEX;
+	setStage(defaultIndex);
+	return defaultIndex;
+}
+
+function getStage() {
+	return global.stageIndex;
+}
 
 // [Lives]
 function setLives(lives) {

@@ -53,8 +53,8 @@ function tryStartNextWave() {
 	}
 }
 
-function startUsingWaves(levelWaves) {
-	waves = levelWaves;
+function startUsingWaves(stageWaves) {
+	waves = stageWaves;
 
 	tryStartNextWave();
 }

@@ -30,7 +30,7 @@
     "path": "folders/Objects/Meta.yy",
   },
   "resourceVersion": "1.0",
-  "name": "singletonBattlefield",
+  "name": "singletonStage",
   "tags": [],
   "resourceType": "GMObject",
 }

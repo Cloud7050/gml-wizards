@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Events",
-    "path": "folders/Scripts/Events.yy",
+    "name": "Utilities",
+    "path": "folders/Scripts/Utilities.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scriptEventsLevel",
+  "name": "scriptUtilitiesStages",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -2,4 +2,4 @@
 
 
 
-onLevelStart();
+onMainStart();

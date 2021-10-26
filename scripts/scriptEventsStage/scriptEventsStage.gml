@@ -1,4 +1,4 @@
-function onLevelStart() {
+function onStageStart() {
 	// [Prepare Globals]
 	resetLives();
 	//resetCoins();
@@ -12,21 +12,23 @@ function onLevelStart() {
 	resetPlacingWizard();
 	resetSelectedWizard();
 
-	//TODO dynamic read
-	var levelData = global.CONSTANTS.LEVELS.ONE;
+	var stageData = global.CONSTANTS.STAGES[getStage()];
+
+	var marginX = global.CONSTANTS.UI.MARGIN_X;
+	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 
 	// [Lay Out Grid Elements]
-	var levelGrid = levelData.grid;
-
-	var rowCount = array_length(levelGrid);
-	var columnCount = rowCount > 0 ? array_length(levelGrid[0]) : 0;
-
 	var referenceSprite = object_get_sprite(objectParentGridElement);
 	var elementWidth = sprite_get_width(referenceSprite);
 	var elementHeight = sprite_get_height(referenceSprite);
 
-	var startX = global.CONSTANTS.UI.MARGIN_X + sprite_get_xoffset(referenceSprite);
-	var startY = room_height - global.CONSTANTS.UI.MARGIN_Y - (rowCount * elementHeight) + sprite_get_yoffset(referenceSprite);
+	var stageGrid = stageData.grid;
+
+	var rowCount = array_length(stageGrid);
+	var columnCount = rowCount > 0 ? array_length(stageGrid[0]) : 0;
+
+	var startX = marginX + sprite_get_xoffset(referenceSprite);
+	var startY = room_height - marginY - (rowCount * elementHeight) + sprite_get_yoffset(referenceSprite);
 
 	var instancesGrid = resetGrid();
 
@@ -45,7 +47,7 @@ function onLevelStart() {
 				currentX,
 				currentY,
 				global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
-				levelGrid[rowIndex][columnIndex]
+				stageGrid[rowIndex][columnIndex]
 			);
 			gridElement.initialise(
 				new Indexes(
@@ -63,7 +65,7 @@ function onLevelStart() {
 	var startIndexes = new Indexes(0, 0);
 	for (var rowIndex = rowCount - 1; rowIndex >= 0; rowIndex--) {
 		for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {
-			var currentObject = levelGrid[rowIndex][columnIndex];
+			var currentObject = stageGrid[rowIndex][columnIndex];
 
 			if (currentObject == objectStart) startIndexes = new Indexes(
 				rowIndex,
@@ -121,31 +123,34 @@ function onLevelStart() {
 
 	// [Set Off Waves]
 	singletonWaveManager.startUsingWaves(
-		levelData.waveContents
+		stageData.waveContents
 	);
 
 	// [Create Wizard Buttons]
-	var levelWizardData = levelData.wizardsAvailable;
+	var stageWizardData = stageData.wizardsAvailable;
 
 	// Create from bottom up
-	var wizardCount = array_length(levelWizardData);
+	var wizardCount = array_length(stageWizardData);
+
+	var constantX = room_width - (marginX + global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH);
+
 	for (var wizardIndex = wizardCount - 1; wizardIndex >= 0; wizardIndex--) {
 		var wizardButton = instance_create_layer(
-			room_width - (global.CONSTANTS.UI.MARGIN_X + global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH),
-			room_height - ((wizardCount - wizardIndex) * (global.CONSTANTS.UI.MARGIN_Y + global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT)),
+			constantX,
+			room_height - ((wizardCount - wizardIndex) * (marginY + global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT)),
 			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
 			objectWizardButton
 		);
-		wizardButton.initialise(levelWizardData[wizardIndex]);
+		wizardButton.initialise(stageWizardData[wizardIndex]);
 	}
-	
+
 	// [Set Starting Coins]
 	setCoins(
-		levelData.startingCoins
+		stageData.startingCoins
 	);
 }
 
-function onDrawLevelGUI() {
+function onDrawStageGUI() {
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 	var opacity = global.CONSTANTS.UI.PANEL_OPACITY;
