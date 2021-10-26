@@ -48,7 +48,13 @@ function initialise(
 }
 
 function getLevelSprite() {
-	return wizardData.levelSprites[level - 1];
+	var levelSprites = wizardData.levelSprites;
+	var index = clamp(
+		level - 1,
+		0,
+		array_length(levelSprites) - 1
+	);
+	return levelSprites[index];
 }
 
 function refreshSprite() {
