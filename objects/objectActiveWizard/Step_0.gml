@@ -1,6 +1,9 @@
-/// @description Attack. Range display & hint. Animate
+/// @description Animate. Attack. Range display & hint
 
 
+
+// [Animation]
+animationWrapper.step();
 
 // [Attack]
 stepsWaited++;
@@ -32,6 +35,3 @@ if (
 		);
 	}
 }
-
-// [Animation]
-animationWrapper.step();
