@@ -12,7 +12,7 @@ drawTextBox(
 	undefined,
 	true,
 
-	"Stage " + string(index + 1),
+	getStageString(index),
 	undefined,
 	undefined,
 	undefined,

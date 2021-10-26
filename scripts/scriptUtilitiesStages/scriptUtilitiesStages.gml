@@ -16,7 +16,7 @@ function StageData(
 
 /* [Functions] */
 
-// [Stage]
+// [Stage Index]
 function setStage(index) {
 	global.stageIndex = index;
 }
@@ -30,6 +30,22 @@ function resetStage() {
 
 function getStage() {
 	return global.stageIndex;
+}
+
+function getStageData() {
+	var allStageData = global.CONSTANTS.STAGES;
+	var index = clamp(
+		getStage(),
+		0,
+		array_length(allStageData) - 1
+	);
+	return allStageData[index];
+}
+
+function getStageString(
+	stageIndex = getStage()
+) {
+	return "Stage " + string(stageIndex + 1);
 }
 
 // [Lives]
@@ -46,6 +62,10 @@ function resetLives() {
 
 function getLives() {
 	return global.lives;
+}
+
+function getLivesString() {
+	return "Lives: " + string(getLives());
 }
 
 function modifyLives(change) {
@@ -68,6 +88,10 @@ function resetCoins() {
 
 function getCoins() {
 	return global.coins;
+}
+
+function getCoinsString() {
+	return "Coins: " + string(getCoins());
 }
 
 function modifyCoins(change) {

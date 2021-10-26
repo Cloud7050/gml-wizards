@@ -12,7 +12,7 @@ function onStageStart() {
 	resetPlacingWizard();
 	resetSelectedWizard();
 
-	var stageData = global.CONSTANTS.STAGES[getStage()];
+	var stageData = getStageData();
 
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
@@ -165,8 +165,9 @@ function onDrawStageGUI() {
 		opacity,
 		undefined,
 
-		"Lives: " + string(getLives())
-			+ "\nCoins: $" + string(getCoins())
+		getStageString()
+		+ "\n\n" + getLivesString()
+		+ "\n" + getCoinsString()
 	);
 
 	// Hints
