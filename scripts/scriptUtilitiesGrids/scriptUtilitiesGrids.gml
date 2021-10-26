@@ -35,11 +35,15 @@ function checkGridBounds(
 ) {
 	var rowIndex = indexes.row;
 	var columnIndex = indexes.column;
+
+	var rowCount = array_length(array);
+	var columnCount = rowCount > 0 ? array_length(array[0]) : 0;
+
 	return (
 		rowIndex >= 0
-		&& rowIndex < array_length(array)
+		&& rowIndex < rowCount
 		&& columnIndex >= 0
-		&& columnIndex < array_length(array[0])
+		&& columnIndex < columnCount
 	);
 }
 
