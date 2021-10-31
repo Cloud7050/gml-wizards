@@ -1,12 +1,12 @@
 function onMainStart() {
+	// [GameMaker Inits]
+	draw_set_circle_precision(64);
+	
 	// [Prepare Globals]
 	resetStage();
 	
 	// [Title]
 	//TODO
-	//drawTextBox(
-		
-	//);
 
 	// [Create Stage Buttons]
 	var stageData = global.CONSTANTS.STAGES;

@@ -7,7 +7,6 @@ startDrawOpacity(opacity);
 
 var isHoverPreview = isPreview();
 
-draw_set_circle_precision(100);
 draw_circle_colour(
 	x,
 	y,
