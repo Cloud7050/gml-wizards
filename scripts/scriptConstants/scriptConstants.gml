@@ -103,7 +103,7 @@ var hunter = new EnemyData(
 	spriteEnemy3
 );
 var knight = new EnemyData(
-	40,
+	50,
 	0.75,
 
 	8,
@@ -112,7 +112,7 @@ var knight = new EnemyData(
 	spriteEnemy4
 );
 var cavalier = new EnemyData(
-	50,
+	60,
 	1.25,
 
 	10,
@@ -172,17 +172,17 @@ var one = new StageData(
 		new WaveData(
 			slime,
 			10,
-			10, 1, 0.7
+			10, 1.2, 1
 		),
 		new WaveData(
 			slime,
 			5,
-			15, 0.7, 0.4
+			15, 1, 0.9
 		),
 		new WaveData(
 			slime,
 			5,
-			20, 0.5, 0.3
+			20, 0.9, 0.7
 		)
 	],
 	[ fire ],
@@ -239,31 +239,31 @@ var three = new StageData(
 		new WaveData(
 			slime,
 			10,
-			40, 0.5, 0.3
+			40, 0.7, 0.5
 		),
 		new WaveData(
 			snake,
 			0,
-			30, 0.6, 0.3
+			30, 0.7, 0.4
 		),
 		new WaveData(
 			hunter,
-			8,
+			15,
 			5, 1, 0.8
 		),
 		new WaveData(
 			slime,
-			5,
+			15,
 			15, 0.5, 0.3
 		),
 		new WaveData(
 			snake,
 			0,
-			30, 0.6, 0.2
+			30, 0.7, 0.5
 		),
 		new WaveData(
 			hunter,
-			5,
+			15,
 			15, 0.5, 0.4
 		)
 	],
@@ -294,17 +294,17 @@ var four = new StageData(
 		),
 		new WaveData(
 			hunter,
-			3,
-			15, 0.9, 0.7
+			15,
+			15, 0.8, 0.6
 		),
 		new WaveData(
 			knight,
 			0,
-			5, 1, 0.8
+			5, 0.8, 0.6
 		),
 		new WaveData(
 			slime,
-			5,
+			15,
 			10, 0.5, 0.3
 		),
 		new WaveData(
@@ -314,13 +314,13 @@ var four = new StageData(
 		),
 		new WaveData(
 			hunter,
-			3,
-			20, 0.8, 0.6
+			15,
+			20, 0.8, 0.5
 		),
 		new WaveData(
 			knight,
 			0,
-			20, 0.6, 0.3
+			20, 1, 0.6
 		)
 	],
 	[ fire, ice, wind, lightning ],
@@ -329,12 +329,12 @@ var four = new StageData(
 var five = new StageData(
 	"Final Stage",
 	[
-		[s, p, p, p, o, o, o, r, w],
+		[s, p, p, p, w, o, o, r, w],
 		[o, o, o, p, o, o, r, w, w],
-		[p, p, p, p, o, o, r, r, w],
+		[p, p, p, p, w, o, r, r, w],
 		[p, o, r, r, o, o, o, r, o],
 		[p, o, w, r, o, p, p, p, p],
-		[p, o, o, o, o, p, o, r, p],
+		[p, o, o, w, o, p, o, r, p],
 		[p, p, p, p, p, p, o, o, e]
 	],
 	[
@@ -355,13 +355,13 @@ var five = new StageData(
 		),
 		new WaveData(
 			slime,
-			5,
+			15,
 			10, 0.5, 0.3
 		),
 		new WaveData(
 			cavalier,
-			5,
-			8, 0.6, 0.4
+			4,
+			8, 1, 0.8
 		),
 		new WaveData(
 			hunter,
@@ -371,21 +371,21 @@ var five = new StageData(
 		new WaveData(
 			knight,
 			0,
-			20, 0.6, 0.3
+			20, 0.9, 0.7
 		),
 		new WaveData(
 			slime,
-			5,
+			15,
 			10, 0.5, 0.3
 		),
 		new WaveData(
 			hunter,
-			3,
+			2,
 			20, 0.8, 0.6
 		),
 		new WaveData(
 			boss,
-			10,
+			15,
 			1, 0
 		),
 		new WaveData(
@@ -395,12 +395,12 @@ var five = new StageData(
 		),
 		new WaveData(
 			cavalier,
-			2,
-			10, 0.3
+			10,
+			10, 0.9, 0.6
 		)
 	],
 	[ fire, ice, wind, lightning ],
-	155
+	170
 );
 
 global.CONSTANTS = {
