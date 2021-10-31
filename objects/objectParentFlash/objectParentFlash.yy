@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spriteSpace",
-    "path": "sprites/spriteSpace/spriteSpace.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
