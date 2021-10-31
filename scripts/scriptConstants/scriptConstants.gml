@@ -1,5 +1,5 @@
 var fire = new WizardData(
-	"Fire",
+	"Fire Wizard",
 	25,
 
 	3,
@@ -18,7 +18,7 @@ var fire = new WizardData(
 	$0000da
 );
 var ice = new WizardData(
-	"Ice",
+	"Ice Wizard",
 	40,
 
 	4,
@@ -37,7 +37,7 @@ var ice = new WizardData(
 	$cec700
 );
 var wind = new WizardData(
-	"Wind",
+	"Wind Wizard",
 	50,
 
 	2,
@@ -56,7 +56,7 @@ var wind = new WizardData(
 	$00d300
 );
 var lightning = new WizardData(
-	"Lightning",
+	"Lightning Wizard",
 	70,
 
 	3,
@@ -428,7 +428,7 @@ global.CONSTANTS = {
 			HEIGHT: 128
 		},
 		WIZARD_BUTTONS: {
-			WIDTH: 192,
+			WIDTH: 256,
 			HEIGHT: 128
 		},
 		HEALTHBARS: {
