@@ -17,11 +17,11 @@ function initialiseParentCoordinates(
 }
 
 function getStartX() {
-	return x - sprite_xoffset;
+	return x - sprite_get_xoffset(sprite_index);
 }
 
 function getStartY() {
-	return y - sprite_yoffset;
+	return y - sprite_get_yoffset(sprite_index);
 }
 
 function getEndX() {

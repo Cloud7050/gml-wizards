@@ -82,13 +82,6 @@ function drawTextBox(
 	);
 }
 
-enum SMART_TEXTBOX_ANCHORS {
-	TOP_LEFT,
-	TOP_RIGHT,
-	BOTTOM_LEFT,
-	BOTTOM_RIGHT
-}
-
 function drawSmartTextBox(
 	anchorX,
 	anchorY,
@@ -256,4 +249,16 @@ function addHint(hint) {
 		hint
 	);
 	return hints;
+}
+
+
+
+/* [Enums] */
+
+enum DRAWING_ANCHORS {
+	TOP_LEFT,
+	TOP_RIGHT,
+	BOTTOM_LEFT,
+	BOTTOM_RIGHT,
+	CENTRE
 }
