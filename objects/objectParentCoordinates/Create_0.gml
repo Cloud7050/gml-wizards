@@ -2,6 +2,18 @@
 
 
 
+/* [Child] */
+
+function onGetOffsetX() {
+	return sprite_get_xoffset(sprite_index);
+}
+
+function onGetOffsetY() {
+	return sprite_get_yoffset(sprite_index);
+}
+
+
+
 /* [Methods] */
 
 function initialiseParentCoordinates(
@@ -17,11 +29,11 @@ function initialiseParentCoordinates(
 }
 
 function getStartX() {
-	return x - sprite_get_xoffset(sprite_index);
+	return x - onGetOffsetX();
 }
 
 function getStartY() {
-	return y - sprite_get_yoffset(sprite_index);
+	return y - onGetOffsetY();
 }
 
 function getEndX() {

@@ -6,9 +6,9 @@ if (sprite != undefined) {
 	//TODO sprite button
 } else {
 	drawTextBox(
-		DRAWING_ANCHORS.TOP_LEFT,
-		getStartX(),
-		getStartY(),
+		anchor,
+		x,
+		y,
 		
 		width,
 		height,
