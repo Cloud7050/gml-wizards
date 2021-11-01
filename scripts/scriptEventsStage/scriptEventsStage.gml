@@ -204,6 +204,29 @@ function onDrawStageGUI() {
 			+ "\n\n" + getLivesString()
 			+ "\n" + getCoinsString()
 	);
+	
+	// Instructions
+	var instructions = getStageData().instructions;
+	if (instructions != undefined) {
+		drawSmartTextBox(
+			DRAWING_ANCHORS.BOTTOM_LEFT,
+			marginX,
+			room_height - marginY,
+			
+			room_width / 4,
+			
+			undefined,
+			opacity,
+			undefined,
+			
+			undefined,
+			undefined,
+			
+			instructions
+		);
+	};
+	
+	
 }
 
 function onWaveAlarm(waveManager) {

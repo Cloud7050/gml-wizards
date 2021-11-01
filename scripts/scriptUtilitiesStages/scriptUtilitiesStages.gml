@@ -5,13 +5,15 @@ function StageData(
 	grid,
 	waveContents,
 	wizardsAvailable,
-	startingCoins
+	startingCoins,
+	instructions = undefined
 ) constructor {
 	self.name = name;
 	self.grid = grid;
 	self.waveContents = waveContents;
 	self.wizardsAvailable = wizardsAvailable;
 	self.startingCoins = startingCoins;
+	self.instructions = instructions;
 }
 
 

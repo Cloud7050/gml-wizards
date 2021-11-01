@@ -150,12 +150,21 @@ var tutorial = new StageData(
 	[
 		new WaveData(
 			slime,
-			10,
-			10000, 2
-		)
+			15,
+			100, 2, 0.5
+		),
+		new WaveData(
+			slime,
+			0,
+			7050, 0.5
+		),
 	],
 	[ fire ],
-	7050
+	7050,
+	"Place wizards to attack enemies so they don't reach the purple portal! Pick a Fire Wizard on the right, then click an empty square to place him there. Try placing a few using your coins!"
+	+ "\n\nYou can merge two identical wizards, making the resulting wizard stronger! Click a wizard, then a second one highlighted in the same row or column, to merge them! Feel free to play around with placing and merging wizards."
+	+ "\n\nYou may have found that wizards can only level up twice. Also notice how rocks and wizards in the way block merging."
+	+ "\n\nGot it? Great! Exit this sandbox to try a real stage when you're ready."
 );
 var one = new StageData(
 	"Stage 1",
