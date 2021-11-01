@@ -26,7 +26,7 @@ function onStageStart() {
 	var columnCount = rowCount > 0 ? array_length(stageGrid[0]) : 0;
 
 	var startX = (room_width / 2) - ((columnCount * elementWidth) / 2) + sprite_get_xoffset(referenceSprite);
-	var startY = room_height - marginY - (rowCount * elementHeight) + sprite_get_yoffset(referenceSprite);
+	var startY = (room_height / 2) - ((rowCount * elementHeight) / 2) + sprite_get_yoffset(referenceSprite);
 
 	var instancesGrid = resetGrid();
 
@@ -132,7 +132,7 @@ function onStageStart() {
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 
 	var wizardCount = array_length(stageWizardData);
-	
+
 	var totalHeight = (wizardCount * buttonHeight) + ((wizardCount - 1) * marginY);
 
 	var constantX = room_width - marginX;
