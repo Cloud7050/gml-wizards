@@ -126,21 +126,28 @@ function onStageStart() {
 
 	// [Create Wizard Buttons]
 	var stageWizardData = stageData.wizardsAvailable;
+	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
+	var buttonHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
+	var marginX = global.CONSTANTS.UI.MARGIN_X;
+	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 
-	// Create from bottom up
 	var wizardCount = array_length(stageWizardData);
+	
+	var totalHeight = (wizardCount * buttonHeight) + ((wizardCount - 1) * marginY);
 
 	var constantX = room_width - marginX;
+	var startY = (room_height / 2) + (totalHeight / 2)
 
+	// Create from bottom up
 	for (var wizardIndex = wizardCount - 1; wizardIndex >= 0; wizardIndex--) {
 		var wizardButton = instance_create_layer(
 			constantX,
-			room_height - ((wizardCount - wizardIndex) * (marginY + global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT)),
+			startY - ((wizardCount - (wizardIndex + 1)) * (buttonHeight + marginY)),
 			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
 			objectWizardButton
 		);
 		wizardButton.initialise(
-			DRAWING_ANCHORS.TOP_RIGHT,
+			DRAWING_ANCHORS.BOTTOM_RIGHT,
 
 			stageWizardData[wizardIndex]
 		);

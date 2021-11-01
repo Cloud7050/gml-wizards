@@ -428,7 +428,7 @@ global.CONSTANTS = {
 			HEIGHT: 128
 		},
 		WIZARD_BUTTONS: {
-			WIDTH: 256,
+			WIDTH: 320,
 			HEIGHT: 128
 		},
 		HEALTHBARS: {
