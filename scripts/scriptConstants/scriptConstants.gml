@@ -474,16 +474,7 @@ global.CONSTANTS = {
 		three,
 		four,
 		five
-	],
-	HINTS: {
-		CANNOT_AFFORD_WIZARD: "[Hint] You cannot afford this wizard right now",
-		CLICK_SELECT_WIZARD: "[Hint] Click this wizard to select him",
-		NO_MERGE_UNSELECT_WIZARD: "[Hint] If you have another matching wizard in the same row or column, you can merge them!"
-			+ "\nOr, click the wizard again to unselect him",
-		MERGE_OR_UNSELECT_WIZARD: "[Hint] Click another outlined wizard to merge this wizard into him!"
-			+ "\nOr, click the wizard again to unselect him",
-		MAX_LEVEL_UNSELECT_WIZARD: "[Hint] The wizard is at max level and cannot be merged further. Click him again to unselect"
-	}
+	]
 }
 
 

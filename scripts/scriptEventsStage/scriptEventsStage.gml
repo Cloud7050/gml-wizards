@@ -1,13 +1,11 @@
 function onStageStart() {
 	// [Prepare Globals]
-	resetLives();
-	//resetCoins();
-
-	resetHints();
-
 	resetPath();
 
 	//resetGrid();
+
+	resetLives();
+	//resetCoins();
 
 	resetPlacingWizard();
 	resetSelectedWizard();
@@ -174,23 +172,6 @@ function onDrawStageGUI() {
 			+ "\n\n" + getLivesString()
 			+ "\n" + getCoinsString()
 	);
-
-	// Hints
-	if (isAnyHints()) {
-		drawSmartTextBox(
-			marginX,
-			marginY,
-			SMART_TEXTBOX_ANCHORS.TOP_LEFT,
-
-			undefined,
-			opacity,
-			undefined,
-
-			getHintsString()
-		);
-
-		resetHints();
-	}
 }
 
 function onWaveAlarm(waveManager) {

@@ -1,4 +1,4 @@
-/// @description Hover preview & hint
+/// @description Hover preview
 
 
 
@@ -21,12 +21,3 @@ flashWizardRange.initialise(
 	placingWizardData.range,
 	placingWizardData.levelSprites[0]
 );
-
-// Add hint
-if (
-	!isAffordable(placingWizardData.price)
-) {
-	addHint(
-		global.CONSTANTS.HINTS.CANNOT_AFFORD_WIZARD
-	);
-}

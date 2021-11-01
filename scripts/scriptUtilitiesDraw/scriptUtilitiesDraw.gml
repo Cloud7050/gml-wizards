@@ -2,25 +2,25 @@
 
 function anchorStartX(anchor, anchorX, width) {
 	var startX = anchorX;
-	
+
 	if (
 		anchor == DRAWING_ANCHORS.TOP_RIGHT
 		|| anchor == DRAWING_ANCHORS.BOTTOM_RIGHT
 	) startX -= width;
 	else if (anchor == DRAWING_ANCHORS.CENTRE) startX -= width / 2;
-	
+
 	return startX;
 }
 
 function anchorStartY(anchor, anchorY, height) {
 	var startY = anchorY;
-	
+
 	if (
 		anchor == DRAWING_ANCHORS.BOTTOM_LEFT
 		|| anchor == DRAWING_ANCHORS.BOTTOM_RIGHT
 	) startY -= height;
 	else if (anchor == DRAWING_ANCHORS.CENTRE) startY -= height / 2;
-	
+
 	return startY;
 }
 
@@ -37,17 +37,17 @@ function drawBackground(
 	startY,
 	endX,
 	endY,
-	
+
 	backgroundColour = c_white,
 	backgroundOpacity = 1,
 	isRounded = false,
-	
+
 	outlineColour = c_black,
 	outlineThickness = 0
 ) {
 	var rectangleFunction = draw_rectangle;
 	if (isRounded) rectangleFunction = draw_roundrect;
-	
+
 	startDrawOpacity(backgroundOpacity);
 
 	// Draw outline
@@ -85,14 +85,14 @@ function drawTextBox(
 	anchor,
 	anchorX,
 	anchorY,
-	
+
 	width,
 	height,
 
 	backgroundColour = undefined,
 	backgroundOpacity = undefined,
 	isRounded = undefined,
-	
+
 	outlineColour = undefined,
 	outlineThickness = undefined,
 
@@ -113,27 +113,27 @@ function drawTextBox(
 	);
 	var endX = startX + width;
 	var endY = startY + height;
-	
+
 	drawBackground(
 		startX,
 		startY,
 		endX,
 		endY,
-	
+
 		backgroundColour,
 		backgroundOpacity,
 		isRounded,
-	
+
 		outlineColour,
 		outlineThickness
 	);
-	
+
 	// Draw text
 	var paddingX = outlineThickness + global.CONSTANTS.UI.MARGIN_X;
 	var textStartX = startX + paddingX;
 	var textEndX = endX - paddingX;
 	var textMaxWidth = textEndX - textStartX;
-	
+
 	draw_set_colour(textColour);
 	draw_set_font(textFont);
 	draw_set_halign(isLeftNotCentre ? fa_left : fa_center);
@@ -153,14 +153,14 @@ function drawSpriteBox(
 	anchor,
 	anchorX,
 	anchorY,
-	
+
 	width,
 	height,
 
 	backgroundColour = undefined,
 	backgroundOpacity = undefined,
 	isRounded = undefined,
-	
+
 	outlineColour = undefined,
 	outlineThickness = undefined,
 
@@ -178,21 +178,21 @@ function drawSpriteBox(
 	);
 	var endX = startX + width;
 	var endY = startY + height;
-	
+
 	drawBackground(
 		startX,
 		startY,
 		endX,
 		endY,
-	
+
 		backgroundColour,
 		backgroundOpacity,
 		isRounded,
-	
+
 		outlineColour,
 		outlineThickness
 	);
-	
+
 	// Draw sprite
 	draw_sprite(
 		sprite,
@@ -206,13 +206,13 @@ function drawSmartTextBox(
 	anchor,
 	anchorX,
 	anchorY,
-	
+
 	maxWidth,
 
 	backgroundColour = undefined,
 	backgroundOpacity = undefined,
 	isRounded = undefined,
-	
+
 	outlineColour = undefined,
 	outlineThickness = 0,
 
@@ -222,9 +222,9 @@ function drawSmartTextBox(
 ) {
 	var paddingX = outlineThickness + global.CONSTANTS.UI.MARGIN_X;
 	var paddingY = outlineThickness + global.CONSTANTS.UI.MARGIN_Y;
-	
+
 	var textMaxWidth = maxWidth - (2 * paddingX);
-	
+
 	draw_set_font(textFont);
 	var textWidth = string_width_ext(
 		text,
@@ -236,22 +236,22 @@ function drawSmartTextBox(
 		LINE_SEPARATORS.M,
 		textMaxWidth
 	);
-	
+
 	var width = textWidth + (2 * paddingX);
 	var height = textHeight + (2 * paddingY);
-	
+
 	drawTextBox(
 		anchor,
 		anchorX,
 		anchorY,
-		
+
 		width,
 		height,
-		
+
 		backgroundColour = undefined,
 		backgroundOpacity = undefined,
 		isRounded = undefined,
-	
+
 		outlineColour = undefined,
 		outlineThickness = 0,
 
@@ -298,55 +298,6 @@ function drawOutlinedInstance(
 	stopColourDraw();
 
 	instance.draw_self();
-}
-
-// [Hints]
-
-/// @returns The reset hints array
-function resetHints() {
-	var hints;
-	if (!variable_global_exists("hints")) {
-		hints = [];
-		global.hints = hints;
-	} else {
-		hints = getHints();
-		array_delete(
-			hints,
-			0,
-			array_length(hints)
-		);
-	}
-	return hints;
-}
-
-function getHints() {
-	return global.hints;
-}
-
-function getHintsString() {
-	return joinArray(
-		getHints()
-	);
-}
-
-function isAnyHints() {
-	return array_length(getHints()) > 0;
-}
-
-/// @returns The hints array, reset with only the specified hint
-function setHint(hint) {
-	resetHints();
-	return addHint(hint);
-}
-
-/// @returns The hints array with the specified hint appended
-function addHint(hint) {
-	var hints = getHints();
-	array_push(
-		hints,
-		hint
-	);
-	return hints;
 }
 
 
