@@ -248,16 +248,16 @@ function drawSmartTextBox(
 		width,
 		height,
 
-		backgroundColour = undefined,
-		backgroundOpacity = undefined,
-		isRounded = undefined,
+		backgroundColour,
+		backgroundOpacity,
+		isRounded,
 
-		outlineColour = undefined,
-		outlineThickness = 0,
+		outlineColour,
+		outlineThickness,
 
 		text,
-		textColour = undefined,
-		textFont = fontGUI
+		textColour,
+		textFont
 	);
 }
 
