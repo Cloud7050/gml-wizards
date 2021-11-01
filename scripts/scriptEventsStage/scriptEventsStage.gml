@@ -205,6 +205,29 @@ function onDrawStageGUI() {
 			+ "\n" + getCoinsString()
 	);
 	
+	// Wizard description
+	if (isPlacingWizard()) {
+		var placingWizardData = getPlacingWizard();
+		if (placingWizardData != undefined) {
+			drawSmartTextBox(
+				DRAWING_ANCHORS.BOTTOM_RIGHT,
+				room_width - marginX,
+				room_height - marginY,
+
+				room_width / 4,
+
+				undefined,
+				opacity,
+				undefined,
+
+				undefined,
+				undefined,
+
+				placingWizardData.description
+			);
+		}
+	}
+	
 	// Instructions
 	var instructions = getStageData().instructions;
 	if (instructions != undefined) {
@@ -225,8 +248,6 @@ function onDrawStageGUI() {
 			instructions
 		);
 	};
-	
-	
 }
 
 function onWaveAlarm(waveManager) {

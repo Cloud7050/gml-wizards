@@ -3,6 +3,7 @@
 function WizardData(
 	name,
 	price,
+	description = undefined,
 
 	damage,
 	fireRateSeconds,
@@ -13,10 +14,11 @@ function WizardData(
 	rangeMultiplier,
 
 	levelSprites,
-	buttonColour = c_black
+	buttonColour = undefined
 ) constructor {
 	self.name = name;
 	self.price = price;
+	self.description = description;
 
 	self.damage = damage;
 

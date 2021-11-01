@@ -1,6 +1,9 @@
 var fire = new WizardData(
 	"Fire Wizard",
 	25,
+	"Damage: Average"
+		+ "\nFire rate: Poor"
+		+ "\nRange: Poor",
 
 	3,
 	1,
@@ -20,13 +23,16 @@ var fire = new WizardData(
 var ice = new WizardData(
 	"Ice Wizard",
 	40,
+	"Damage: Good"
+		+ "\nFire rate: Average"
+		+ "\nRange: Average",
 
-	4,
+	3.75,
 	0.8,
 	1.5,
 
 	1.75,
-	0.9,
+	0.8,
 	1.3,
 
 	[
@@ -39,13 +45,16 @@ var ice = new WizardData(
 var wind = new WizardData(
 	"Wind Wizard",
 	50,
+	"Damage: Poor"
+		+ "\nFire rate: Excellent"
+		+ "\nRange: Great",
 
 	2,
-	0.3,
+	0.375,
 	2,
 
 	1.5,
-	1,
+	0.7,
 	1.15,
 
 	[
@@ -58,14 +67,17 @@ var wind = new WizardData(
 var lightning = new WizardData(
 	"Lightning Wizard",
 	70,
+	"Damage: Good"
+		+ "\nFire rate: Great"
+		+ "\nRange: Poor",
 
-	3,
-	0.4,
+	3.75,
+	0.425,
 	1.25,
 
 	2,
-	0.95,
-	1.25,
+	0.925,
+	1.35,
 
 	[
 		spriteWizard4L1,
