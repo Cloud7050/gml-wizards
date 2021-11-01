@@ -428,8 +428,12 @@ global.CONSTANTS = {
 			HEIGHT: 128
 		},
 		WIZARD_BUTTONS: {
-			WIDTH: 320,
+			WIDTH: 288,
 			HEIGHT: 128
+		},
+		NAVIGATION_BUTTONS: {
+			WIDTH: 96,
+			HEIGHT: 96
 		},
 		HEALTHBARS: {
 			WIDTH: 64,

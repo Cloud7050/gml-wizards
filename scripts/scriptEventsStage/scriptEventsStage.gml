@@ -157,6 +157,17 @@ function onStageStart() {
 	setCoins(
 		stageData.startingCoins
 	);
+	
+	// [Create Navigation Buttons]
+	var exitButton = instance_create_layer(
+		marginX,
+		marginY,
+		global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+		objectExitButton
+	);
+	exitButton.initialise(
+		DRAWING_ANCHORS.TOP_LEFT
+	);
 }
 
 function onDrawStageGUI() {
