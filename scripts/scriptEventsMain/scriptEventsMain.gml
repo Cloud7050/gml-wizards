@@ -1,10 +1,10 @@
 function onMainStart() {
 	// [GameMaker Inits]
 	draw_set_circle_precision(64);
-	
+
 	// [Prepare Globals]
 	resetStage();
-	
+
 	// [Title]
 	//TODO
 
@@ -20,7 +20,7 @@ function onMainStart() {
 	var totalWidth = (stageCount * buttonWidth) + ((stageCount - 1) * marginX);
 
 	var startX = (room_width / 2) - (totalWidth / 2);
-	var constantY = lerp(0, room_height, 0.66);
+	var constantY = room_height / 2;
 
 	for (var stageIndex = 0; stageIndex < array_length(stageData); stageIndex++) {
 		var stageButton = instance_create_layer(
@@ -29,6 +29,10 @@ function onMainStart() {
 			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
 			objectStageButton
 		);
-		stageButton.initialise(stageIndex);
+		stageButton.initialise(
+			DRAWING_ANCHORS.TOP_LEFT,
+
+			stageIndex
+		);
 	}
 }

@@ -130,7 +130,7 @@ function onStageStart() {
 	// Create from bottom up
 	var wizardCount = array_length(stageWizardData);
 
-	var constantX = room_width - (marginX + global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH);
+	var constantX = room_width - marginX;
 
 	for (var wizardIndex = wizardCount - 1; wizardIndex >= 0; wizardIndex--) {
 		var wizardButton = instance_create_layer(
@@ -139,7 +139,11 @@ function onStageStart() {
 			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
 			objectWizardButton
 		);
-		wizardButton.initialise(stageWizardData[wizardIndex]);
+		wizardButton.initialise(
+			DRAWING_ANCHORS.TOP_RIGHT,
+
+			stageWizardData[wizardIndex]
+		);
 	}
 
 	// [Set Starting Coins]

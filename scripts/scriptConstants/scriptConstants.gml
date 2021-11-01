@@ -424,7 +424,7 @@ global.CONSTANTS = {
 		MARGIN_X: 16,
 		MARGIN_Y: 16,
 		STAGE_BUTTONS: {
-			WIDTH: 256,
+			WIDTH: 192,
 			HEIGHT: 128
 		},
 		WIZARD_BUTTONS: {
