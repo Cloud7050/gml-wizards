@@ -168,6 +168,16 @@ function onStageStart() {
 	exitButton.initialise(
 		DRAWING_ANCHORS.TOP_LEFT
 	);
+	
+	var restartButton = instance_create_layer(
+		marginX,
+		marginY + global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT + marginY,
+		global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+		objectRestartButton
+	);
+	restartButton.initialise(
+		DRAWING_ANCHORS.TOP_LEFT
+	);
 }
 
 function onDrawStageGUI() {

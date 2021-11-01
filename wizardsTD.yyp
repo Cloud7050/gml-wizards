@@ -18,6 +18,7 @@
     {"id":{"name":"objectSpace","path":"objects/objectSpace/objectSpace.yy",},"order":0,},
     {"id":{"name":"objectActiveEnemy","path":"objects/objectActiveEnemy/objectActiveEnemy.yy",},"order":7,},
     {"id":{"name":"spriteWizard1L3","path":"sprites/spriteWizard1L3/spriteWizard1L3.yy",},"order":4,},
+    {"id":{"name":"objectRestartButton","path":"objects/objectRestartButton/objectRestartButton.yy",},"order":17,},
     {"id":{"name":"objectFlashWizardRange","path":"objects/objectFlashWizardRange/objectFlashWizardRange.yy",},"order":1,},
     {"id":{"name":"spritePond","path":"sprites/spritePond/spritePond.yy",},"order":23,},
     {"id":{"name":"spriteWizard3L2","path":"sprites/spriteWizard3L2/spriteWizard3L2.yy",},"order":13,},
