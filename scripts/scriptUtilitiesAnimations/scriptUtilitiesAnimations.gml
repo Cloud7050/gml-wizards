@@ -11,8 +11,8 @@ function AnimationWrapper() constructor {
 	function step() {
 		if (!isAnimating()) return;
 
-		currentAnimation.step();
-		if (currentAnimation.isOver()) {
+		if (!currentAnimation.isOver()) currentAnimation.step();
+		else {
 			var oldAnimation = currentAnimation;
 			currentAnimation = undefined;
 			oldAnimation.discard();
@@ -31,7 +31,9 @@ function BaseAnimation(
 	targetSeconds,
 	progressType
 ) constructor {
-	targetSteps = getStepsPerSecond() * targetSeconds;
+	targetSteps = ceil(
+		getStepsPerSecond() * targetSeconds
+	);
 	self.progressType = progressType;
 
 	stepsAnimated = 0;
@@ -161,7 +163,6 @@ function WizardPlacementAnimation(
 		activeWizard.image_alpha = lerp(startOpacity, endOpacity, progress);
 		activeWizard.image_xscale = lerp(startXScale, endXScale, progress);
 		activeWizard.image_yscale = lerp(startYScale, endYScale, progress);
-		//FIXME progress is overshooting
 	}
 }
 
