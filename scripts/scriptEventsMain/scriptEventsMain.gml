@@ -5,9 +5,6 @@ function onMainStart() {
 	// [Prepare Globals]
 	resetStage();
 
-	// [Title]
-	//TODO
-
 	// [Create Stage Buttons]
 	var stageData = global.CONSTANTS.STAGES;
 	var buttonWidth = global.CONSTANTS.UI.STAGE_BUTTONS.WIDTH;
@@ -35,4 +32,14 @@ function onMainStart() {
 			stageIndex
 		);
 	}
+}
+
+function onDrawMainGUI() {
+	// Title
+	draw_sprite(
+		spriteTitle,
+		0,
+		room_width / 2,
+		room_height * 0.25
+	);
 }
