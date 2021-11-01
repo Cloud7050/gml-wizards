@@ -13,7 +13,12 @@ waveSpawnedCount = 0;
 /* [Methods] */
 
 function getCurrentWave() {
-	return waves[waveIndex];
+	var index = clamp(
+		waveIndex,
+		0,
+		array_length(waves) - 1
+	);
+	return waves[index];
 }
 
 function setAlarm(requestedDelay) {
