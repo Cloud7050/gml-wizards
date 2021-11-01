@@ -2,8 +2,27 @@
 
 
 
+var outlineThickness = min(width, height) / 16;
 if (sprite != undefined) {
-	//TODO sprite button
+	drawSpriteBox(
+		anchor,
+		x,
+		y,
+		
+		width,
+		height,
+
+		onGetBackgroundColour(
+			isMouseWithin()
+		),
+		undefined,
+		true,
+		
+		onGetOutlineColour(),
+		outlineThickness,
+
+		sprite
+	);
 } else {
 	drawTextBox(
 		anchor,
@@ -20,7 +39,7 @@ if (sprite != undefined) {
 		true,
 		
 		onGetOutlineColour(),
-		min(width, height) / 16,
+		outlineThickness,
 
 		text,
 		undefined,

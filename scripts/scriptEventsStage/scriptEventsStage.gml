@@ -157,12 +157,17 @@ function onDrawStageGUI() {
 
 	// Stats
 	drawSmartTextBox(
+		DRAWING_ANCHORS.TOP_RIGHT,
 		room_width - marginX,
 		marginY,
-		SMART_TEXTBOX_ANCHORS.TOP_RIGHT,
+
+		room_width / 2,
 
 		undefined,
 		opacity,
+		undefined,
+
+		undefined,
 		undefined,
 
 		getStageString()

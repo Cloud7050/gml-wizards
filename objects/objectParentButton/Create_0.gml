@@ -7,25 +7,11 @@
 event_inherited();
 
 function onGetOffsetX() {
-	if (anchor == DRAWING_ANCHORS.CENTRE) return width / 2;
-	
-	if (
-		anchor == DRAWING_ANCHORS.TOP_RIGHT
-		|| anchor == DRAWING_ANCHORS.BOTTOM_RIGHT
-	) return width;
-	
-	return 0;
+	return -anchorStartX(anchor, 0, width);
 }
 
 function onGetOffsetY() {
-	if (anchor == DRAWING_ANCHORS.CENTRE) return height / 2;
-	
-	if (
-		anchor == DRAWING_ANCHORS.BOTTOM_LEFT
-		|| anchor == DRAWING_ANCHORS.BOTTOM_RIGHT
-	) return height;
-	
-	return 0;
+	return -anchorStartY(anchor, 0, height);
 }
 
 

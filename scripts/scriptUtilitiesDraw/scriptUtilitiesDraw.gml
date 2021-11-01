@@ -1,45 +1,65 @@
 /* [Functions] */
 
-function drawTextBox(
+function anchorStartX(anchor, anchorX, width) {
+	var startX = anchorX;
+	
+	if (
+		anchor == DRAWING_ANCHORS.TOP_RIGHT
+		|| anchor == DRAWING_ANCHORS.BOTTOM_RIGHT
+	) startX -= width;
+	else if (anchor == DRAWING_ANCHORS.CENTRE) startX -= width / 2;
+	
+	return startX;
+}
+
+function anchorStartY(anchor, anchorY, height) {
+	var startY = anchorY;
+	
+	if (
+		anchor == DRAWING_ANCHORS.BOTTOM_LEFT
+		|| anchor == DRAWING_ANCHORS.BOTTOM_RIGHT
+	) startY -= height;
+	else if (anchor == DRAWING_ANCHORS.CENTRE) startY -= height / 2;
+	
+	return startY;
+}
+
+function startDrawOpacity(opacity) {
+	draw_set_alpha(opacity);
+}
+
+function stopDrawOpacity() {
+	draw_set_alpha(1);
+}
+
+function drawBackground(
 	startX,
 	startY,
 	endX,
 	endY,
-
+	
 	backgroundColour = c_white,
 	backgroundOpacity = 1,
 	isRounded = false,
-
-	text,
-	textColour = c_black,
-	textFont = fontGUI,
-	isCentreNotLeft = true,
-
-	outlineThickness = 0,
-	outlineColour = c_black
+	
+	outlineColour = c_black,
+	outlineThickness = 0
 ) {
+	var rectangleFunction = draw_rectangle;
+	if (isRounded) rectangleFunction = draw_roundrect;
+	
 	startDrawOpacity(backgroundOpacity);
 
 	// Draw outline
 	if (outlineThickness != 0) {
 		draw_set_colour(outlineColour);
-		if (isRounded) {
-			draw_roundrect(
-				startX,
-				startY,
-				endX,
-				endY,
-				false
-			);
-		} else {
-			draw_rectangle(
-				startX,
-				startY,
-				endX,
-				endY,
-				false
-			);
-		}
+		rectangleFunction(
+			startX,
+			startY,
+			endX,
+			endY,
+			false
+		);
 	}
 
 	// Draw background
@@ -49,118 +69,196 @@ function drawTextBox(
 	var innerEndY = endY - outlineThickness;
 
 	draw_set_colour(backgroundColour);
-	if (isRounded) {
-		draw_roundrect(
-			innerStartX,
-			innerStartY,
-			innerEndX,
-			innerEndY,
-			false
-		);
-	} else {
-		draw_rectangle(
-			innerStartX,
-			innerStartY,
-			innerEndX,
-			innerEndY,
-			false
-		);
-	}
+	rectangleFunction(
+		innerStartX,
+		innerStartY,
+		innerEndX,
+		innerEndY,
+		false
+	);
 
 	// Draw end
 	stopDrawOpacity();
-
-	// Draw text
-	draw_set_colour(textColour);
-	draw_set_font(textFont);
-	draw_set_halign(isCentreNotLeft ? fa_center : fa_left);
-	draw_set_valign(fa_middle);
-	draw_text(
-		isCentreNotLeft ? mid(startX, endX) : startX + outlineThickness + global.CONSTANTS.UI.MARGIN_X,
-		mid(startY, endY),
-		text
-	);
 }
 
-function drawSmartTextBox(
+function drawTextBox(
+	anchor,
 	anchorX,
 	anchorY,
-	anchor = SMART_TEXTBOX_ANCHORS.BOTTOM_LEFT,
+	
+	width,
+	height,
 
 	backgroundColour = undefined,
 	backgroundOpacity = undefined,
 	isRounded = undefined,
+	
+	outlineColour = undefined,
+	outlineThickness = undefined,
 
 	text,
-	textColour = undefined,
+	textColour = c_black,
 	textFont = fontGUI,
-
-	outlineThickness = 0,
-	outlineColour = undefined
+	isLeftNotCentre = true
 ) {
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-
-	// For calculating string display dimensions
-	draw_set_font(textFont);
-	var textWidth = string_width(text);
-	var textHeight = string_height(text);
-
-	var innerWidth = outlineThickness + marginX + textWidth + marginX + outlineThickness;
-	var innerHeight = outlineThickness + marginY + textHeight + marginY + outlineThickness;
-
-	var startX;
-	var endX;
-	if (
-		anchor == SMART_TEXTBOX_ANCHORS.TOP_LEFT
-		|| anchor == SMART_TEXTBOX_ANCHORS.BOTTOM_LEFT
-	) {
-		startX = anchorX;
-		endX = startX + innerWidth;
-	} else {
-		endX = anchorX;
-		startX = endX - innerWidth;
-	}
-
-	var startY;
-	var endY;
-	if (
-		anchor == SMART_TEXTBOX_ANCHORS.TOP_LEFT
-		|| anchor == SMART_TEXTBOX_ANCHORS.TOP_RIGHT
-	) {
-		startY = anchorY;
-		endY = startY + innerHeight;
-	} else {
-		endY = anchorY;
-		startY = endY - innerHeight;
-	}
-
-	drawTextBox(
+	var startX = anchorStartX(
+		anchor,
+		anchorX,
+		width
+	);
+	var startY = anchorStartY(
+		anchor,
+		anchorY,
+		height
+	);
+	var endX = startX + width;
+	var endY = startY + height;
+	
+	drawBackground(
 		startX,
 		startY,
 		endX,
 		endY,
-
+	
 		backgroundColour,
 		backgroundOpacity,
 		isRounded,
-
+	
+		outlineColour,
+		outlineThickness
+	);
+	
+	// Draw text
+	var paddingX = outlineThickness + global.CONSTANTS.UI.MARGIN_X;
+	var textStartX = startX + paddingX;
+	var textEndX = endX - paddingX;
+	var textMaxWidth = textEndX - textStartX;
+	
+	draw_set_colour(textColour);
+	draw_set_font(textFont);
+	draw_set_halign(isLeftNotCentre ? fa_left : fa_center);
+	draw_set_valign(fa_middle);
+	draw_text_ext(
+		isLeftNotCentre
+			? textStartX
+			: mid(startX, endX),
+		mid(startY, endY),
 		text,
-		textColour,
-		textFont,
-		false,
-
-		outlineThickness,
-		outlineColour
+		LINE_SEPARATORS.M,
+		textMaxWidth
 	);
 }
 
-function startDrawOpacity(opacity) {
-	draw_set_alpha(opacity);
+function drawSpriteBox(
+	anchor,
+	anchorX,
+	anchorY,
+	
+	width,
+	height,
+
+	backgroundColour = undefined,
+	backgroundOpacity = undefined,
+	isRounded = undefined,
+	
+	outlineColour = undefined,
+	outlineThickness = undefined,
+
+	sprite
+) {
+	var startX = anchorStartX(
+		anchor,
+		anchorX,
+		width
+	);
+	var startY = anchorStartY(
+		anchor,
+		anchorY,
+		height
+	);
+	var endX = startX + width;
+	var endY = startY + height;
+	
+	drawBackground(
+		startX,
+		startY,
+		endX,
+		endY,
+	
+		backgroundColour,
+		backgroundOpacity,
+		isRounded,
+	
+		outlineColour,
+		outlineThickness
+	);
+	
+	// Draw sprite
+	draw_sprite(
+		sprite,
+		0,
+		mid(startX, endX) - (sprite_get_width(sprite) / 2) + sprite_get_xoffset(sprite),
+		mid(startY, endY) - (sprite_get_height(sprite) / 2) + sprite_get_yoffset(sprite)
+	);
 }
 
-function stopDrawOpacity() {
-	draw_set_alpha(1);
+function drawSmartTextBox(
+	anchor,
+	anchorX,
+	anchorY,
+	
+	maxWidth,
+
+	backgroundColour = undefined,
+	backgroundOpacity = undefined,
+	isRounded = undefined,
+	
+	outlineColour = undefined,
+	outlineThickness = 0,
+
+	text,
+	textColour = undefined,
+	textFont = fontGUI
+) {
+	var paddingX = outlineThickness + global.CONSTANTS.UI.MARGIN_X;
+	var paddingY = outlineThickness + global.CONSTANTS.UI.MARGIN_Y;
+	
+	var textMaxWidth = maxWidth - (2 * paddingX);
+	
+	draw_set_font(textFont);
+	var textWidth = string_width_ext(
+		text,
+		LINE_SEPARATORS.M,
+		textMaxWidth
+	);
+	var textHeight = string_height_ext(
+		text,
+		LINE_SEPARATORS.M,
+		textMaxWidth
+	);
+	
+	var width = textWidth + (2 * paddingX);
+	var height = textHeight + (2 * paddingY);
+	
+	drawTextBox(
+		anchor,
+		anchorX,
+		anchorY,
+		
+		width,
+		height,
+		
+		backgroundColour = undefined,
+		backgroundOpacity = undefined,
+		isRounded = undefined,
+	
+		outlineColour = undefined,
+		outlineThickness = 0,
+
+		text,
+		textColour = undefined,
+		textFont = fontGUI
+	);
 }
 
 function startColourDraw(colour = c_white) {
