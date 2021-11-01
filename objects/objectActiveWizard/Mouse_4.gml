@@ -2,9 +2,8 @@
 
 
 
-if (isThisSelected()) {
-	resetSelectedWizard();
-} else if (
+if (isThisSelected()) resetSelectedWizard();
+else if (
 	// Ensure no rogue merge candidate just in case
 	isWizardSelected()
 	&& isMergeCandidate

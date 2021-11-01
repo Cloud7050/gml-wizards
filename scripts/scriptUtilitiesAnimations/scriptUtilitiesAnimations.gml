@@ -161,6 +161,7 @@ function WizardPlacementAnimation(
 		activeWizard.image_alpha = lerp(startOpacity, endOpacity, progress);
 		activeWizard.image_xscale = lerp(startXScale, endXScale, progress);
 		activeWizard.image_yscale = lerp(startYScale, endYScale, progress);
+		//FIXME progress is overshooting
 	}
 }
 

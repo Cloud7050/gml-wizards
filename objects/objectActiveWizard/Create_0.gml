@@ -14,6 +14,12 @@ isMergeCandidate = false;
 
 animationWrapper = new AnimationWrapper();
 
+// Mouse touch scaling
+scaledLastStep = false;
+scaledThisStep = false;
+storedXScale = image_xscale;
+storedYScale = image_yscale;
+
 
 
 /* [Methods] */
@@ -142,4 +148,58 @@ function destroy() {
 	space.activeWizard = undefined;
 
 	instance_destroy();
+}
+
+function tryScaleUp() {
+	if (scaledThisStep) return;
+	
+	scaledThisStep = true;
+	
+	storedXScale = image_xscale;
+	storedYScale = image_yscale;
+	
+	var scaleFactor = 1.1;
+	image_xscale *= scaleFactor;
+	image_yscale *= scaleFactor;
+}
+
+function tryScaleDown() {
+	if (!scaledThisStep) return;
+	
+	scaledThisStep = false;
+	
+	image_xscale = storedXScale;
+	image_yscale = storedYScale;
+}
+
+function isMouseTouching() {
+	return collision_point(
+		mouse_x,
+		mouse_y,
+		self,
+		true,
+		false
+	);
+}
+
+function tryStartScale() {
+	// Pre-scale if was already scaled
+	if (scaledLastStep) {
+		// Forget for next step
+		scaledLastStep = false;
+		
+		tryScaleUp();
+	}
+
+	// Then check. Newly scale if touching, or unscale immediately if not
+	if (isMouseTouching()) {
+		// For next step to pre-scale if applicable
+		scaledLastStep = true;
+		
+		tryScaleUp();
+	} else tryScaleDown();
+}
+
+function tryEndScale() {
+	tryScaleDown();
 }

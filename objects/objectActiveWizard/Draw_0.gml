@@ -2,6 +2,7 @@
 
 
 
+// Outline
 if (isThisSelected()) {
 	drawOutlinedInstance(
 		self,

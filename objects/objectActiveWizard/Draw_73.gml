@@ -1,7 +1,11 @@
-/// @description Chargeup bars
+/// @description Unscale. Chargeup bar
 
 
 
+// [Unscale]
+tryEndScale();
+
+// [Chargeup bar]
 if (isOffCooldown()) return;
 
 var barWidth = global.CONSTANTS.UI.CHARGEUP_BARS.WIDTH;

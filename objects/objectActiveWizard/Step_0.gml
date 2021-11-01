@@ -1,15 +1,18 @@
-/// @description Animate. Attack. Range display
+/// @description Attack. Animate. Scale. Range display
 
 
-
-// [Animation]
-animationWrapper.step();
 
 // [Attack]
 stepsWaited++;
 if (isOffCooldown()) {
 	if (tryAttack()) stepsWaited = 0;
 }
+
+// [Animate]
+animationWrapper.step();
+
+// [Scale]
+tryStartScale();
 
 // [Range Display]
 if (
