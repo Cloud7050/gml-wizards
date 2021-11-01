@@ -47,13 +47,6 @@ function checkGridBounds(
 	);
 }
 
-enum MERGE_DIRECTIONS {
-	RIGHT,
-	DOWN,
-	LEFT,
-	UP
-}
-
 function markMergeCandidate(activeWizard, mergeDirection) {
 	var currentIndexes = activeWizard.space.indexes;
 	var grid = getGrid();
@@ -132,4 +125,15 @@ function getGrid() {
 
 function getGridElement(indexes) {
 	return getGrid()[indexes.row][indexes.column];
+}
+
+
+
+/* [Enums] */
+
+enum MERGE_DIRECTIONS {
+	RIGHT,
+	DOWN,
+	LEFT,
+	UP
 }

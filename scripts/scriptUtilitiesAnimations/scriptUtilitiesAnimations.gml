@@ -27,12 +27,6 @@ function AnimationWrapper() constructor {
 	}
 }
 
-enum ANIMATION_PROGRESS_TYPES {
-	LINEAR,
-	EXPONENTIAL,
-	SLOWING
-}
-
 function BaseAnimation(
 	targetSeconds,
 	progressType
@@ -47,14 +41,14 @@ function BaseAnimation(
 	// • Manual call to start()
 	// • By passing this into an AnimationWrapper
 	function onStart() {}
-	
+
 	// Triggered every step of this animation.
 	// • Manual call to step() when appropriate (during the game's step event if this isn't over)
 	// • By its AnimationWrapper getting stepped while this is animating
 	// Fires in the same step as its start event if not started during the game's step event.
 	// Fires a number of times matching its targeted step count.
 	function onStep(progress) {}
-	
+
 	// Triggered once if this animation ends prematurely.
 	// • Manual call to cancel()
 	// • By another animation getting passed into its AnimationWrapper while this is still animating
@@ -180,7 +174,7 @@ function WizardMergeInAnimation(
 	self.activeWizard = activeWizard;
 
 	sprite = ephemeralSacrifice.getLevelSprite();
-	
+
 	startX = ephemeralSacrifice.attackX;
 	startY = ephemeralSacrifice.attackY;
 	startXScale = activeWizard.image_xscale;
@@ -203,7 +197,7 @@ function WizardMergeInAnimation(
 		);
 		flashMergeWizard.initialise(
 			sprite,
-			
+
 			lerp(startXScale, endXScale, progress),
 			lerp(startYScale, endYScale, progress),
 			lerp(startRotation, endRotation, progress)
@@ -258,4 +252,14 @@ function WizardUpgradeAnimation(
 			lerp(startYScale, endYScale, progress)
 		);
 	}
+}
+
+
+
+/* [Enums] */
+
+enum ANIMATION_PROGRESS_TYPES {
+	LINEAR,
+	EXPONENTIAL,
+	SLOWING
 }

@@ -486,9 +486,17 @@ global.CONSTANTS = {
 	}
 }
 
+
+
+/* [Enums] */
+
 enum HEALTHBAR_ANCHORS {
 	LEFT,
 	RIGHT,
 	TOP,
 	BOTTOM
+}
+
+enum LINE_SEPARATORS {
+	M = -1
 }
