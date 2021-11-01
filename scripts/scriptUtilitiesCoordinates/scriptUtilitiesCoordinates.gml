@@ -7,15 +7,13 @@ function findEnemiesInCircle(
 ) {
 	var enemiesInRange = [];
 	with (objectActiveEnemy) {
-		var distance = point_distance(
+		if (point_in_circle(
+			getMidX(),
+			getMidY(),
 			centreX,
 			centreY,
-			getMidX(),
-			getMidY()
-		);
-		if (distance <= radius) {
-			array_push(enemiesInRange, self);
-		}
+			radius
+		)) array_push(enemiesInRange, self);
 	}
 	return enemiesInRange;
 }
