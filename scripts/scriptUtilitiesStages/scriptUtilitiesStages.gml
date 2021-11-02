@@ -97,7 +97,7 @@ function getCoins() {
 }
 
 function getCoinsString() {
-	return "Coins: " + string(getCoins());
+	return "Coins: $" + string(getCoins());
 }
 
 function modifyCoins(change) {
