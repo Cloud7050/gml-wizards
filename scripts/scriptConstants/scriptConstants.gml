@@ -162,8 +162,8 @@ var tutorial = new StageData(
 	[
 		new WaveData(
 			slime,
-			15,
-			100, 2, 0.5
+			20,
+			100, 4, 0.5
 		),
 		new WaveData(
 			slime,
