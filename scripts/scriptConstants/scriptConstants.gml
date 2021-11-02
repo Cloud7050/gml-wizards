@@ -174,9 +174,9 @@ var tutorial = new StageData(
 	[ fire ],
 	400,
 	"Place wizards to attack enemies before they reach the purple portal! After picking a wizard on the right, clicking an empty square places him there."
-	+ "\n\nIdentical wizards can be merged! Click a wizard, then a second one in the same row or column, to merge them!"
-	+ "\n\nNotice how rocks and wizards in the way block merging."
-	+ "\n\nFeel free to test out the Fire Wizard! Exit this sandbox to play a real stage when you're ready!"
+		+ "\n\nIdentical wizards can be merged! Click a wizard, then a second one in the same row or column, to merge them!"
+		+ "\n\nMerging is blocked if rocks or other wizards are in the way."
+		+ "\n\nFeel free to test out the Fire Wizard! Exit this sandbox to play a real stage when you're ready!"
 );
 var one = new StageData(
 	"Stage 1",
