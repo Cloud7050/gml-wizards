@@ -4,8 +4,7 @@
 
 // Lose
 if (isLivesInsufficient()) {
-	//TODO
-	room_goto(roomMain);
+	showResults(false);
 	return;
 }
 
@@ -14,6 +13,5 @@ if (
 	isWavesOver()
 	&& instance_number(objectActiveEnemy) <= 0
 ) {
-	//TODO
-	room_goto(roomMain);
+	showResults(true);
 }

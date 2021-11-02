@@ -437,7 +437,6 @@ global.CONSTANTS = {
 		BACKGROUND: "background"
 	},
 	DEFAULTS: {
-		STAGE_INDEX: 0,
 		LIVES: 5,
 		COINS: 0
 	},

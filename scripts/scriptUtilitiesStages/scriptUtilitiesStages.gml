@@ -27,7 +27,7 @@ function setStage(index) {
 
 /// @returns The new reset stage index
 function resetStage() {
-	var defaultIndex = global.CONSTANTS.DEFAULTS.STAGE_INDEX;
+	var defaultIndex = 0;
 	setStage(defaultIndex);
 	return defaultIndex;
 }
@@ -124,4 +124,20 @@ function trySpend(price) {
 	}
 
 	return false;
+}
+
+// [Win State]
+function setWin(winState) {
+	global.winState = winState;
+}
+
+/// @returns The new reset win state
+function resetWin() {
+	var winState = true;
+	setWin(winState);
+	return winState;
+}
+
+function getWin() {
+	return global.winState;
 }

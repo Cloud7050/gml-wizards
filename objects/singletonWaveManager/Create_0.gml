@@ -96,3 +96,8 @@ function trySpawn() {
 		setAlarm(getUpcomingDelay());
 	}
 }
+
+function showResults(winState) {
+	setWin(winState);
+	room_goto(roomResults);
+}

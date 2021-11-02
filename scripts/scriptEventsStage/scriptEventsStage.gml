@@ -6,6 +6,7 @@ function onStageStart() {
 
 	resetLives();
 	//resetCoins();
+	resetWin();
 
 	resetPlacingWizard();
 	resetSelectedWizard();
