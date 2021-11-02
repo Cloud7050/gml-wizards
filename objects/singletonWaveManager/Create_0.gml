@@ -42,8 +42,11 @@ function getUpcomingDelay() {
 	)
 }
 
-function startWave(index) {
-	waveIndex = index;
+function isWavesOver() {
+	return waveIndex >= array_length(waves);
+}
+
+function startWave() {
 	waveSpawnedCount = 0;
 
 	setAlarm(
@@ -52,9 +55,9 @@ function startWave(index) {
 }
 
 function tryStartNextWave() {
-	var nextWaveIndex = waveIndex + 1;
-	if (nextWaveIndex < array_length(waves)) {
-		startWave(nextWaveIndex);
+	waveIndex += 1;
+	if (!isWavesOver()) {
+		startWave();
 	}
 }
 
@@ -64,12 +67,12 @@ function startUsingWaves(stageWaves) {
 	tryStartNextWave();
 }
 
-function isWaveOver() {
+function isWaveSpawnedEnough() {
 	return waveSpawnedCount >= getCurrentWave().count;
 }
 
 function trySpawn() {
-	if (!isWaveOver()) {
+	if (!isWaveSpawnedEnough()) {
 		waveSpawnedCount++;
 
 		var path = getPath();
@@ -87,7 +90,7 @@ function trySpawn() {
 	}
 
 	// Check again
-	if (isWaveOver()) tryStartNextWave();
+	if (isWaveSpawnedEnough()) tryStartNextWave();
 	else {
 		// For next enemy spawn
 		setAlarm(getUpcomingDelay());

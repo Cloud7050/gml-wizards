@@ -80,6 +80,11 @@ function modifyLives(change) {
 	);
 }
 
+/// @returns Whether the player has lost too many lives to continue the stage
+function isLivesInsufficient() {
+	return getLives() <= 0;
+}
+
 // [Coins]
 function setCoins(coins) {
 	global.coins = coins;

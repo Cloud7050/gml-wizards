@@ -249,7 +249,3 @@ function onDrawStageGUI() {
 		);
 	};
 }
-
-function onWaveAlarm(waveManager) {
-	waveManager.trySpawn();
-}

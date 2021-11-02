@@ -1,5 +1,5 @@
-/// @description Trigger script event
+/// @description Try spawn
 
 
 
-onWaveAlarm(self);
+trySpawn();
