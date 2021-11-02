@@ -81,6 +81,36 @@ function drawBackground(
 	stopDrawOpacity();
 }
 
+function drawText(
+	textX,
+	textY,
+	
+	maxWidth,
+
+	text,
+	colour = c_black,
+	opacity = 1,
+	font = fontGUI,
+	isLeftNotCentre = true
+) {
+	startDrawOpacity(opacity);
+	
+	draw_set_colour(colour);
+	draw_set_font(font);
+	draw_set_halign(isLeftNotCentre ? fa_left : fa_center);
+	draw_set_valign(fa_middle);
+	draw_text_ext(
+		textX,
+		textY,
+		text,
+		LINE_SEPARATORS.M,
+		maxWidth
+	);
+	
+	// Draw end
+	stopDrawOpacity();
+}
+
 function drawTextBox(
 	anchor,
 	anchorX,
@@ -97,8 +127,8 @@ function drawTextBox(
 	outlineThickness = undefined,
 
 	text,
-	textColour = c_black,
-	textFont = fontGUI,
+	textColour = undefined,
+	textFont = undefined,
 	isLeftNotCentre = true
 ) {
 	var startX = anchorStartX(
@@ -133,19 +163,20 @@ function drawTextBox(
 	var textStartX = startX + paddingX;
 	var textEndX = endX - paddingX;
 	var textMaxWidth = textEndX - textStartX;
-
-	draw_set_colour(textColour);
-	draw_set_font(textFont);
-	draw_set_halign(isLeftNotCentre ? fa_left : fa_center);
-	draw_set_valign(fa_middle);
-	draw_text_ext(
+	
+	drawText(
 		isLeftNotCentre
 			? textStartX
 			: mid(startX, endX),
 		mid(startY, endY),
+		
+		textMaxWidth,
+		
 		text,
-		LINE_SEPARATORS.M,
-		textMaxWidth
+		textColour,
+		undefined,
+		textFont,
+		isLeftNotCentre
 	);
 }
 

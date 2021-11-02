@@ -28,4 +28,16 @@ else if (
 } else {
 	// Select / overwrite previous wizard
 	setSelectedWizard(self);
+	
+	if (isMaxLevel()) {
+		var particleText = instance_create_layer(
+			mouse_x,
+			mouse_y,
+			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			objectParticleText
+		);
+		particleText.initialise(
+			"Max level!"
+		);
+	}
 }

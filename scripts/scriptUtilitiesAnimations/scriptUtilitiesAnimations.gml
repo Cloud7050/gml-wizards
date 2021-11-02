@@ -256,6 +256,41 @@ function WizardUpgradeAnimation(
 	}
 }
 
+function FloatFadeAnimation(
+	particle
+) : BaseAnimation(
+	1,
+	ANIMATION_PROGRESS_TYPES.LINEAR
+) constructor {
+	self.particle = particle;
+	
+	startY = particle.y;
+	startOpacity = particle.image_alpha;
+	
+	endY = particle.y - 60;
+	endOpacity = 0;
+
+	// [Parent]
+	function onStep(progress) {
+		matchProgress(progress);
+	}
+
+	function onCancel() {
+		matchProgress(1);
+	}
+
+	// [Methods]
+	function matchProgress(progress) {
+		particle.y = lerp(startY, endY, progress);
+		
+		var segmentPoint = 0.75;
+		if (progress >= segmentPoint) {
+			var finalSegmentProgress = (progress - segmentPoint) / (1 - segmentPoint);
+			particle.image_alpha = lerp(startOpacity, endOpacity, finalSegmentProgress);
+		}
+	}
+}
+
 
 
 /* [Enums] */
