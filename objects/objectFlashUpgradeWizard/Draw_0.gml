@@ -2,9 +2,9 @@
 
 
 
-startColourDraw();
+startDrawColour();
 
 draw_self();
 
 // Draw end
-stopColourDraw();
+stopDrawColour();

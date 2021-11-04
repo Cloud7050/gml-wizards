@@ -1,3 +1,23 @@
+function onDrawResults() {
+	// Darkened end surface
+	startDrawSurface(application_surface);
+	
+	draw_clear(c_black);
+	draw_surface_ext(
+		getSurface(),
+		0,
+		0,
+		1,
+		1,
+		0,
+		c_white,
+		0.5
+	);
+	
+	// End draw
+	stopDrawSurface();
+}
+
 function onDrawResultsGUI() {
 	// Game state
 	drawSmartTextBox(

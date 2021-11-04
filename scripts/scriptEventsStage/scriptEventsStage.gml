@@ -1,5 +1,7 @@
 function onStageStart() {
 	// [Prepare Globals]
+	resetSurface();
+	
 	resetPath();
 
 	//resetGrid();

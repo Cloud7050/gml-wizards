@@ -84,7 +84,7 @@ function drawBackground(
 function drawText(
 	textX,
 	textY,
-	
+
 	maxWidth,
 
 	text,
@@ -94,7 +94,7 @@ function drawText(
 	isLeftNotCentre = true
 ) {
 	startDrawOpacity(opacity);
-	
+
 	draw_set_colour(colour);
 	draw_set_font(font);
 	draw_set_halign(isLeftNotCentre ? fa_left : fa_center);
@@ -106,7 +106,7 @@ function drawText(
 		LINE_SEPARATORS.M,
 		maxWidth
 	);
-	
+
 	// Draw end
 	stopDrawOpacity();
 }
@@ -163,15 +163,15 @@ function drawTextBox(
 	var textStartX = startX + paddingX;
 	var textEndX = endX - paddingX;
 	var textMaxWidth = textEndX - textStartX;
-	
+
 	drawText(
 		isLeftNotCentre
 			? textStartX
 			: mid(startX, endX),
 		mid(startY, endY),
-		
+
 		textMaxWidth,
-		
+
 		text,
 		textColour,
 		undefined,
@@ -292,11 +292,11 @@ function drawSmartTextBox(
 	);
 }
 
-function startColourDraw(colour = c_white) {
+function startDrawColour(colour = c_white) {
 	gpu_set_fog(true, colour, 0, 0);
 }
 
-function stopColourDraw() {
+function stopDrawColour() {
 	var fogSettings = gpu_get_fog();
 	fogSettings[0] = false;
 	gpu_set_fog(fogSettings);
@@ -307,7 +307,7 @@ function drawOutlinedInstance(
 	outlineThickness,
 	outlineColour
 ) {
-	startColourDraw(outlineColour);
+	startDrawColour(outlineColour);
 
 	for (var xOffset = -outlineThickness; xOffset <= outlineThickness; xOffset++) {
 		for (var yOffset = -outlineThickness; yOffset <= outlineThickness; yOffset++) {
@@ -326,9 +326,48 @@ function drawOutlinedInstance(
 	}
 
 	// Draw end
-	stopColourDraw();
+	stopDrawColour();
 
 	instance.draw_self();
+}
+
+function startDrawSurface(surface) {
+	surface_set_target(surface);
+}
+
+function stopDrawSurface() {
+	surface_reset_target();
+}
+
+// [End Surface]
+function setSurface(endSurface) {
+	global.endSurface = endSurface;
+}
+
+/// @returns The reset end surface
+function resetSurface() {
+	var endSurface;
+	if (!variable_global_exists("endSurface")) {
+		endSurface = surface_create(
+			room_width,
+			room_height
+		);
+		global.endSurface = endSurface;
+	} else {
+		endSurface = getSurface();
+		
+		startDrawSurface(endSurface);
+		
+		draw_clear(c_black);
+		
+		// Draw end
+		stopDrawSurface();
+	}
+	return endSurface;
+}
+
+function getSurface() {
+	return global.endSurface;
 }
 
 
