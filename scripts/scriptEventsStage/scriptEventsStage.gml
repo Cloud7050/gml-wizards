@@ -219,7 +219,7 @@ function onDrawStageGUI() {
 
 				room_width / 4,
 
-				undefined,
+				placingWizardData.descriptionColour,
 				opacity,
 				undefined,
 

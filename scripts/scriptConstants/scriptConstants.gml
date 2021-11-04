@@ -18,7 +18,8 @@ var fire = new WizardData(
 		spriteWizard1L2,
 		spriteWizard1L3
 	],
-	$0000da
+	$0000da,
+	$9898d9
 );
 var ice = new WizardData(
 	"Ice Wizard",
@@ -40,7 +41,8 @@ var ice = new WizardData(
 		spriteWizard2L2,
 		spriteWizard2L3
 	],
-	$cec700
+	$cec700,
+	$cfcc91
 );
 var wind = new WizardData(
 	"Wind Wizard",
@@ -62,7 +64,8 @@ var wind = new WizardData(
 		spriteWizard3L2,
 		spriteWizard3L3
 	],
-	$00d300
+	$00d300,
+	$94d494
 );
 var lightning = new WizardData(
 	"Lightning Wizard",
@@ -84,7 +87,8 @@ var lightning = new WizardData(
 		spriteWizard4L2,
 		spriteWizard4L3
 	],
-	$00d1ff
+	$00d1ff,
+	$b3f1ff
 );
 
 var slime = new EnemyData(
