@@ -340,8 +340,13 @@ function stopDrawSurface() {
 }
 
 // [End Surface]
-function setSurface(endSurface) {
-	global.endSurface = endSurface;
+function stampSurface(sourceSurface) {
+	surface_copy(
+		getSurface(),
+		0,
+		0,
+		sourceSurface
+	);
 }
 
 /// @returns The reset end surface
@@ -355,11 +360,11 @@ function resetSurface() {
 		global.endSurface = endSurface;
 	} else {
 		endSurface = getSurface();
-		
+
 		startDrawSurface(endSurface);
-		
+
 		draw_clear(c_black);
-		
+
 		// Draw end
 		stopDrawSurface();
 	}

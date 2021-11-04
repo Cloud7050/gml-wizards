@@ -45,26 +45,6 @@ function WaveData(
 
 /* [Functions] */
 
-// [Path]
-
-/// @returns The reset path
-function resetPath() {
-	var path;
-	if (!variable_global_exists("path")) {
-		path = path_add();
-		path_set_closed(path, false);
-		global.path = path;
-	} else {
-		path = getPath();
-		path_clear_points(path);
-	}
-	return path;
-}
-
-function getPath() {
-	return global.path;
-}
-
 /// @returns The average length of any grid element regarding path traversal
 function getElementLength() {
 	var referenceSprite = object_get_sprite(objectParentGridElement);
@@ -84,4 +64,24 @@ function convertSpeed(elementsPerSecond) {
 /// @returns The pixels matching the specified range in element lengths
 function convertRange(elementLengths) {
 	return getElementLength() * elementLengths;
+}
+
+// [Path]
+
+/// @returns The reset path
+function resetPath() {
+	var path;
+	if (!variable_global_exists("path")) {
+		path = path_add();
+		path_set_closed(path, false);
+		global.path = path;
+	} else {
+		path = getPath();
+		path_clear_points(path);
+	}
+	return path;
+}
+
+function getPath() {
+	return global.path;
 }
