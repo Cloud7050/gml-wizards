@@ -166,21 +166,22 @@ var tutorial = new StageData(
 	[
 		new WaveData(
 			slime,
-			20,
-			100, 4, 0.5
+			0,
+			50, 2, 0.5
 		),
 		new WaveData(
 			slime,
 			0,
 			7050, 0.5
-		),
+		)
 	],
 	[ fire ],
 	400,
-	"Place wizards to attack enemies before they reach the purple portal! After picking a wizard on the right, clicking an empty square places him there."
-		+ "\n\nIdentical wizards can be merged! Click a wizard, then a second one in the same row or column, to merge them!"
+	"Place wizards to attack enemies before they reach the purple portal! Pick a wizard on the right, then click an empty square to place him there."
+		+ "\n\nIdentical wizards can be merged! Click a wizard, then another in the same row or column, to merge them."
 		+ "\n\nMerging is blocked if rocks or other wizards are in the way, but works across everything else, such as paths and ponds."
-		+ "\n\nFeel free to test out the Fire Wizard! Exit this sandbox to play a real stage when you're ready!"
+		+ "\n\nUse the flag at the top to bring on this stage's enemies. Feel free to test out the Fire Wizard!"
+		+ "\n\nExit this sandbox to play a real stage when you're ready!"
 );
 var one = new StageData(
 	"Stage 1",
@@ -196,7 +197,7 @@ var one = new StageData(
 	[
 		new WaveData(
 			slime,
-			10,
+			0,
 			10, 1.2, 1
 		),
 		new WaveData(
@@ -227,7 +228,7 @@ var two = new StageData(
 	[
 		new WaveData(
 			slime,
-			10,
+			0,
 			15, 0.7, 0.4
 		),
 		new WaveData(
@@ -263,7 +264,7 @@ var three = new StageData(
 	[
 		new WaveData(
 			slime,
-			10,
+			0,
 			40, 0.7, 0.5
 		),
 		new WaveData(
@@ -309,7 +310,7 @@ var four = new StageData(
 	[
 		new WaveData(
 			slime,
-			10,
+			0,
 			30, 0.5, 0.3
 		),
 		new WaveData(
@@ -365,7 +366,7 @@ var five = new StageData(
 	[
 		new WaveData(
 			snake,
-			10,
+			0,
 			20, 0.7, 0.5
 		),
 		new WaveData(

@@ -46,25 +46,15 @@ function isWavesOver() {
 	return waveIndex >= array_length(waves);
 }
 
-function startWave() {
+function tryStartNextWave() {
+	waveIndex += 1;
+	if (isWavesOver()) return;
+
 	waveSpawnedCount = 0;
 
 	setAlarm(
 		getCurrentWave().startingDelay + getUpcomingDelay()
 	);
-}
-
-function tryStartNextWave() {
-	waveIndex += 1;
-	if (!isWavesOver()) {
-		startWave();
-	}
-}
-
-function startUsingWaves(stageWaves) {
-	waves = stageWaves;
-
-	tryStartNextWave();
 }
 
 function isWaveSpawnedEnough() {

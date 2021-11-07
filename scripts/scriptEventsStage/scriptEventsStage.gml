@@ -122,31 +122,30 @@ function onStageStart() {
 		if (!isElementRelevant) break;
 	}
 
-	// [Set Off Waves]
-	singletonWaveManager.startUsingWaves(
-		stageData.waveContents
-	);
+	// [Store Waves]
+	singletonWaveManager.waves = stageData.waves;
 
 	// [Create Wizard Buttons]
-	var stageWizardData = stageData.wizardsAvailable;
+	var displayLayer = global.CONSTANTS.LAYERS.INSTANCE_DISPLAY;
 	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
 	var buttonHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 
+	var stageWizardData = stageData.wizardsAvailable;
 	var wizardCount = array_length(stageWizardData);
 
 	var totalHeight = (wizardCount * buttonHeight) + ((wizardCount - 1) * marginY);
 
 	var constantX = room_width - marginX;
-	var startY = (room_height / 2) + (totalHeight / 2)
+	var startY = (room_height / 2) + (totalHeight / 2);
 
 	// Create from bottom up
 	for (var wizardIndex = wizardCount - 1; wizardIndex >= 0; wizardIndex--) {
 		var wizardButton = instance_create_layer(
 			constantX,
 			startY - ((wizardCount - (wizardIndex + 1)) * (buttonHeight + marginY)),
-			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			displayLayer,
 			objectWizardButton
 		);
 		wizardButton.initialise(
@@ -162,22 +161,35 @@ function onStageStart() {
 	);
 
 	// [Create Navigation Buttons]
+	buttonWidth = global.CONSTANTS.UI.NAVIGATION_BUTTONS.WIDTH;
+	buttonHeight = global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT;
+	
 	var navigationButtons = [
 		objectExitButton,
 		objectRestartButton
 	];
-	
+
 	for (var buttonIndex = 0; buttonIndex < array_length(navigationButtons); buttonIndex++) {
 		var navigationButton = instance_create_layer(
 			marginX,
-			marginY + (buttonIndex * (global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT + marginY)),
-			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			marginY + (buttonIndex * (buttonHeight + marginY)),
+			displayLayer,
 			navigationButtons[buttonIndex]
 		);
 		navigationButton.initialise(
 			DRAWING_ANCHORS.TOP_LEFT
 		);
 	}
+	
+	var flagButton = instance_create_layer(
+		(room_width / 2) - (buttonWidth / 2),
+		marginY,
+		displayLayer,
+		objectFlagButton
+	);
+	flagButton.initialise(
+		DRAWING_ANCHORS.TOP_LEFT
+	);
 }
 
 function onStageDrawGUI() {
