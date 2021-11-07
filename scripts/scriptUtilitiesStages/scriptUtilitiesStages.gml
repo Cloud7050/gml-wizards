@@ -36,22 +36,37 @@ function getStage() {
 	return global.stageIndex;
 }
 
+function getStageCeiling() {
+	return array_length(global.CONSTANTS.STAGES) - 1;
+}
+
 function getStageData(
 	stageIndex = getStage()
 ) {
-	var allStageData = global.CONSTANTS.STAGES;
 	var index = clamp(
 		stageIndex,
 		0,
-		array_length(allStageData) - 1
+		getStageCeiling()
 	);
-	return allStageData[index];
+	return global.CONSTANTS.STAGES[index];
 }
 
 function getStageString(
 	stageIndex = getStage()
 ) {
 	return getStageData(stageIndex).name;
+}
+
+function isNextStageable() {
+	// Whether current stage is under ceiling, next may be at ceiling
+	return getStage() < getStageCeiling();
+}
+
+/// @returns The new incremented stage index
+function incrementStage() {
+	var stageIndex = getStage() + 1;
+	setStage(stageIndex);
+	return stageIndex;
 }
 
 // [Lives]
@@ -74,10 +89,11 @@ function getLivesString() {
 	return "Lives: " + string(getLives());
 }
 
+/// @returns The new modified lives value
 function modifyLives(change) {
-	setLives(
-		getLives() + change
-	);
+	var newLives = getLives() + change;
+	setLives(newLives);
+	return newLives;
 }
 
 /// @returns Whether the player has lost too many lives to continue the stage
@@ -105,10 +121,11 @@ function getCoinsString() {
 	return "Coins: $" + string(getCoins());
 }
 
+/// @returns The new modified coins value
 function modifyCoins(change) {
-	setCoins(
-		getCoins() + change
-	);
+	var coins = getCoins() + change;
+	setCoins(coins);
+	return coins;
 }
 
 /// @returns Whether the player has enough coins for the specified price

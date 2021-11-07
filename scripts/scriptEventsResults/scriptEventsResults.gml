@@ -9,7 +9,7 @@ function onResultsStart() {
 		objectExitButton,
 		objectRestartButton
 	];
-	//TODO add if has next
+	if (isNextStageable()) array_push(navigationButtons, objectNextButton);
 	var buttonCount = array_length(navigationButtons);
 	
 	var totalWidth = (buttonCount * buttonWidth) + ((buttonCount - 1) * marginX);
@@ -66,7 +66,7 @@ function onResultsDrawGUI() {
 		undefined,
 		undefined,
 
-		getWin() ? "VICTORY" : "OVERWHELMED",
+		getWin() ? "VICTORY!" : "OVERWHELMED...",
 		undefined,
 		fontTitle
 	);
