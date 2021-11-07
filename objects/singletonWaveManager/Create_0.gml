@@ -99,7 +99,7 @@ function trySpawn() {
 
 function showResults(winState) {
 	setWin(winState);
-	stampSurface(application_surface);
+	saveSurface(application_surface);
 
 	room_goto(roomResults);
 }

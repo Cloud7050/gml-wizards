@@ -1,3 +1,52 @@
+/* [Classes] */
+
+function SurfaceBuffer(
+	width,
+	height
+) constructor {
+	self.width = width;
+	self.height = height;
+	
+	self.buffer = buffer_create(
+		width * height * 4,
+		buffer_fixed,
+		1
+	);
+	self.surface = -1;
+	
+	function resetBuffer() {
+		var buffer = self.buffer;
+		
+		var bufferSize = buffer_get_size(buffer);
+		buffer_resize(buffer, 0);
+		buffer_resize(buffer, bufferSize);
+	}
+	
+	function saveSurface(surface) {
+		buffer_get_surface(
+			self.buffer,
+			surface,
+			0
+		);
+	}
+	
+	function makeSurface() {
+		if (!surface_exists(self.surface)) {
+			var surface = surface_create(width, height);
+			buffer_set_surface(
+				self.buffer,
+				surface,
+				0
+			);
+			self.surface = surface;
+		}
+		
+		return self.surface;
+	}
+}
+
+
+
 /* [Functions] */
 
 function anchorStartX(anchor, anchorX, width) {
@@ -339,40 +388,35 @@ function stopDrawSurface() {
 	surface_reset_target();
 }
 
-// [End Surface]
-function stampSurface(sourceSurface) {
-	surface_copy(
-		getSurface(),
-		0,
-		0,
-		sourceSurface
-	);
-}
+// [End Surface Buffer]
 
-/// @returns The reset end surface
-function resetSurface() {
-	var endSurface;
+/// @returns The reset end surface buffer
+function resetSurfaceBuffer() {
+	var surfaceBuffer;
 	if (!variable_global_exists("endSurface")) {
-		endSurface = surface_create(
+		surfaceBuffer = new SurfaceBuffer(
 			room_width,
 			room_height
 		);
-		global.endSurface = endSurface;
+		global.endSurfaceBuffer = surfaceBuffer;
 	} else {
-		endSurface = getSurface();
-
-		startDrawSurface(endSurface);
-
-		draw_clear(c_black);
-
-		// Draw end
-		stopDrawSurface();
-	}
-	return endSurface;
+		surfaceBuffer = getSurfaceBuffer();
+		surfaceBuffer.resetBuffer();
+	};
+	
+	return surfaceBuffer;
 }
 
-function getSurface() {
-	return global.endSurface;
+function getSurfaceBuffer() {
+	return global.endSurfaceBuffer;
+}
+
+function saveSurface(surface) {
+	getSurfaceBuffer().saveSurface(surface);
+}
+
+function makeSurface() {
+	return getSurfaceBuffer().makeSurface();
 }
 
 

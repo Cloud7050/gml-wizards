@@ -1,7 +1,7 @@
 function onStageStart() {
 	// [Prepare Globals]
-	resetSurface();
-	
+	resetSurfaceBuffer();
+
 	resetPath();
 
 	//resetGrid();
@@ -160,7 +160,7 @@ function onStageStart() {
 	setCoins(
 		stageData.startingCoins
 	);
-	
+
 	// [Create Navigation Buttons]
 	var exitButton = instance_create_layer(
 		marginX,
@@ -171,7 +171,7 @@ function onStageStart() {
 	exitButton.initialise(
 		DRAWING_ANCHORS.TOP_LEFT
 	);
-	
+
 	var restartButton = instance_create_layer(
 		marginX,
 		marginY + global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT + marginY,
@@ -207,7 +207,7 @@ function onDrawStageGUI() {
 			+ "\n\n" + getLivesString()
 			+ "\n" + getCoinsString()
 	);
-	
+
 	// Wizard description
 	if (isPlacingWizard()) {
 		var placingWizardData = getPlacingWizard();
@@ -230,7 +230,7 @@ function onDrawStageGUI() {
 			);
 		}
 	}
-	
+
 	// Instructions
 	var instructions = getStageData().instructions;
 	if (instructions != undefined) {
@@ -238,16 +238,16 @@ function onDrawStageGUI() {
 			DRAWING_ANCHORS.BOTTOM_LEFT,
 			marginX,
 			room_height - marginY,
-			
+
 			room_width / 4,
-			
+
 			undefined,
 			opacity,
 			undefined,
-			
+
 			undefined,
 			undefined,
-			
+
 			instructions
 		);
 	};
