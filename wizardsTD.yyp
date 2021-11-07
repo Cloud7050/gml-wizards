@@ -33,6 +33,7 @@
     {"id":{"name":"scriptEventsKeys","path":"scripts/scriptEventsKeys/scriptEventsKeys.yy",},"order":0,},
     {"id":{"name":"scriptUtilitiesCoordinates","path":"scripts/scriptUtilitiesCoordinates/scriptUtilitiesCoordinates.yy",},"order":6,},
     {"id":{"name":"objectFlashUpgradeWizard","path":"objects/objectFlashUpgradeWizard/objectFlashUpgradeWizard.yy",},"order":2,},
+    {"id":{"name":"objectParentNavigationButton","path":"objects/objectParentNavigationButton/objectParentNavigationButton.yy",},"order":4,},
     {"id":{"name":"spriteWizard2L2","path":"sprites/spriteWizard2L2/spriteWizard2L2.yy",},"order":8,},
     {"id":{"name":"singletonWaveManager","path":"objects/singletonWaveManager/singletonWaveManager.yy",},"order":1,},
     {"id":{"name":"spriteWizard3L1","path":"sprites/spriteWizard3L1/spriteWizard3L1.yy",},"order":11,},

@@ -17,13 +17,8 @@ function onClick() {
 function initialise(
 	anchor
 ) {
-	initialiseParentButton(
+	initialiseParentNavigationButton(
 		anchor,
-		
-		global.CONSTANTS.UI.NAVIGATION_BUTTONS.WIDTH,
-		global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT,
-		
-		undefined,
 		spriteExit
-	);
+	)
 }
