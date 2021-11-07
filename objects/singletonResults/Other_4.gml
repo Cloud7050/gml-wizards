@@ -2,4 +2,4 @@
 
 
 
-onStageDrawGUI();
+onResultsStart();

@@ -30,7 +30,6 @@
     {"id":{"name":"spriteWizard2L1","path":"sprites/spriteWizard2L1/spriteWizard2L1.yy",},"order":10,},
     {"id":{"name":"scriptEventsStage","path":"scripts/scriptEventsStage/scriptEventsStage.yy",},"order":1,},
     {"id":{"name":"spriteWizard4L3","path":"sprites/spriteWizard4L3/spriteWizard4L3.yy",},"order":16,},
-    {"id":{"name":"scriptEventsKeys","path":"scripts/scriptEventsKeys/scriptEventsKeys.yy",},"order":0,},
     {"id":{"name":"scriptUtilitiesCoordinates","path":"scripts/scriptUtilitiesCoordinates/scriptUtilitiesCoordinates.yy",},"order":6,},
     {"id":{"name":"objectFlashUpgradeWizard","path":"objects/objectFlashUpgradeWizard/objectFlashUpgradeWizard.yy",},"order":2,},
     {"id":{"name":"objectParentNavigationButton","path":"objects/objectParentNavigationButton/objectParentNavigationButton.yy",},"order":4,},

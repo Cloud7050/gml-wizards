@@ -162,28 +162,25 @@ function onStageStart() {
 	);
 
 	// [Create Navigation Buttons]
-	var exitButton = instance_create_layer(
-		marginX,
-		marginY,
-		global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
-		objectExitButton
-	);
-	exitButton.initialise(
-		DRAWING_ANCHORS.TOP_LEFT
-	);
-
-	var restartButton = instance_create_layer(
-		marginX,
-		marginY + global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT + marginY,
-		global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+	var navigationButtons = [
+		objectExitButton,
 		objectRestartButton
-	);
-	restartButton.initialise(
-		DRAWING_ANCHORS.TOP_LEFT
-	);
+	];
+	
+	for (var buttonIndex = 0; buttonIndex < array_length(navigationButtons); buttonIndex++) {
+		var navigationButton = instance_create_layer(
+			marginX,
+			marginY + (buttonIndex * (global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT + marginY)),
+			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			navigationButtons[buttonIndex]
+		);
+		navigationButton.initialise(
+			DRAWING_ANCHORS.TOP_LEFT
+		);
+	}
 }
 
-function onDrawStageGUI() {
+function onStageDrawGUI() {
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
 	var opacity = global.CONSTANTS.UI.PANEL_OPACITY;
@@ -252,3 +249,11 @@ function onDrawStageGUI() {
 		);
 	};
 }
+
+function onStagePressC() {
+	modifyCoins(global.CONSTANTS.WIZARDS.ONE.price);
+};
+
+function onStagePressL() {
+	modifyLives(global.CONSTANTS.ENEMIES.ONE.impact);
+};

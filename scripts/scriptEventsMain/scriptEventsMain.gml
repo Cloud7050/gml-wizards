@@ -34,7 +34,7 @@ function onMainStart() {
 	}
 }
 
-function onDrawMainGUI() {
+function onMainDrawGUI() {
 	// Title
 	draw_sprite(
 		spriteTitle,

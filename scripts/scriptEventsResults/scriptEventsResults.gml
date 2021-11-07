@@ -1,4 +1,36 @@
-function onDrawResults() {
+function onResultsStart() {
+	// [Create Navigation Buttons]
+	var buttonWidth = global.CONSTANTS.UI.NAVIGATION_BUTTONS.WIDTH;
+	var buttonHeight = global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT;
+	var marginX = global.CONSTANTS.UI.MARGIN_X;
+	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	
+	var navigationButtons = [
+		objectExitButton,
+		objectRestartButton
+	];
+	//TODO add if has next
+	var buttonCount = array_length(navigationButtons);
+	
+	var totalWidth = (buttonCount * buttonWidth) + ((buttonCount - 1) * marginX);
+	
+	var startX = (room_width / 2) - (totalWidth / 2);
+	var constantY = room_height / 2;
+	
+	for (var buttonIndex = 0; buttonIndex < array_length(navigationButtons); buttonIndex++) {
+		var navigationButton = instance_create_layer(
+			startX + (buttonIndex * (buttonWidth + marginX)),
+			constantY,
+			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			navigationButtons[buttonIndex]
+		);
+		navigationButton.initialise(
+			DRAWING_ANCHORS.TOP_LEFT
+		);
+	}
+}
+
+function onResultsDraw() {
 	// Darkened end surface
 	startDrawSurface(application_surface);
 
@@ -18,7 +50,7 @@ function onDrawResults() {
 	stopDrawSurface();
 }
 
-function onDrawResultsGUI() {
+function onResultsDrawGUI() {
 	// Game state
 	drawSmartTextBox(
 		DRAWING_ANCHORS.CENTRE,

@@ -2,4 +2,4 @@
 
 
 
-onKeyPressC();
+onStagePressC();
