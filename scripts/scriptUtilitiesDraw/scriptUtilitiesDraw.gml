@@ -388,6 +388,15 @@ function stopDrawSurface() {
 	surface_reset_target();
 }
 
+function drawTitle() {
+	draw_sprite(
+		spriteTitle,
+		0,
+		room_width / 2,
+		room_height / 4
+	);
+}
+
 // [End Surface Buffer]
 
 /// @returns The reset end surface buffer

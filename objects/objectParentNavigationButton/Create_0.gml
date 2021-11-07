@@ -12,6 +12,7 @@ event_inherited();
 
 function initialiseParentNavigationButton(
 	anchor,
+	
 	sprite
 ) {
 	initialiseParentButton(

@@ -448,7 +448,7 @@ global.CONSTANTS = {
 	UI: {
 		MARGIN_X: 16,
 		MARGIN_Y: 16,
-		STAGE_BUTTONS: {
+		MENU_BUTTONS: {
 			WIDTH: 192,
 			HEIGHT: 128
 		},

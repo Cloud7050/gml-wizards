@@ -19,6 +19,7 @@ function initialise(
 ) {
 	initialiseParentNavigationButton(
 		anchor,
+		
 		spriteRestart
 	)
 }

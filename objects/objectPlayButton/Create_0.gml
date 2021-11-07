@@ -17,9 +17,9 @@ function onClick() {
 function initialise(
 	anchor
 ) {
-	initialiseParentNavigationButton(
+	initialiseParentMenuButton(
 		anchor,
-		
-		spriteExit
-	)
+
+		"PLAY"
+	);
 }

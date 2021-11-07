@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Navigation Buttons",
+    "path": "folders/Objects/Navigation Buttons.yy",
   },
   "resourceVersion": "1.0",
   "name": "objectRestartButton",

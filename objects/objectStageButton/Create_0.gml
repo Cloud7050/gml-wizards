@@ -8,6 +8,7 @@ event_inherited();
 
 function onClick() {
 	setStage(index);
+
 	room_goto(roomStage);
 }
 
@@ -17,17 +18,14 @@ function onClick() {
 
 function initialise(
 	anchor,
-	
+
 	index
 ) {
 	self.index = index;
-	
-	initialiseParentButton(
+
+	initialiseParentMenuButton(
 		anchor,
-		
-		global.CONSTANTS.UI.STAGE_BUTTONS.WIDTH,
-		global.CONSTANTS.UI.STAGE_BUTTONS.HEIGHT,
-		
+
 		getStageString(index)
 	);
 }

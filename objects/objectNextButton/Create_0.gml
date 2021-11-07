@@ -8,6 +8,7 @@ event_inherited();
 
 function onClick() {
 	incrementStage();
+
 	room_goto(roomStage);
 }
 
@@ -20,6 +21,7 @@ function initialise(
 ) {
 	initialiseParentNavigationButton(
 		anchor,
+
 		spriteNext
 	)
 }
