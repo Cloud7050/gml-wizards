@@ -16,7 +16,7 @@ function onMainStart() {
 		DRAWING_ANCHORS.TOP_LEFT
 	);
 	
-	//TODO credits
+	//TODO credits, loop similar to in-game navigation buttons
 }
 
 function onMainDraw() {
