@@ -205,12 +205,17 @@ function WizardMergeInAnimation(
 			lerp(startRotation, endRotation, progress)
 		);
 	}
-
-	function onEnd() {
+	
+	function onCancel() {
+		// Refresh immediately upon cancel (about to get replaced)
 		activeWizard.refreshSprite();
 	}
 
 	function onDiscard() {
+		// Refresh the step after ending.
+		// So not onEnd(), last step still shows old sprite alongside flash
+		activeWizard.refreshSprite();
+		
 		activeWizard.animationWrapper.startReplacementAnimation(
 			new WizardUpgradeAnimation(
 				activeWizard
@@ -263,10 +268,10 @@ function FloatFadeAnimation(
 	ANIMATION_PROGRESS_TYPES.LINEAR
 ) constructor {
 	self.particle = particle;
-	
+
 	startY = particle.y;
 	startOpacity = particle.image_alpha;
-	
+
 	endY = particle.y - 60;
 	endOpacity = 0;
 
@@ -282,7 +287,7 @@ function FloatFadeAnimation(
 	// [Methods]
 	function matchProgress(progress) {
 		particle.y = lerp(startY, endY, progress);
-		
+
 		var segmentPoint = 0.75;
 		if (progress >= segmentPoint) {
 			var finalSegmentProgress = (progress - segmentPoint) / (1 - segmentPoint);
