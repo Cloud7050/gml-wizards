@@ -179,8 +179,8 @@ function WizardMergeInAnimation(
 
 	startX = ephemeralSacrifice.attackX;
 	startY = ephemeralSacrifice.attackY;
-	startXScale = activeWizard.image_xscale;
-	startYScale = activeWizard.image_yscale;
+	startXScale = ephemeralSacrifice.image_xscale;
+	startYScale = ephemeralSacrifice.image_yscale;
 	startRotation = ephemeralSacrifice.image_angle;
 
 	endX = activeWizard.attackX;
