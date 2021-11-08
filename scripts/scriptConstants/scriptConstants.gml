@@ -197,7 +197,7 @@ var tutorial = new StageData(
 		[
 			"Place wizards to attack enemies before they reach the purple portal! Pick a wizard on the right, then click an empty square to place him there.",
 			"Identical wizards can be merged! Click a wizard, then another in the same row or column, to merge them.",
-			"Merging is blocked if rocks or other wizards are in the way, but works across everything else, such as paths and ponds.",
+			"Merging is blocked if rocks or other wizards are in the way, but works across everything else, such as paths & ponds.",
 			"Use the flag at the top to bring on this stage's enemies. Feel free to test out the Fire Wizard!",
 			"Exit this sandbox to play a real stage when you're ready!"
 		],
@@ -513,8 +513,8 @@ global.C = {
 		CHARGEUP: {
 			DIMENSIONS: new Dimensions(8, 64),
 			COLOURS: {
-				START: c_aqua,
-				END: c_purple
+				START: c_blue,
+				END: c_aqua
 			}
 		}
 	},
@@ -527,10 +527,10 @@ global.C = {
 		CREDITS: joinArray(
 			[
 				"CREATED 2021",
-				"Producer/Artist: ",
-				"Designer: ",
-				"Programmer: ",
-				"QA/Tester: ",
+				"Producer/Artist: Redacted",
+				"Designer: Redacted",
+				"Programmer: ☁",
+				"QA/Tester: Redacted",
 				"",
 				"GRAPHICS",
 				"FunwithPixels",

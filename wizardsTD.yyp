@@ -14,6 +14,7 @@
     {"id":{"name":"objectPond","path":"objects/objectPond/objectPond.yy",},"order":14,},
     {"id":{"name":"spriteWizard2L3","path":"sprites/spriteWizard2L3/spriteWizard2L3.yy",},"order":9,},
     {"id":{"name":"objectParentButton","path":"objects/objectParentButton/objectParentButton.yy",},"order":3,},
+    {"id":{"name":"objectCreditsButton","path":"objects/objectCreditsButton/objectCreditsButton.yy",},"order":3,},
     {"id":{"name":"fontGUI","path":"fonts/fontGUI/fontGUI.yy",},"order":0,},
     {"id":{"name":"scriptEventsCredits","path":"scripts/scriptEventsCredits/scriptEventsCredits.yy",},"order":5,},
     {"id":{"name":"spriteEnemy4","path":"sprites/spriteEnemy4/spriteEnemy4.yy",},"order":20,},

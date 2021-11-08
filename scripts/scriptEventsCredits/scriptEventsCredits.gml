@@ -1,7 +1,7 @@
 function onCreditsStart() {
 	var backButton = instance_create_layer(
-		(room_width / 2) - (buttonWidth / 2),
-		room_height - marginY,
+		(room_width / 2) - (global.C.BUTTONS.MENU.DIMENSIONS.width / 2),
+		room_height - global.C.MARGINS.Y,
 		global.C.LAYERS.INSTANCE_DISPLAY,
 		objectBackButton
 	);

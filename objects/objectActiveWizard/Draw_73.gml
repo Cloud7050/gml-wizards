@@ -21,8 +21,8 @@ draw_healthbar(
 	startY + barHeight,
 	getCooldownPercentage(),
 	c_black,
-	global.C.BARS.CHARGEUP.COLOURS.END,
 	global.C.BARS.CHARGEUP.COLOURS.START,
+	global.C.BARS.CHARGEUP.COLOURS.END,
 	HEALTHBAR_ANCHORS.BOTTOM,
 	true,
 	true
