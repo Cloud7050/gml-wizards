@@ -471,7 +471,10 @@ global.CONSTANTS = {
 		MARGIN_Y: 16,
 		MENU_BUTTONS: {
 			WIDTH: 192,
-			HEIGHT: 128
+			HEIGHT: 128,
+			PLAY_TEXT: "PLAY",
+			CREDITS_TEXT: "CREDITS",
+			BACK_TEXT: "Back"
 		},
 		WIZARD_BUTTONS: {
 			WIDTH: 288,
@@ -500,7 +503,40 @@ global.CONSTANTS = {
 				THICKNESS: 2,
 				COLOUR: c_blue
 			}
-		}
+		},
+		FLAG_COLOUR: $0000aa,
+		HOVER_COLOUR: c_silver,
+		SELECTED_HOVER_COLOUR: $6bc06b,
+		SELECTED_COLOUR: $aaffaa,
+		RESULTS_TEXT: {
+			WIN: "VICTORY!",
+			LOSE: "OVERWHELMED..."
+		},
+		CREDITS: joinArray(
+			[
+				"CREATED 2021",
+				"Producer/Artist: ",
+				"Designer: ",
+				"Programmer: ",
+				"QA/Tester: ",
+				"",
+				"GRAPHICS",
+				"FunwithPixels",
+				"KELGE Fonts",
+				"Mavadee",
+				"PixElthen",
+				"Reemax",
+				"Ross McConnell",
+				"You're Perfect Studio",
+				"",
+				"SOUNDS",
+				"Kevin MacLeod",
+				"Mixkit",
+				"Random Mind",
+				"",
+				"Special thanks to our playtesters"
+			]
+		)
 	},
 	WIZARDS: {
 		LEVEL_CAP: 3,

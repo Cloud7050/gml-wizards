@@ -8,12 +8,12 @@ event_inherited();
 
 function onClick() {
 	singletonWaveManager.tryStartNextWave();
-	
+
 	instance_destroy();
 }
 
 function onGetOutlineColour() {
-	return $0000aa;
+	return global.CONSTANTS.UI.FLAG_COLOUR;
 }
 
 
@@ -25,7 +25,7 @@ function initialise(
 ) {
 	initialiseParentNavigationButton(
 		anchor,
-		
+
 		spriteFlag
 	)
 }

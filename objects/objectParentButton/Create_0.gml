@@ -19,7 +19,9 @@ function onGetOffsetY() {
 /* [Child] */
 
 function onGetBackgroundColour(isHovering) {
-	return isHovering ? c_silver : undefined;
+	return isHovering
+		? global.CONSTANTS.UI.HOVER_COLOUR
+		: undefined;
 }
 
 function onGetOutlineColour() {}

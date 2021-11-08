@@ -295,7 +295,8 @@ function drawSmartTextBox(
 
 	text,
 	textColour = undefined,
-	textFont = fontGUI
+	textFont = fontGUI,
+	isLeftNotCentre = undefined
 ) {
 	var paddingX = outlineThickness + global.CONSTANTS.UI.MARGIN_X;
 	var paddingY = outlineThickness + global.CONSTANTS.UI.MARGIN_Y;
@@ -334,7 +335,8 @@ function drawSmartTextBox(
 
 		text,
 		textColour,
-		textFont
+		textFont,
+		isLeftNotCentre
 	);
 }
 

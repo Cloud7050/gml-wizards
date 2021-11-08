@@ -8,10 +8,10 @@ event_inherited();
 
 function onGetBackgroundColour(isHovering) {
 	if (isPlacingThis()) return isHovering
-		? $6bc06b
-		: $aaffaa;
+		? global.CONSTANTS.UI.SELECTED_HOVER_COLOUR
+		: global.CONSTANTS.UI.SELECTED_COLOUR;
 	else return isHovering
-		? c_silver
+		? global.CONSTANTS.UI.HOVER_COLOUR
 		: undefined;
 }
 

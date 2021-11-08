@@ -4,19 +4,19 @@ function onResultsStart() {
 	var buttonHeight = global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT;
 	var marginX = global.CONSTANTS.UI.MARGIN_X;
 	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-	
+
 	var navigationButtons = [
 		objectExitButton,
 		objectRestartButton
 	];
 	if (isNextStageable()) array_push(navigationButtons, objectNextButton);
 	var buttonCount = array_length(navigationButtons);
-	
+
 	var totalWidth = (buttonCount * buttonWidth) + ((buttonCount - 1) * marginX);
-	
+
 	var startX = (room_width / 2) - (totalWidth / 2);
 	var constantY = room_height / 2;
-	
+
 	for (var buttonIndex = 0; buttonIndex < array_length(navigationButtons); buttonIndex++) {
 		var navigationButton = instance_create_layer(
 			startX + (buttonIndex * (buttonWidth + marginX)),
@@ -66,7 +66,9 @@ function onResultsDrawGUI() {
 		undefined,
 		undefined,
 
-		getWin() ? "VICTORY!" : "OVERWHELMED...",
+		getWin()
+			? global.CONSTANTS.UI.RESULTS_TEXT.WIN
+			: global.CONSTANTS.UI.RESULTS_TEXT.LOSE,
 		undefined,
 		fontTitle
 	);
