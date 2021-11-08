@@ -15,8 +15,8 @@ function onStageStart() {
 
 	var stageData = getStageData();
 
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	var marginX = global.C.MARGINS.X;
+	var marginY = global.C.MARGINS.Y;
 
 	// [Lay Out Grid Elements]
 	var referenceSprite = object_get_sprite(objectParentGridElement);
@@ -47,7 +47,7 @@ function onStageStart() {
 			var gridElement = instance_create_layer(
 				currentX,
 				currentY,
-				global.CONSTANTS.LAYERS.INSTANCE_FRAMEWORK,
+				global.C.LAYERS.INSTANCE_FRAMEWORK,
 				stageGrid[rowIndex][columnIndex]
 			);
 			gridElement.initialise(
@@ -126,11 +126,11 @@ function onStageStart() {
 	singletonWaveManager.waves = stageData.waves;
 
 	// [Create Wizard Buttons]
-	var displayLayer = global.CONSTANTS.LAYERS.INSTANCE_DISPLAY;
-	var buttonWidth = global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH;
-	var buttonHeight = global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT;
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	var displayLayer = global.C.LAYERS.INSTANCE_DISPLAY;
+	var buttonWidth = global.C.BUTTONS.WIZARD.DIMENSIONS.width;
+	var buttonHeight = global.C.BUTTONS.WIZARD.DIMENSIONS.height;
+	var marginX = global.C.MARGINS.X;
+	var marginY = global.C.MARGINS.Y;
 
 	var stageWizardData = stageData.wizardsAvailable;
 	var wizardCount = array_length(stageWizardData);
@@ -161,8 +161,8 @@ function onStageStart() {
 	);
 
 	// [Create Navigation Buttons]
-	buttonWidth = global.CONSTANTS.UI.NAVIGATION_BUTTONS.WIDTH;
-	buttonHeight = global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT;
+	buttonWidth = global.C.BUTTONS.NAVIGATION.DIMENSIONS.width;
+	buttonHeight = global.C.BUTTONS.NAVIGATION.DIMENSIONS.height;
 
 	var navigationButtons = [
 		objectExitButton,
@@ -193,9 +193,9 @@ function onStageStart() {
 }
 
 function onStageDrawGUI() {
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
-	var opacity = global.CONSTANTS.UI.PANEL_OPACITY;
+	var marginX = global.C.MARGINS.X;
+	var marginY = global.C.MARGINS.Y;
+	var opacity = global.C.OPACITIES.PANEL;
 
 	// Stats
 	drawSmartTextBox(
@@ -268,9 +268,9 @@ function onStageDrawGUI() {
 }
 
 function onStagePressC() {
-	modifyCoins(global.CONSTANTS.WIZARDS.ONE.price);
+	modifyCoins(global.C.WIZARDS.ONE.price);
 };
 
 function onStagePressL() {
-	modifyLives(global.CONSTANTS.ENEMIES.ONE.impact);
+	modifyLives(global.C.ENEMIES.ONE.impact);
 };

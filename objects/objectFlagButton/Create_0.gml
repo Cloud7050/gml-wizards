@@ -13,7 +13,7 @@ function onClick() {
 }
 
 function onGetOutlineColour() {
-	return global.CONSTANTS.UI.FLAG_COLOUR;
+	return global.C.COLOURS.OUTLINE_FLAG;
 }
 
 

@@ -16,10 +16,10 @@ else if (
 			selectedWizard
 		)
 	);
-	
+
 	// Destroy selected
 	selectedWizard.destroy();
-	
+
 	// Own level for merge
 	setLevel(
 		level + 1,
@@ -28,12 +28,12 @@ else if (
 } else {
 	// Select / overwrite previous wizard
 	setSelectedWizard(self);
-	
+
 	if (isMaxLevel()) {
 		var particleText = instance_create_layer(
 			mouse_x,
 			mouse_y,
-			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			global.C.LAYERS.INSTANCE_DISPLAY,
 			objectParticleText
 		);
 		particleText.initialise(

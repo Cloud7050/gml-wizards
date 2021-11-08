@@ -1,9 +1,9 @@
 function onResultsStart() {
 	// [Create Navigation Buttons]
-	var buttonWidth = global.CONSTANTS.UI.NAVIGATION_BUTTONS.WIDTH;
-	var buttonHeight = global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT;
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	var buttonWidth = global.C.BUTTONS.NAVIGATION.DIMENSIONS.width;
+	var buttonHeight = global.C.BUTTONS.NAVIGATION.DIMENSIONS.height;
+	var marginX = global.C.MARGINS.X;
+	var marginY = global.C.MARGINS.Y;
 
 	var navigationButtons = [
 		objectExitButton,
@@ -21,7 +21,7 @@ function onResultsStart() {
 		var navigationButton = instance_create_layer(
 			startX + (buttonIndex * (buttonWidth + marginX)),
 			constantY,
-			global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+			global.C.LAYERS.INSTANCE_DISPLAY,
 			navigationButtons[buttonIndex]
 		);
 		navigationButton.initialise(
@@ -60,15 +60,15 @@ function onResultsDrawGUI() {
 		room_width / 2,
 
 		undefined,
-		global.CONSTANTS.UI.PANEL_OPACITY,
+		global.C.OPACITIES.PANEL,
 		undefined,
 
 		undefined,
 		undefined,
 
 		getWin()
-			? global.CONSTANTS.UI.RESULTS_TEXT.WIN
-			: global.CONSTANTS.UI.RESULTS_TEXT.LOSE,
+			? global.C.TEXT.RESULTS.WIN
+			: global.C.TEXT.RESULTS.LOSE,
 		undefined,
 		fontTitle
 	);

@@ -36,7 +36,7 @@ function newActiveWizard(wizardData) {
 	activeWizard = instance_create_layer(
 		getMidX(),
 		getMidY(),
-		global.CONSTANTS.LAYERS.INSTANCE_WIZARDS,
+		global.C.LAYERS.INSTANCE_WIZARDS,
 		objectActiveWizard
 	);
 	activeWizard.initialise(

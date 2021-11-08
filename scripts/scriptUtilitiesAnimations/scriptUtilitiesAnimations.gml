@@ -194,7 +194,7 @@ function WizardMergeInAnimation(
 		var flashMergeWizard = instance_create_layer(
 			lerp(startX, endX, progress),
 			lerp(startY, endY, progress),
-			global.CONSTANTS.LAYERS.INSTANCE_PARTICLES,
+			global.C.LAYERS.INSTANCE_PARTICLES,
 			objectFlashMergeWizard
 		);
 		flashMergeWizard.initialise(
@@ -205,7 +205,7 @@ function WizardMergeInAnimation(
 			lerp(startRotation, endRotation, progress)
 		);
 	}
-	
+
 	function onCancel() {
 		// Refresh immediately upon cancel (about to get replaced)
 		activeWizard.refreshSprite();
@@ -215,7 +215,7 @@ function WizardMergeInAnimation(
 		// Refresh the step after ending.
 		// So not onEnd(), last step still shows old sprite alongside flash
 		activeWizard.refreshSprite();
-		
+
 		activeWizard.animationWrapper.startReplacementAnimation(
 			new WizardUpgradeAnimation(
 				activeWizard
@@ -248,7 +248,7 @@ function WizardUpgradeAnimation(
 		var flashUpgradeWizard = instance_create_layer(
 			constantX,
 			lerp(startY, endY, progress),
-			global.CONSTANTS.LAYERS.INSTANCE_PARTICLES,
+			global.C.LAYERS.INSTANCE_PARTICLES,
 			objectFlashUpgradeWizard
 		);
 		flashUpgradeWizard.initialise(

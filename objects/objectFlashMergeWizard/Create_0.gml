@@ -7,7 +7,7 @@
 // blended colour becomes very dark
 image_blend = merge_colour(
 	c_white,
-	global.CONSTANTS.UI.WIZARD_OUTLINES.CANDIDATE.COLOUR,
+	global.C.WIZARDS.OUTLINES.CANDIDATE.COLOUR,
 	0.75
 );
 
@@ -16,13 +16,13 @@ image_blend = merge_colour(
 /* [Methods] */
 function initialise(
 	sprite,
-	
+
 	xScale,
 	yScale,
 	rotation
 ) {
 	sprite_index = sprite;
-	
+
 	image_xscale = xScale;
 	image_yscale = yScale;
 	image_angle = rotation;

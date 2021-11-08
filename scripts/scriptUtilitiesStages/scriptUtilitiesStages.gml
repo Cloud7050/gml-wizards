@@ -27,9 +27,9 @@ function setStage(index) {
 
 /// @returns The new reset stage index
 function resetStage() {
-	var defaultIndex = 0;
-	setStage(defaultIndex);
-	return defaultIndex;
+	var index = 0;
+	setStage(index);
+	return index;
 }
 
 function getStage() {
@@ -37,24 +37,24 @@ function getStage() {
 }
 
 function getStageCeiling() {
-	return array_length(global.CONSTANTS.STAGES) - 1;
+	return array_length(global.C.STAGES) - 1;
 }
 
 function getStageData(
-	stageIndex = getStage()
+	index = getStage()
 ) {
-	var index = clamp(
-		stageIndex,
+	var clampedIndex = clamp(
+		index,
 		0,
 		getStageCeiling()
 	);
-	return global.CONSTANTS.STAGES[index];
+	return global.C.STAGES[clampedIndex];
 }
 
 function getStageString(
-	stageIndex = getStage()
+	index = undefined
 ) {
-	return getStageData(stageIndex).name;
+	return getStageData(index).name;
 }
 
 function isNextStageable() {
@@ -64,9 +64,9 @@ function isNextStageable() {
 
 /// @returns The new incremented stage index
 function incrementStage() {
-	var stageIndex = getStage() + 1;
-	setStage(stageIndex);
-	return stageIndex;
+	var index = getStage() + 1;
+	setStage(index);
+	return index;
 }
 
 // [Lives]
@@ -76,7 +76,7 @@ function setLives(lives) {
 
 /// @returns The new reset lives value
 function resetLives() {
-	var defaultLives = global.CONSTANTS.DEFAULTS.LIVES;
+	var defaultLives = global.C.DEFAULTS.LIVES;
 	setLives(defaultLives);
 	return defaultLives;
 }
@@ -108,7 +108,7 @@ function setCoins(coins) {
 
 /// @returns The new reset coins value
 function resetCoins() {
-	var coins = global.CONSTANTS.DEFAULTS.COINS;
+	var coins = 0;
 	setCoins(coins);
 	return coins;
 }
@@ -144,15 +144,15 @@ function trySpend(price) {
 }
 
 // [Win State]
-function setWin(winState) {
-	global.winState = winState;
+function setWin(state) {
+	global.winState = state;
 }
 
 /// @returns The new reset win state
 function resetWin() {
-	var winState = true;
-	setWin(winState);
-	return winState;
+	var state = true;
+	setWin(state);
+	return state;
 }
 
 function getWin() {

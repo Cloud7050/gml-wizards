@@ -20,7 +20,7 @@ function onGetOffsetY() {
 
 function onGetBackgroundColour(isHovering) {
 	return isHovering
-		? global.CONSTANTS.UI.HOVER_COLOUR
+		? global.C.COLOURS.BACKGROUND_HOVER
 		: undefined;
 }
 
@@ -35,8 +35,7 @@ function onClick() {}
 function initialiseParentButton(
 	anchor = DRAWING_ANCHORS.CENTRE,
 
-	width,
-	height,
+	dimensions,
 
 	text = "",
 	sprite = undefined
@@ -44,8 +43,8 @@ function initialiseParentButton(
 	self.anchor = anchor;
 
 	initialiseParentCoordinates(
-		width,
-		height,
+		dimensions.width,
+		dimensions.height,
 		true
 	);
 

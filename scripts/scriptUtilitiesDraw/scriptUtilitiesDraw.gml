@@ -1,5 +1,13 @@
 /* [Classes] */
 
+function Dimensions(
+	width,
+	height
+) constructor {
+	self.width = width;
+	self.height = height;
+}
+
 function SurfaceBuffer(
 	width,
 	height
@@ -84,11 +92,11 @@ function drawBackground(
 	endX,
 	endY,
 
-	backgroundColour = c_white,
+	backgroundColour = global.C.COLOURS.BACKGROUND,
 	backgroundOpacity = 1,
 	isRounded = false,
 
-	outlineColour = c_black,
+	outlineColour = global.C.COLOURS.OUTLINE,
 	outlineThickness = 0
 ) {
 	var rectangleFunction = draw_rectangle;
@@ -134,7 +142,7 @@ function drawText(
 	maxWidth,
 
 	text,
-	colour = c_black,
+	colour = global.C.COLOURS.TEXT,
 	opacity = 1,
 	font = fontGUI,
 	isLeftNotCentre = true
@@ -205,7 +213,7 @@ function drawTextBox(
 	);
 
 	// Draw text
-	var paddingX = outlineThickness + global.CONSTANTS.UI.MARGIN_X;
+	var paddingX = outlineThickness + global.C.MARGINS.X;
 	var textStartX = startX + paddingX;
 	var textEndX = endX - paddingX;
 	var textMaxWidth = textEndX - textStartX;
@@ -298,8 +306,8 @@ function drawSmartTextBox(
 	textFont = fontGUI,
 	isLeftNotCentre = undefined
 ) {
-	var paddingX = outlineThickness + global.CONSTANTS.UI.MARGIN_X;
-	var paddingY = outlineThickness + global.CONSTANTS.UI.MARGIN_Y;
+	var paddingX = outlineThickness + global.C.MARGINS.X;
+	var paddingY = outlineThickness + global.C.MARGINS.Y;
 
 	var textMaxWidth = maxWidth - (2 * paddingX);
 
@@ -340,7 +348,7 @@ function drawSmartTextBox(
 	);
 }
 
-function startDrawColour(colour = c_white) {
+function startDrawColour(colour = global.C.COLOURS.FOG) {
 	gpu_set_fog(true, colour, 0, 0);
 }
 
@@ -430,6 +438,17 @@ function makeSurface() {
 
 
 /* [Enums] */
+
+enum HEALTHBAR_ANCHORS {
+	LEFT,
+	RIGHT,
+	TOP,
+	BOTTOM
+}
+
+enum LINE_SEPARATORS {
+	M = -1
+}
 
 enum DRAWING_ANCHORS {
 	TOP_LEFT,

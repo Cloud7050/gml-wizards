@@ -100,7 +100,7 @@ function isThisSelected() {
 }
 
 function isMaxLevel() {
-	return level >= global.CONSTANTS.WIZARDS.LEVEL_CAP;
+	return level >= global.C.WIZARDS.LEVEL_CAP;
 }
 
 function isMatches(activeWizard) {
@@ -152,12 +152,12 @@ function destroy() {
 
 function tryScaleUp() {
 	if (scaledThisStep) return;
-	
+
 	scaledThisStep = true;
-	
+
 	storedXScale = image_xscale;
 	storedYScale = image_yscale;
-	
+
 	var scaleFactor = 1.1;
 	image_xscale *= scaleFactor;
 	image_yscale *= scaleFactor;
@@ -165,9 +165,9 @@ function tryScaleUp() {
 
 function tryScaleDown() {
 	if (!scaledThisStep) return;
-	
+
 	scaledThisStep = false;
-	
+
 	image_xscale = storedXScale;
 	image_yscale = storedYScale;
 }
@@ -187,7 +187,7 @@ function tryStartScale() {
 	if (scaledLastStep) {
 		// Forget for next step
 		scaledLastStep = false;
-		
+
 		tryScaleUp();
 	}
 
@@ -195,7 +195,7 @@ function tryStartScale() {
 	if (isMouseTouching()) {
 		// For next step to pre-scale if applicable
 		scaledLastStep = true;
-		
+
 		tryScaleUp();
 	} else tryScaleDown();
 }

@@ -3,12 +3,12 @@ function onStagesStart() {
 	resetStage();
 
 	// [Create Stage Buttons]
-	var displayLayer = global.CONSTANTS.LAYERS.INSTANCE_DISPLAY;
-	var stageData = global.CONSTANTS.STAGES;
-	var buttonWidth = global.CONSTANTS.UI.MENU_BUTTONS.WIDTH;
-	var buttonHeight = global.CONSTANTS.UI.MENU_BUTTONS.HEIGHT;
-	var marginX = global.CONSTANTS.UI.MARGIN_X;
-	var marginY = global.CONSTANTS.UI.MARGIN_Y;
+	var displayLayer = global.C.LAYERS.INSTANCE_DISPLAY;
+	var stageData = global.C.STAGES;
+	var buttonWidth = global.C.BUTTONS.MENU.DIMENSIONS.width;
+	var buttonHeight = global.C.BUTTONS.MENU.DIMENSIONS.height;
+	var marginX = global.C.MARGINS.X;
+	var marginY = global.C.MARGINS.Y;
 
 	var stageCount = array_length(stageData);
 
@@ -30,7 +30,7 @@ function onStagesStart() {
 			stageIndex
 		);
 	}
-	
+
 	var backButton = instance_create_layer(
 		(room_width / 2) - (buttonWidth / 2),
 		room_height - marginY,

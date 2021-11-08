@@ -2,17 +2,20 @@
 
 
 
-var opacity = global.CONSTANTS.UI.RANGE_OPACITY;
+var opacity = global.C.OPACITIES.RANGE;
 startDrawOpacity(opacity);
 
 var isHoverPreview = isPreview();
+var previewColour = global.C.COLOURS.RANGE_PREVIEW;
+var innerColour = global.C.COLOURS.RANGE_INNER;
+var outerColour = global.C.COLOURS.RANGE_OUTER;
 
 draw_circle_colour(
 	x,
 	y,
 	radius,
-	isHoverPreview ? c_grey : c_green,
-	isHoverPreview ? c_grey : c_white,
+	isHoverPreview ? previewColour : innerColour,
+	isHoverPreview ? previewColour : outerColour,
 	false
 );
 

@@ -12,14 +12,13 @@ event_inherited();
 
 function initialiseParentMenuButton(
 	anchor,
-	
+
 	text
 ) {
 	initialiseParentButton(
 		anchor,
 
-		global.CONSTANTS.UI.MENU_BUTTONS.WIDTH,
-		global.CONSTANTS.UI.MENU_BUTTONS.HEIGHT,
+		global.C.BUTTONS.MENU.DIMENSIONS,
 
 		text
 	);

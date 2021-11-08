@@ -12,14 +12,13 @@ event_inherited();
 
 function initialiseParentNavigationButton(
 	anchor,
-	
+
 	sprite
 ) {
 	initialiseParentButton(
 		anchor,
 
-		global.CONSTANTS.UI.NAVIGATION_BUTTONS.WIDTH,
-		global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT,
+		global.C.BUTTONS.NAVIGATION.DIMENSIONS,
 
 		undefined,
 		sprite

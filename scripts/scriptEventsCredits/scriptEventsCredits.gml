@@ -2,7 +2,7 @@ function onCreditsStart() {
 	var backButton = instance_create_layer(
 		(room_width / 2) - (buttonWidth / 2),
 		room_height - marginY,
-		global.CONSTANTS.LAYERS.INSTANCE_DISPLAY,
+		global.C.LAYERS.INSTANCE_DISPLAY,
 		objectBackButton
 	);
 	backButton.initialise(
@@ -16,16 +16,16 @@ function onCreditsDrawGUI() {
 		room_width / 2,
 		room_height / 2,
 
-		room_width - (2 * global.CONSTANTS.UI.MARGIN_X),
+		room_width - (2 * global.C.MARGINS.X),
 
 		undefined,
-		global.CONSTANTS.UI.PANEL_OPACITY,
+		global.C.OPACITIES.PANEL,
 		undefined,
 
 		undefined,
 		undefined,
 
-		global.CONSTANTS.UI.CREDITS,
+		global.C.TEXT.CREDITS,
 		undefined,
 		undefined,
 		false

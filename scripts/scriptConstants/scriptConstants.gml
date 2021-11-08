@@ -450,7 +450,7 @@ var five = new StageData(
 	170
 );
 
-global.CONSTANTS = {
+global.C = {
 	LAYERS: {
 		INSTANCE_DISPLAY: "display",
 		INSTANCE_META: "meta",
@@ -463,54 +463,66 @@ global.CONSTANTS = {
 		BACKGROUND: "background"
 	},
 	DEFAULTS: {
-		LIVES: 5,
-		COINS: 0
+		LIVES: 5
 	},
-	UI: {
-		MARGIN_X: 16,
-		MARGIN_Y: 16,
-		MENU_BUTTONS: {
-			WIDTH: 192,
-			HEIGHT: 128,
-			PLAY_TEXT: "PLAY",
-			CREDITS_TEXT: "CREDITS",
-			BACK_TEXT: "Back"
+	MARGINS: {
+		X: 16,
+		Y: 16
+	},
+	COLOURS: {
+		TEXT: c_black,
+		TEXT_ERROR: c_red,
+
+		BACKGROUND: c_white,
+		BACKGROUND_HOVER: c_silver,
+		BACKGROUND_SELECTED: $aaffaa,
+		BACKGROUND_SELECTED_HOVER: $6bc06b,
+
+		OUTLINE: c_black,
+		OUTLINE_FLAG: $0000aa,
+
+		FOG: c_white,
+
+		RANGE_PREVIEW: c_grey,
+		RANGE_INNER: c_green,
+		RANGE_OUTER: c_white
+	},
+	OPACITIES: {
+		RANGE: 0.5,
+		PANEL: 0.75
+	},
+	BUTTONS: {
+		MENU: {
+			DIMENSIONS: new Dimensions(192, 128)
 		},
-		WIZARD_BUTTONS: {
-			WIDTH: 288,
-			HEIGHT: 128
+		WIZARD: {
+			DIMENSIONS: new Dimensions(288, 128)
 		},
-		NAVIGATION_BUTTONS: {
-			WIDTH: 96,
-			HEIGHT: 96
-		},
-		HEALTHBARS: {
-			WIDTH: 64,
-			HEIGHT: 8
-		},
-		CHARGEUP_BARS: {
-			WIDTH: 8,
-			HEIGHT: 64
-		},
-		RANGE_OPACITY: 0.5,
-		PANEL_OPACITY: 0.75,
-		WIZARD_OUTLINES: {
-			SELECTED: {
-				THICKNESS: 4,
-				COLOUR: c_white
-			},
-			CANDIDATE: {
-				THICKNESS: 2,
-				COLOUR: c_blue
+		NAVIGATION: {
+			DIMENSIONS: new Dimensions(96, 96)
+		}
+	},
+	BARS: {
+		HEALTH: {
+			DIMENSIONS: new Dimensions(64, 8),
+			COLOURS: {
+				START: c_green,
+				END: c_red
 			}
 		},
-		FLAG_COLOUR: $0000aa,
-		HOVER_COLOUR: c_silver,
-		SELECTED_HOVER_COLOUR: $6bc06b,
-		SELECTED_COLOUR: $aaffaa,
-		RESULTS_TEXT: {
-			WIN: "VICTORY!",
-			LOSE: "OVERWHELMED..."
+		CHARGEUP: {
+			DIMENSIONS: new Dimensions(8, 64),
+			COLOURS: {
+				START: c_aqua,
+				END: c_purple
+			}
+		}
+	},
+	TEXT: {
+		MENUS: {
+			PLAY: "PLAY",
+			CREDITS: "CREDITS",
+			BACK: "Back"
 		},
 		CREDITS: joinArray(
 			[
@@ -536,10 +548,25 @@ global.CONSTANTS = {
 				"",
 				"Special thanks to our playtesters"
 			]
-		)
+		),
+		RESULTS: {
+			WIN: "VICTORY!",
+			LOSE: "OVERWHELMED..."
+		}
 	},
 	WIZARDS: {
 		LEVEL_CAP: 3,
+		OUTLINES: {
+			SELECTED: {
+				COLOUR: c_white,
+				THICKNESS: 4
+			},
+			CANDIDATE: {
+				COLOUR: c_blue,
+				THICKNESS: 2
+			}
+		},
+
 		ONE: fire,
 		TWO: ice,
 		THREE: wind,
@@ -561,19 +588,4 @@ global.CONSTANTS = {
 		four,
 		five
 	]
-}
-
-
-
-/* [Enums] */
-
-enum HEALTHBAR_ANCHORS {
-	LEFT,
-	RIGHT,
-	TOP,
-	BOTTOM
-}
-
-enum LINE_SEPARATORS {
-	M = -1
 }

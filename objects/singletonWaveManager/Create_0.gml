@@ -13,12 +13,12 @@ waveSpawnedCount = 0;
 /* [Methods] */
 
 function getCurrentWave() {
-	var index = clamp(
+	var clampedIndex = clamp(
 		waveIndex,
 		0,
 		array_length(waves) - 1
 	);
-	return waves[index];
+	return waves[clampedIndex];
 }
 
 function setAlarm(requestedDelay) {
@@ -69,7 +69,7 @@ function trySpawn() {
 		var activeEnemy = instance_create_layer(
 			path_get_point_x(path, 0),
 			path_get_point_y(path, 0),
-			global.CONSTANTS.LAYERS.INSTANCE_ENEMIES,
+			global.C.LAYERS.INSTANCE_ENEMIES,
 			objectActiveEnemy
 		);
 		activeEnemy.initialise(

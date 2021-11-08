@@ -20,6 +20,6 @@ function initialise(
 	initialiseParentMenuButton(
 		anchor,
 
-		global.CONSTANTS.UI.MENU_BUTTONS.PLAY_TEXT
+		global.C.TEXT.MENUS.PLAY
 	);
 }

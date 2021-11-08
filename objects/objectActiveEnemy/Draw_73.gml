@@ -5,8 +5,8 @@
 var healthPercentage = getHealthPercentage();
 if (healthPercentage >= 100) return;
 
-var healthbarWidth = global.CONSTANTS.UI.HEALTHBARS.WIDTH;
-var healthbarHeight = global.CONSTANTS.UI.HEALTHBARS.HEIGHT;
+var healthbarWidth = global.C.BARS.HEALTH.DIMENSIONS.width;
+var healthbarHeight = global.C.BARS.HEALTH.DIMENSIONS.height;
 
 var startX = getMidX() - (healthbarWidth / 2);
 var endY = getStartY() - healthbarHeight;
@@ -18,8 +18,8 @@ draw_healthbar(
 	endY,
 	healthPercentage,
 	c_black,
-	c_red,
-	c_green,
+	global.C.BARS.HEALTH.COLOURS.END,
+	global.C.BARS.HEALTH.COLOURS.START,
 	HEALTHBAR_ANCHORS.LEFT,
 	true,
 	true

@@ -8,10 +8,10 @@ event_inherited();
 
 function onGetBackgroundColour(isHovering) {
 	if (isPlacingThis()) return isHovering
-		? global.CONSTANTS.UI.SELECTED_HOVER_COLOUR
-		: global.CONSTANTS.UI.SELECTED_COLOUR;
+		? global.C.COLOURS.BACKGROUND_SELECTED_HOVER
+		: global.C.COLOURS.BACKGROUND_SELECTED;
 	else return isHovering
-		? global.CONSTANTS.UI.HOVER_COLOUR
+		? global.C.COLOURS.BACKGROUND_HOVER
 		: undefined;
 }
 
@@ -41,8 +41,7 @@ function initialise(
 	initialiseParentButton(
 		anchor,
 
-		global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH,
-		global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT,
+		global.C.BUTTONS.WIZARD.DIMENSIONS,
 
 		joinArray(
 			[

@@ -14,7 +14,7 @@ var placingWizardData = getPlacingWizard();
 var flashWizardRange = instance_create_layer(
 	getMidX(),
 	getMidY(),
-	global.CONSTANTS.LAYERS.INSTANCE_ABOVEGROUND,
+	global.C.LAYERS.INSTANCE_ABOVEGROUND,
 	objectFlashWizardRange
 );
 flashWizardRange.initialise(
