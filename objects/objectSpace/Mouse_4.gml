@@ -14,6 +14,11 @@ if (trySpend(
 	resetPlacingWizard();
 
 	newActiveWizard(placingWizardData);
+	
+	playSound(
+		soundSpend,
+		global.C.PRIORITIES.EFFECT
+	);
 } else {
 	var particleText = instance_create_layer(
 		mouse_x,

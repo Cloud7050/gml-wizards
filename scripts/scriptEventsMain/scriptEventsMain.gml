@@ -27,6 +27,13 @@ function onMainStart() {
 			DRAWING_ANCHORS.TOP_LEFT
 		);
 	}
+	
+	// [Music]
+	playSoleSound(
+		soundMusic,
+		global.C.PRIORITIES.MUSIC,
+		true
+	);
 }
 
 function onMainDrawGUI() {

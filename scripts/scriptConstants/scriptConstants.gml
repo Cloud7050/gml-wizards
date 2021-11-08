@@ -462,6 +462,11 @@ global.C = {
 
 		BACKGROUND: "background"
 	},
+	PRIORITIES: {
+		EFFECT: 75,
+		GENERAL: 50,
+		MUSIC: 25
+	},
 	DEFAULTS: {
 		LIVES: 5
 	},

@@ -25,6 +25,12 @@ else if (
 		level + 1,
 		false
 	);
+	
+	// Sound
+	playSound(
+		soundMerge,
+		global.C.PRIORITIES.EFFECT
+	);
 } else {
 	// Select / overwrite previous wizard
 	setSelectedWizard(self);

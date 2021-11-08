@@ -43,7 +43,12 @@ function takeDamage(damage) {
 
 	if (self.health <= 0) {
 		modifyCoins(enemyData.coins);
-
+		
+		playSound(
+			soundDie,
+			global.C.PRIORITIES.EFFECT
+		);
+		
 		instance_destroy();
 	}
 }
