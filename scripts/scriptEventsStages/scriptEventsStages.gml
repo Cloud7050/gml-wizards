@@ -40,6 +40,9 @@ function onStagesStart() {
 	backButton.initialise(
 		DRAWING_ANCHORS.BOTTOM_LEFT
 	);
+	
+	// [Music]
+	switchMusic(soundMusicMenu);
 }
 
 function onStagesDrawGUI() {

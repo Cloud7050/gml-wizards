@@ -547,7 +547,7 @@ global.C = {
 				"You're Perfect Studio",
 				"",
 				"SOUNDS",
-				"Kevin MacLeod",
+				"Alexander Nakarada",
 				"Mixkit",
 				"Random Mind",
 				"",
@@ -559,6 +559,10 @@ global.C = {
 			LOSE: "OVERWHELMED..."
 		}
 	},
+	MUSIC: [
+		soundMusicMenu,
+		soundMusicBattle
+	],
 	WIZARDS: {
 		LEVEL_CAP: 3,
 		OUTLINES: {

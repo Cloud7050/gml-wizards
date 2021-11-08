@@ -34,6 +34,9 @@ function onResultsStart() {
 		getWin() ? soundWin : soundLose,
 		global.C.PRIORITIES.EFFECT
 	);
+	
+	// [Music]
+	switchMusic(soundMusicBattle);
 }
 
 function onResultsDraw() {

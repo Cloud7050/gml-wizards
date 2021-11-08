@@ -29,11 +29,7 @@ function onMainStart() {
 	}
 	
 	// [Music]
-	playSoleSound(
-		soundMusic,
-		global.C.PRIORITIES.MUSIC,
-		true
-	);
+	switchMusic(soundMusicMenu);
 }
 
 function onMainDrawGUI() {

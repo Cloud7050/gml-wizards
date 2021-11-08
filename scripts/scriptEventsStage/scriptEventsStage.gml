@@ -190,6 +190,9 @@ function onStageStart() {
 	flagButton.initialise(
 		DRAWING_ANCHORS.TOP_LEFT
 	);
+	
+	// [Music]
+	switchMusic(soundMusicBattle);
 }
 
 function onStageDrawGUI() {
