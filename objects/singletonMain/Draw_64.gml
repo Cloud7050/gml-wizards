@@ -2,4 +2,4 @@
 
 
 
-onMainDraw();
+onMainDrawGUI();

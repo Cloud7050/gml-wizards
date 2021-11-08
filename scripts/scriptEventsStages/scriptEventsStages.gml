@@ -42,6 +42,6 @@ function onStagesStart() {
 	);
 }
 
-function onStagesDraw() {
+function onStagesDrawGUI() {
 	drawTitle();
 }

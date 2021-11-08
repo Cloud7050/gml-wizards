@@ -19,6 +19,6 @@ function onMainStart() {
 	//TODO credits, loop similar to in-game navigation buttons
 }
 
-function onMainDraw() {
+function onMainDrawGUI() {
 	drawTitle();
 }

@@ -33,19 +33,23 @@ function onClick() {
 
 function initialise(
 	anchor,
-	
+
 	wizardData
 ) {
 	self.wizardData = wizardData;
-	
+
 	initialiseParentButton(
 		anchor,
-		
+
 		global.CONSTANTS.UI.WIZARD_BUTTONS.WIDTH,
 		global.CONSTANTS.UI.WIZARD_BUTTONS.HEIGHT,
-		
-		wizardData.name
-			+ "\n$" + string(wizardData.price)
+
+		joinArray(
+			[
+				wizardData.name,
+				wizardData.getPriceString()
+			]
+		)
 	);
 }
 

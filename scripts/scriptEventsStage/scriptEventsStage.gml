@@ -163,7 +163,7 @@ function onStageStart() {
 	// [Create Navigation Buttons]
 	buttonWidth = global.CONSTANTS.UI.NAVIGATION_BUTTONS.WIDTH;
 	buttonHeight = global.CONSTANTS.UI.NAVIGATION_BUTTONS.HEIGHT;
-	
+
 	var navigationButtons = [
 		objectExitButton,
 		objectRestartButton
@@ -180,7 +180,7 @@ function onStageStart() {
 			DRAWING_ANCHORS.TOP_LEFT
 		);
 	}
-	
+
 	var flagButton = instance_create_layer(
 		(room_width / 2) - (buttonWidth / 2),
 		marginY,
@@ -212,9 +212,14 @@ function onStageDrawGUI() {
 		undefined,
 		undefined,
 
-		getStageString()
-			+ "\n\n" + getLivesString()
-			+ "\n" + getCoinsString()
+		joinArray(
+			[
+				getStageString(),
+				"",
+				getLivesString(),
+				getCoinsString()
+			]
+		)
 	);
 
 	// Wizard description

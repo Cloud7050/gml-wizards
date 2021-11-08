@@ -6,42 +6,39 @@ function SurfaceBuffer(
 ) constructor {
 	self.width = width;
 	self.height = height;
-	
+
 	self.buffer = buffer_create(
 		width * height * 4,
 		buffer_fixed,
 		1
 	);
 	self.surface = -1;
-	
+
 	function resetBuffer() {
-		var buffer = self.buffer;
-		
 		var bufferSize = buffer_get_size(buffer);
 		buffer_resize(buffer, 0);
 		buffer_resize(buffer, bufferSize);
 	}
-	
+
 	function saveSurface(surface) {
 		buffer_get_surface(
-			self.buffer,
+			buffer,
 			surface,
 			0
 		);
 	}
-	
+
 	function makeSurface() {
-		if (!surface_exists(self.surface)) {
-			var surface = surface_create(width, height);
+		if (!surface_exists(surface)) {
+			surface = surface_create(width, height);
 			buffer_set_surface(
-				self.buffer,
+				buffer,
 				surface,
 				0
 			);
-			self.surface = surface;
 		}
-		
-		return self.surface;
+
+		return surface;
 	}
 }
 
@@ -412,7 +409,7 @@ function resetSurfaceBuffer() {
 		surfaceBuffer = getSurfaceBuffer();
 		surfaceBuffer.resetBuffer();
 	};
-	
+
 	return surfaceBuffer;
 }
 

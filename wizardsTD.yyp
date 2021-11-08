@@ -1,6 +1,8 @@
 {
   "resources": [
     {"id":{"name":"spriteEnemy2","path":"sprites/spriteEnemy2/spriteEnemy2.yy",},"order":18,},
+    {"id":{"name":"roomCredits","path":"rooms/roomCredits/roomCredits.yy",},"order":4,},
+    {"id":{"name":"singletonCredits","path":"objects/singletonCredits/singletonCredits.yy",},"order":5,},
     {"id":{"name":"spriteWizard4L2","path":"sprites/spriteWizard4L2/spriteWizard4L2.yy",},"order":14,},
     {"id":{"name":"singletonMain","path":"objects/singletonMain/singletonMain.yy",},"order":2,},
     {"id":{"name":"spriteWizard1L1","path":"sprites/spriteWizard1L1/spriteWizard1L1.yy",},"order":2,},
@@ -106,6 +108,7 @@
     {"roomId":{"name":"roomStage","path":"rooms/roomStage/roomStage.yy",},},
     {"roomId":{"name":"roomResults","path":"rooms/roomResults/roomResults.yy",},},
     {"roomId":{"name":"roomStages","path":"rooms/roomStages/roomStages.yy",},},
+    {"roomId":{"name":"roomCredits","path":"rooms/roomCredits/roomCredits.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

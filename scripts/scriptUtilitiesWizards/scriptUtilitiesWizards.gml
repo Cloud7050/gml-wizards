@@ -37,6 +37,14 @@ function WizardData(
 	self.buttonColour = buttonColour;
 	self.descriptionColour = descriptionColour;
 
+	function calculateForLevel(level, baseValue, multiplier) {
+		return baseValue * power(multiplier, level - 1);
+	}
+	
+	function getPriceString() {
+		return "$" + string(price);
+	}
+
 	function getDamage(level) {
 		return calculateForLevel(level, damage, damageMultiplier);
 	}
@@ -47,10 +55,6 @@ function WizardData(
 
 	function getRange(level) {
 		return calculateForLevel(level, range, rangeMultiplier);
-	}
-
-	function calculateForLevel(level, baseValue, multiplier) {
-		return baseValue * power(multiplier, level - 1);
 	}
 }
 

@@ -2,4 +2,4 @@
 
 
 
-onStagesDraw();
+onStagesDrawGUI();
