@@ -1,9 +1,13 @@
 var fire = new WizardData(
 	"Fire Wizard",
 	25,
-	"Damage: Average"
-		+ "\nFire rate: Poor"
-		+ "\nRange: Poor",
+	joinArray(
+		[
+			"Damage: Average",
+			"Fire rate: Poor",
+			"Range: Poor"
+		]
+	),
 
 	3,
 	1,
@@ -24,9 +28,13 @@ var fire = new WizardData(
 var ice = new WizardData(
 	"Ice Wizard",
 	40,
-	"Damage: Good"
-		+ "\nFire rate: Average"
-		+ "\nRange: Average",
+	joinArray(
+		[
+			"Damage: Good",
+			"Fire rate: Average",
+			"Range: Average"
+		]
+	),
 
 	3.75,
 	0.8,
@@ -47,9 +55,13 @@ var ice = new WizardData(
 var wind = new WizardData(
 	"Wind Wizard",
 	50,
-	"Damage: Poor"
-		+ "\nFire rate: Excellent"
-		+ "\nRange: Great",
+	joinArray(
+		[
+			"Damage: Poor",
+			"Fire rate: Excellent",
+			"Range: Great"
+		]
+	),
 
 	2,
 	0.375,
@@ -70,9 +82,13 @@ var wind = new WizardData(
 var lightning = new WizardData(
 	"Lightning Wizard",
 	70,
-	"Damage: Good"
-		+ "\nFire rate: Great"
-		+ "\nRange: Poor",
+	joinArray(
+		[
+			"Damage: Good",
+			"Fire rate: Great",
+			"Range: Poor"
+		]
+	),
 
 	3.75,
 	0.425,
@@ -177,11 +193,16 @@ var tutorial = new StageData(
 	],
 	[ fire ],
 	400,
-	"Place wizards to attack enemies before they reach the purple portal! Pick a wizard on the right, then click an empty square to place him there."
-		+ "\n\nIdentical wizards can be merged! Click a wizard, then another in the same row or column, to merge them."
-		+ "\n\nMerging is blocked if rocks or other wizards are in the way, but works across everything else, such as paths and ponds."
-		+ "\n\nUse the flag at the top to bring on this stage's enemies. Feel free to test out the Fire Wizard!"
-		+ "\n\nExit this sandbox to play a real stage when you're ready!"
+	joinArray(
+		[
+			"Place wizards to attack enemies before they reach the purple portal! Pick a wizard on the right, then click an empty square to place him there.",
+			"Identical wizards can be merged! Click a wizard, then another in the same row or column, to merge them.",
+			"Merging is blocked if rocks or other wizards are in the way, but works across everything else, such as paths and ponds.",
+			"Use the flag at the top to bring on this stage's enemies. Feel free to test out the Fire Wizard!",
+			"Exit this sandbox to play a real stage when you're ready!"
+		],
+		"\n\n"
+	)
 );
 var one = new StageData(
 	"Stage 1",
