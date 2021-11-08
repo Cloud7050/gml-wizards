@@ -27,9 +27,9 @@ function onMainStart() {
 			DRAWING_ANCHORS.TOP_LEFT
 		);
 	}
-	
+
 	// [Music]
-	switchMusic(soundMusicMenu);
+	switchMusic(soundMusicMenus);
 }
 
 function onMainDrawGUI() {

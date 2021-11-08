@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "soundMusicMenu.mp3",
-  "duration": 100.153465,
+  "soundFile": "soundMusicStage.mp3",
+  "duration": 180.662857,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "soundMusicMenu",
+  "name": "soundMusicStage",
   "tags": [],
   "resourceType": "GMSound",
 }

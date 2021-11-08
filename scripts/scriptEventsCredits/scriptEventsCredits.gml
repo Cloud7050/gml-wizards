@@ -8,9 +8,9 @@ function onCreditsStart() {
 	backButton.initialise(
 		DRAWING_ANCHORS.BOTTOM_LEFT
 	);
-	
+
 	// [Music]
-	switchMusic(soundMusicMenu);
+	switchMusic(soundMusicMenus);
 }
 
 function onCreditsDrawGUI() {

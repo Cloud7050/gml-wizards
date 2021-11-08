@@ -28,15 +28,15 @@ function onResultsStart() {
 			DRAWING_ANCHORS.TOP_LEFT
 		);
 	}
-	
+
 	// [Sound]
 	playSound(
 		getWin() ? soundWin : soundLose,
 		global.C.PRIORITIES.EFFECT
 	);
-	
+
 	// [Music]
-	switchMusic(soundMusicBattle);
+	switchMusic(soundMusicStage);
 }
 
 function onResultsDraw() {

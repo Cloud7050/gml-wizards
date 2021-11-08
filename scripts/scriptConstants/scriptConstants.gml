@@ -538,6 +538,7 @@ global.C = {
 				"QA/Tester: Redacted",
 				"",
 				"GRAPHICS",
+				"Danieloov",
 				"FunwithPixels",
 				"KELGE Fonts",
 				"Mavadee",
@@ -560,8 +561,8 @@ global.C = {
 		}
 	},
 	MUSIC: [
-		soundMusicMenu,
-		soundMusicBattle
+		soundMusicMenus,
+		soundMusicStage
 	],
 	WIZARDS: {
 		LEVEL_CAP: 3,

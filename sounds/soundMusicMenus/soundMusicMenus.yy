@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "soundMusicBattle.mp3",
-  "duration": 180.662857,
+  "soundFile": "soundMusicMenus.mp3",
+  "duration": 100.153465,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "soundMusicBattle",
+  "name": "soundMusicMenus",
   "tags": [],
   "resourceType": "GMSound",
 }
