@@ -27,7 +27,7 @@ if (trySpend(
 		objectParticleText
 	);
 	particleText.initialise(
-		"Not enough coins!",
+		global.C.TEXT.PARTICLES.UNAFFORDABLE,
 		global.C.COLOURS.TEXT_ERROR
 	);
 }

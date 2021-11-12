@@ -555,6 +555,10 @@ global.C = {
 				"Special thanks to our playtesters"
 			]
 		),
+		PARTICLES: {
+			MAX_LEVEL: "Max level!",
+			UNAFFORDABLE: "Not enough coins!"
+		},
 		RESULTS: {
 			WIN: "VICTORY!",
 			LOSE: "OVERWHELMED..."

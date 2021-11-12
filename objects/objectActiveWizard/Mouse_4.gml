@@ -43,7 +43,7 @@ else if (
 			objectParticleText
 		);
 		particleText.initialise(
-			"Max level!"
+			global.C.TEXT.PARTICLES.MAX_LEVEL
 		);
 	}
 }
