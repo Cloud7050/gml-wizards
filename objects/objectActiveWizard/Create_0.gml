@@ -172,16 +172,6 @@ function tryScaleDown() {
 	image_yscale = storedYScale;
 }
 
-function isMouseTouching() {
-	return collision_point(
-		mouse_x,
-		mouse_y,
-		self,
-		true,
-		false
-	);
-}
-
 function tryStartScale() {
 	// Pre-scale if was already scaled
 	if (scaledLastStep) {
@@ -192,7 +182,7 @@ function tryStartScale() {
 	}
 
 	// Then check. Newly scale if touching, or unscale immediately if not
-	if (isMouseTouching()) {
+	if (isMouseColliding()) {
 		// For next step to pre-scale if applicable
 		scaledLastStep = true;
 
