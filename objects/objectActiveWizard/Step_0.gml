@@ -5,7 +5,14 @@
 // [Attack]
 stepsWaited++;
 if (isOffCooldown()) {
-	if (tryAttack()) stepsWaited = 0;
+	if (tryAttack()) {
+		stepsWaited = 0;
+		
+		playSound(
+			soundAttack,
+			global.C.PRIORITIES.EFFECT
+		);
+	}
 }
 
 // [Animate]

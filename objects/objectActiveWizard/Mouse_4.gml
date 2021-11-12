@@ -47,3 +47,8 @@ else if (
 		);
 	}
 }
+
+playSound(
+	soundSelection,
+	global.C.PRIORITIES.EFFECT
+);

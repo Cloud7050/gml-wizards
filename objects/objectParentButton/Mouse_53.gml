@@ -2,4 +2,11 @@
 
 
 
-if (isMouseWithin()) onClick();
+if (isMouseWithin()) {
+	onClick();
+	
+	playSound(
+		soundButton,
+		global.C.PRIORITIES.EFFECT
+	);
+}
