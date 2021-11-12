@@ -19,7 +19,7 @@ function onCreditsDrawGUI() {
 		room_width / 2,
 		room_height / 2,
 
-		room_width - (2 * global.C.MARGINS.X),
+		room_width / 2,
 
 		undefined,
 		global.C.OPACITIES.PANEL,
