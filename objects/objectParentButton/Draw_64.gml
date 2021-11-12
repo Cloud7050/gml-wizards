@@ -42,7 +42,7 @@ if (sprite != undefined) {
 		outlineThickness,
 
 		text,
-		undefined,
+		onGetTextColour(),
 		undefined,
 		false
 	);

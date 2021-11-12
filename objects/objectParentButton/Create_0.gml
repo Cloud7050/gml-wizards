@@ -26,6 +26,8 @@ function onGetBackgroundColour(isHovering) {
 
 function onGetOutlineColour() {}
 
+function onGetTextColour() {}
+
 function onClick() {}
 
 

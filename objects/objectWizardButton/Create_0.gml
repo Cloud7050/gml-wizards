@@ -52,10 +52,6 @@ function initialise(
 	);
 }
 
-
-
-/* [Methods] */
-
 function isPlacingThis() {
 	return getPlacingWizard() == wizardData;
 }

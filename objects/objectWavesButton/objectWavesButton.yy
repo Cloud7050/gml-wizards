@@ -5,8 +5,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objectParentNavigationButton",
-    "path": "objects/objectParentNavigationButton/objectParentNavigationButton.yy",
+    "name": "objectParentButton",
+    "path": "objects/objectParentButton/objectParentButton.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -26,11 +26,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Navigation Buttons",
-    "path": "folders/Objects/Navigation Buttons.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objectFlagButton",
+  "name": "objectWavesButton",
   "tags": [],
   "resourceType": "GMObject",
 }

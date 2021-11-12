@@ -159,6 +159,20 @@ function onStageStart() {
 	setCoins(
 		stageData.startingCoins
 	);
+	
+	// [Create Waves Button]
+	buttonWidth = global.C.BUTTONS.WAVES.DIMENSIONS.width;
+	buttonHeight = global.C.BUTTONS.WAVES.DIMENSIONS.height;
+	
+	var wavesButton = instance_create_layer(
+		(room_width / 2) - (buttonWidth / 2),
+		marginY,
+		displayLayer,
+		objectWavesButton
+	);
+	wavesButton.initialise(
+		DRAWING_ANCHORS.TOP_LEFT
+	);
 
 	// [Create Navigation Buttons]
 	buttonWidth = global.C.BUTTONS.NAVIGATION.DIMENSIONS.width;
@@ -180,16 +194,6 @@ function onStageStart() {
 			DRAWING_ANCHORS.TOP_LEFT
 		);
 	}
-
-	var flagButton = instance_create_layer(
-		(room_width / 2) - (buttonWidth / 2),
-		marginY,
-		displayLayer,
-		objectFlagButton
-	);
-	flagButton.initialise(
-		DRAWING_ANCHORS.TOP_LEFT
-	);
 
 	// [Music]
 	switchMusic(soundMusicStage);
